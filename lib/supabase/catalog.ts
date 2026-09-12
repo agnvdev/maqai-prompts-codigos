@@ -1,6 +1,23 @@
 import { supabase } from "@/lib/supabase/client";
 import type { FilterTag, Prompt, PromptCategory, PromptSegment, PromptType } from "@/lib/types";
 
+export interface AdminPromptRow {
+  id: string;
+  code: string;
+  title: string;
+  description: string | null;
+  image_url: string | null;
+  prompt_text: string | null;
+  segment: string | null;
+  type: string | null;
+  tools: string[];
+  tags: string[];
+  featured: boolean;
+  is_premium: boolean;
+  is_active: boolean;
+  created_at: string;
+}
+
 export interface CategoryRow {
   id: string;
   name: string;
