@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { prompts as allPrompts } from "@/data/prompts";
 import type { Prompt } from "@/lib/types";
 import { useFavorites, useRecents } from "@/lib/hooks";
 import { Brand } from "@/components/ui/Brand";
@@ -29,13 +28,13 @@ function matchesSearch(prompt: Prompt, query: string): boolean {
   );
 }
 
-function byIds(ids: string[]): Prompt[] {
+function byIds(allPrompts: Prompt[], ids: string[]): Prompt[] {
   return ids
     .map((id) => allPrompts.find((p) => p.id === id))
     .filter((p): p is Prompt => Boolean(p));
 }
 
-export function LibraryClient() {
+export function LibraryClient({ prompts: allPrompts }: { prompts: Prompt[] }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<FilterValue>("Todos");
   const [activePrompt, setActivePrompt] = useState<Prompt | null>(null);
@@ -50,7 +49,7 @@ export function LibraryClient() {
       allPrompts.filter(
         (p) => matchesFilter(p, filter, favorites) && matchesSearch(p, query)
       ),
-    [filter, query, favorites]
+    [allPrompts, filter, query, favorites]
   );
 
   const sections = useMemo(
@@ -63,7 +62,7 @@ export function LibraryClient() {
       mineracao: allPrompts.filter((p) => p.segment === "Mineração"),
       combos: allPrompts.filter((p) => p.category === "Combos"),
     }),
-    []
+    [allPrompts]
   );
 
   function openPrompt(prompt: Prompt) {
@@ -96,7 +95,7 @@ export function LibraryClient() {
             {recents.length > 0 && (
               <Section
                 title="Vistos recentemente"
-                prompts={byIds(recents)}
+                prompts={byIds(allPrompts, recents)}
                 favorites={favorites}
                 onToggleFavorite={toggleFavorite}
                 onOpen={openPrompt}
