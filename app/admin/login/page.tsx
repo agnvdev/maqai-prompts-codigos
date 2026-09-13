@@ -16,18 +16,23 @@ export default function AdminLoginPage() {
     setLoading(true);
     setError(null);
 
-    const supabase = createSupabaseBrowserClient();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    try {
+      const supabase = createSupabaseBrowserClient();
+      const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
 
-    setLoading(false);
+      if (signInError) {
+        setError("E-mail ou senha inválidos.");
+        return;
+      }
 
-    if (error) {
-      setError("E-mail ou senha inválidos.");
-      return;
+      router.replace("/admin");
+      router.refresh();
+    } catch (err) {
+      console.error("Admin login failed:", err);
+      setError("Não foi possível conectar ao serviço de autenticação. Tente novamente em instantes.");
+    } finally {
+      setLoading(false);
     }
-
-    router.replace("/admin");
-    router.refresh();
   }
 
   return (
