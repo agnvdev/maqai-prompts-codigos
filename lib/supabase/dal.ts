@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { unstable_rethrow } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export interface AdminUser {
@@ -6,22 +7,39 @@ export interface AdminUser {
   email: string | null;
 }
 
-export const getAdminUser = cache(async (): Promise<AdminUser | null> => {
-  const supabase = await createSupabaseServerClient();
+export type AdminAuthState =
+  | { status: "unauthenticated" }
+  | { status: "forbidden" }
+  | { status: "admin"; user: AdminUser };
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+// Centralizes every failure mode of the admin auth check (missing env
+// vars, unreachable Supabase, authenticated user with no profile row,
+// etc.) into one of three explicit states instead of letting any of
+// them throw up to the layout/page and render as a 500.
+export const getAdminAuthState = cache(async (): Promise<AdminAuthState> => {
+  try {
+    const supabase = await createSupabaseServerClient();
 
-  if (!user) return null;
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("is_admin")
-    .eq("id", user.id)
-    .single();
+    if (!user) return { status: "unauthenticated" };
 
-  if (!profile?.is_admin) return null;
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("is_admin")
+      .eq("id", user.id)
+      .maybeSingle();
 
-  return { id: user.id, email: user.email ?? null };
+    if (!profile?.is_admin) return { status: "forbidden" };
+
+    return { status: "admin", user: { id: user.id, email: user.email ?? null } };
+  } catch (error) {
+    // Next throws a control-flow error from `cookies()` while probing a
+    // route for static rendering; that must propagate, not be swallowed.
+    unstable_rethrow(error);
+    console.error("Failed to resolve admin auth state:", error);
+    return { status: "unauthenticated" };
+  }
 });

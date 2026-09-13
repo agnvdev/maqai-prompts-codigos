@@ -1,15 +1,31 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { getAdminUser } from "@/lib/supabase/dal";
+import { getAdminAuthState } from "@/lib/supabase/dal";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
-  const admin = await getAdminUser();
+  const auth = await getAdminAuthState();
 
-  if (!admin) {
+  if (auth.status === "unauthenticated") {
     redirect("/admin/login");
   }
+
+  if (auth.status === "forbidden") {
+    return (
+      <div className="flex min-h-dvh items-center justify-center bg-background px-4">
+        <div className="flex max-w-sm flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-8 text-center shadow-card">
+          <h1 className="text-lg font-bold text-foreground">Acesso negado</h1>
+          <p className="text-sm text-muted">
+            Sua conta está autenticada, mas não tem permissão de administrador no MagAI.
+          </p>
+          <SignOutButton />
+        </div>
+      </div>
+    );
+  }
+
+  const admin = auth.user;
 
   return (
     <div className="flex min-h-dvh flex-col bg-background">
