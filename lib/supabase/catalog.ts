@@ -43,8 +43,13 @@ export interface PromptRow {
   categories: { name: string } | null;
 }
 
+function requireSupabase() {
+  if (!supabase) throw new Error("Supabase não configurado (env vars ausentes).");
+  return supabase;
+}
+
 export async function getCategories(): Promise<CategoryRow[]> {
-  const { data, error } = await supabase
+  const { data, error } = await requireSupabase()
     .from("categories")
     .select("id, name, created_at")
     .order("name");
@@ -54,7 +59,7 @@ export async function getCategories(): Promise<CategoryRow[]> {
 }
 
 export async function getActivePrompts(): Promise<PromptRow[]> {
-  const { data, error } = await supabase
+  const { data, error } = await requireSupabase()
     .from("prompts")
     .select(
       "id, code, title, description, image_url, category_id, is_premium, is_active, created_at, prompt_text, segment, type, tools, tags, featured, categories(name)"
