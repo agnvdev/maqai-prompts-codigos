@@ -149,6 +149,14 @@ export function parseCsvRows(text: string): ParsedRow[] {
   });
 }
 
+export function chunkRows<T>(items: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks;
+}
+
 export function dedupeByCode(rows: ParsedRow[]): { rows: ParsedRow[]; duplicates: number } {
   const seen = new Set<string>();
   let duplicates = 0;
