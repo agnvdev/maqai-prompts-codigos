@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 import type { FilterTag, Prompt, PromptCategory, PromptSegment, PromptType } from "@/lib/types";
+import { DEFAULT_CATEGORY, DEFAULT_SEGMENT, DEFAULT_TYPE } from "@/lib/taxonomy";
 
 export interface AdminPromptRow {
   id: string;
@@ -77,9 +78,9 @@ export function toPrompt(row: PromptRow): Prompt {
     code: row.code,
     title: row.title,
     description: row.description ?? "",
-    category: (row.categories?.name ?? "Essenciais") as PromptCategory,
-    segment: (row.segment ?? "Geral") as PromptSegment,
-    type: (row.type ?? "Imagem") as PromptType,
+    category: (row.categories?.name ?? DEFAULT_CATEGORY) as PromptCategory,
+    segment: (row.segment ?? DEFAULT_SEGMENT) as PromptSegment,
+    type: (row.type ?? DEFAULT_TYPE) as PromptType,
     tools: row.tools ?? [],
     prompt: row.prompt_text ?? "",
     featured: row.featured,

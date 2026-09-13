@@ -1,19 +1,8 @@
 "use client";
 
-export const FILTERS = [
-  "Todos",
-  "Favoritos",
-  "Essenciais",
-  "Máquinas",
-  "Agro",
-  "Mineração",
-  "Imagem",
-  "Vídeo",
-  "Instagram",
-  "Vendas",
-  "Códigos",
-  "Combos",
-] as const;
+import { TAGS } from "@/lib/taxonomy";
+
+export const FILTERS = ["Todos", "Favoritos", ...TAGS] as const;
 
 export type FilterValue = (typeof FILTERS)[number];
 

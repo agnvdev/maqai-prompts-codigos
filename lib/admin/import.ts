@@ -1,9 +1,12 @@
+import { normalizeCategory, normalizeSegment, normalizeType, normalizeTool } from "@/lib/taxonomy";
+
 export interface ImportRow {
   code: string;
   title: string;
   description?: string | null;
   prompt_text?: string | null;
   image_url?: string | null;
+  category?: string | null;
   segment?: string | null;
   type?: string | null;
   tools?: string[];
@@ -25,9 +28,6 @@ export interface ImportResult {
   invalid: number;
   errors: string[];
 }
-
-const SEGMENTS = ["Geral", "Máquinas Pesadas", "Agro", "Mineração"];
-const TYPES = ["Imagem", "Vídeo", "Texto"];
 
 function toBool(value: unknown): boolean {
   if (typeof value === "boolean") return value;
@@ -100,6 +100,7 @@ function rawRowToImportRow(raw: Record<string, unknown>): ImportRow {
     description: toStringOrNull(raw.description),
     prompt_text: toStringOrNull(raw.prompt_text ?? raw.prompt),
     image_url: toStringOrNull(raw.image_url),
+    category: toStringOrNull(raw.category),
     segment: toStringOrNull(raw.segment),
     type: toStringOrNull(raw.type),
     tools: toList(raw.tools),
@@ -110,16 +111,45 @@ function rawRowToImportRow(raw: Record<string, unknown>): ImportRow {
   };
 }
 
+// Every field below only has an accepted set of values (see
+// lib/taxonomy.ts). A value that isn't in that set — even after alias
+// normalization — rejects the whole row rather than being silently
+// dropped, so bad data never reaches the catalog.
 function validate(row: ImportRow): ParsedRow {
   if (!row.code) return { data: row, valid: false, reason: "Código ausente" };
   if (!row.title) return { data: row, valid: false, reason: "Título ausente" };
-  if (row.segment && !SEGMENTS.includes(row.segment)) {
-    return { data: { ...row, segment: null }, valid: true, reason: "Segmento desconhecido (ignorado)" };
+
+  let next = row;
+
+  if (next.category) {
+    const normalized = normalizeCategory(next.category);
+    if (!normalized) return { data: row, valid: false, reason: `Categoria desconhecida: "${next.category}"` };
+    next = { ...next, category: normalized };
   }
-  if (row.type && !TYPES.includes(row.type)) {
-    return { data: { ...row, type: null }, valid: true, reason: "Tipo desconhecido (ignorado)" };
+
+  if (next.segment) {
+    const normalized = normalizeSegment(next.segment);
+    if (!normalized) return { data: row, valid: false, reason: `Segmento desconhecido: "${next.segment}"` };
+    next = { ...next, segment: normalized };
   }
-  return { data: row, valid: true };
+
+  if (next.type) {
+    const normalized = normalizeType(next.type);
+    if (!normalized) return { data: row, valid: false, reason: `Tipo desconhecido: "${next.type}"` };
+    next = { ...next, type: normalized };
+  }
+
+  if (next.tools && next.tools.length > 0) {
+    const normalizedTools: string[] = [];
+    for (const tool of next.tools) {
+      const normalized = normalizeTool(tool);
+      if (!normalized) return { data: row, valid: false, reason: `Ferramenta desconhecida: "${tool}"` };
+      normalizedTools.push(normalized);
+    }
+    next = { ...next, tools: normalizedTools };
+  }
+
+  return { data: next, valid: true };
 }
 
 export function parseJsonRows(text: string): ParsedRow[] {

@@ -1,26 +1,9 @@
-export type PromptCategory =
-  | "Essenciais"
-  | "Máquinas"
-  | "Agro"
-  | "Mineração"
-  | "Vendas"
-  | "Combos";
+import type { Category, Segment, Type, Tag } from "@/lib/taxonomy";
 
-export type PromptSegment = "Geral" | "Máquinas Pesadas" | "Agro" | "Mineração";
-
-export type PromptType = "Imagem" | "Vídeo" | "Texto";
-
-export type FilterTag =
-  | "Essenciais"
-  | "Máquinas"
-  | "Agro"
-  | "Mineração"
-  | "Imagem"
-  | "Vídeo"
-  | "Instagram"
-  | "Vendas"
-  | "Códigos"
-  | "Combos";
+export type PromptCategory = Category;
+export type PromptSegment = Segment;
+export type PromptType = Type;
+export type FilterTag = Tag;
 
 export interface Prompt {
   id: string;

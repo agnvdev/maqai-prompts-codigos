@@ -127,12 +127,30 @@ export async function importPromptsAction(rows: ImportRow[]): Promise<ImportResu
 
   if (toInsert.length === 0) return result;
 
+  const categoryNames = [...new Set(toInsert.map((r) => r.category).filter((c): c is string => !!c))];
+  const categoryIdByName = new Map<string, string>();
+
+  if (categoryNames.length > 0) {
+    const { data: categories, error: categoriesError } = await supabase
+      .from("categories")
+      .select("id, name")
+      .in("name", categoryNames);
+
+    if (categoriesError) {
+      result.errors.push(categoriesError.message);
+      return result;
+    }
+
+    for (const c of categories ?? []) categoryIdByName.set(c.name, c.id);
+  }
+
   const payload = toInsert.map((r) => ({
     code: r.code,
     title: r.title,
     description: r.description || null,
     prompt_text: r.prompt_text || null,
     image_url: r.image_url || null,
+    category_id: r.category ? (categoryIdByName.get(r.category) ?? null) : null,
     segment: r.segment || null,
     type: r.type || null,
     tools: r.tools ?? [],

@@ -6,9 +6,7 @@ import { savePromptAction, deletePromptAction, toggleActiveAction } from "@/app/
 import { uploadPromptImage } from "@/lib/supabase/storage";
 import { ImageGallery } from "@/components/admin/ImageGallery";
 import { ImportPanel } from "@/components/admin/ImportPanel";
-
-const SEGMENTS = ["Geral", "Máquinas Pesadas", "Agro", "Mineração"];
-const TYPES = ["Imagem", "Vídeo", "Texto"];
+import { SEGMENTS, TYPES } from "@/lib/taxonomy";
 
 const FILTERS = [
   "Todos",

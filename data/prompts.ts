@@ -1,4 +1,5 @@
 import type { Prompt } from "@/lib/types";
+import { CATEGORIES } from "@/lib/taxonomy";
 
 export const prompts: Prompt[] = [
   {
@@ -183,14 +184,7 @@ export const prompts: Prompt[] = [
   },
 ];
 
-export const categories: Prompt["category"][] = [
-  "Essenciais",
-  "Máquinas",
-  "Agro",
-  "Mineração",
-  "Vendas",
-  "Combos",
-];
+export const categories: Prompt["category"][] = [...CATEGORIES];
 
 export function getPromptById(id: string): Prompt | undefined {
   return prompts.find((p) => p.id === id);
