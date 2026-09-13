@@ -4,6 +4,24 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 
+const SIGN_IN_TIMEOUT_MS = 10_000;
+
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("SIGN_IN_TIMEOUT")), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (err) => {
+        clearTimeout(timer);
+        reject(err);
+      }
+    );
+  });
+}
+
 export default function AdminLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -18,7 +36,10 @@ export default function AdminLoginPage() {
 
     try {
       const supabase = createSupabaseBrowserClient();
-      const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+      const { error: signInError } = await withTimeout(
+        supabase.auth.signInWithPassword({ email, password }),
+        SIGN_IN_TIMEOUT_MS
+      );
 
       if (signInError) {
         setError("E-mail ou senha inválidos.");
@@ -29,7 +50,12 @@ export default function AdminLoginPage() {
       router.refresh();
     } catch (err) {
       console.error("Admin login failed:", err);
-      setError("Não foi possível conectar ao serviço de autenticação. Tente novamente em instantes.");
+      const timedOut = err instanceof Error && err.message === "SIGN_IN_TIMEOUT";
+      setError(
+        timedOut
+          ? "A autenticação demorou demais para responder. Verifique sua conexão e tente novamente."
+          : "Não foi possível conectar ao serviço de autenticação. Tente novamente em instantes."
+      );
     } finally {
       setLoading(false);
     }
