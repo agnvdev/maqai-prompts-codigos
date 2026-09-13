@@ -29,10 +29,20 @@ export default async function AdminLayout({ children }: { children: ReactNode })
 
   return (
     <div className="flex min-h-dvh flex-col bg-background">
-      <header className="flex items-center justify-between border-b border-border px-4 py-3.5 sm:px-6">
-        <Link href="/admin" className="text-sm font-bold text-foreground">
-          MagAI Admin
-        </Link>
+      <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3.5 sm:px-6">
+        <div className="flex items-center gap-4">
+          <Link href="/admin" className="text-sm font-bold text-foreground">
+            MagAI Admin
+          </Link>
+          <nav className="flex items-center gap-3 text-xs font-medium text-muted">
+            <Link href="/admin" className="transition-colors hover:text-foreground">
+              Prompts
+            </Link>
+            <Link href="/admin/media" className="transition-colors hover:text-foreground">
+              Mídias da LP
+            </Link>
+          </nav>
+        </div>
         <div className="flex items-center gap-3">
           <span className="text-xs text-muted">{admin.email}</span>
           <SignOutButton />

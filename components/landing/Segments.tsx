@@ -16,7 +16,7 @@ const segments = [
   },
 ] as const;
 
-export function Segments() {
+export function Segments({ imageOverrides = {} }: { imageOverrides?: Record<string, string> }) {
   return (
     <section className="border-b border-border bg-surface/40">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
@@ -35,7 +35,7 @@ export function Segments() {
               }
             >
               <Image
-                src={SEGMENT_IMAGES[segment.title]}
+                src={imageOverrides[segment.title] || SEGMENT_IMAGES[segment.title]}
                 alt={segment.title}
                 fill
                 sizes="(min-width: 640px) 50vw, 100vw"

@@ -1,6 +1,7 @@
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 
-const BUCKET = "prompt-images";
+const PROMPT_BUCKET = "prompt-images";
+const LP_MEDIA_BUCKET = "lp-media";
 
 export interface UploadedImage {
   path: string;
@@ -14,25 +15,25 @@ function randomId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
-export async function uploadPromptImage(file: File): Promise<UploadedImage> {
+async function uploadToBucket(bucket: string, file: File): Promise<UploadedImage> {
   const supabase = createSupabaseBrowserClient();
   const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
   const path = `${randomId()}.${ext}`;
 
-  const { error } = await supabase.storage.from(BUCKET).upload(path, file, {
+  const { error } = await supabase.storage.from(bucket).upload(path, file, {
     cacheControl: "3600",
     upsert: false,
   });
 
   if (error) throw error;
 
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
+  const { data } = supabase.storage.from(bucket).getPublicUrl(path);
   return { path, url: data.publicUrl };
 }
 
-export async function listPromptImages(): Promise<UploadedImage[]> {
+async function listBucket(bucket: string): Promise<UploadedImage[]> {
   const supabase = createSupabaseBrowserClient();
-  const { data, error } = await supabase.storage.from(BUCKET).list("", {
+  const { data, error } = await supabase.storage.from(bucket).list("", {
     limit: 100,
     sortBy: { column: "created_at", order: "desc" },
   });
@@ -42,7 +43,23 @@ export async function listPromptImages(): Promise<UploadedImage[]> {
   return (data ?? [])
     .filter((item) => item.id)
     .map((item) => {
-      const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(item.name);
+      const { data: pub } = supabase.storage.from(bucket).getPublicUrl(item.name);
       return { path: item.name, url: pub.publicUrl };
     });
+}
+
+export function uploadPromptImage(file: File): Promise<UploadedImage> {
+  return uploadToBucket(PROMPT_BUCKET, file);
+}
+
+export function listPromptImages(): Promise<UploadedImage[]> {
+  return listBucket(PROMPT_BUCKET);
+}
+
+export function uploadLpMediaImage(file: File): Promise<UploadedImage> {
+  return uploadToBucket(LP_MEDIA_BUCKET, file);
+}
+
+export function listLpMediaImages(): Promise<UploadedImage[]> {
+  return listBucket(LP_MEDIA_BUCKET);
 }

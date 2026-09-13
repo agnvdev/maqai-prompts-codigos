@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { getAdminAuthState } from "@/lib/supabase/dal";
+import { requireAdmin } from "@/lib/supabase/requireAdmin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { ImportResult, ImportRow } from "@/lib/admin/import";
 
@@ -10,12 +10,6 @@ function parseList(value: FormDataEntryValue | null): string[] {
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
-}
-
-async function requireAdmin() {
-  const auth = await getAdminAuthState();
-  if (auth.status !== "admin") throw new Error("Não autorizado.");
-  return auth.user;
 }
 
 function refreshCatalog() {

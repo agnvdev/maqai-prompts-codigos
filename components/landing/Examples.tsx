@@ -4,7 +4,7 @@ import { prompts } from "@/data/prompts";
 import { SEGMENT_IMAGES } from "@/lib/images";
 import { TypeIcon } from "@/components/library/TypeIcon";
 
-export function Examples() {
+export function Examples({ imageOverrides = {} }: { imageOverrides?: Record<string, string> }) {
   const examples = prompts.filter((p) => p.featured).slice(0, 6);
 
   return (
@@ -27,7 +27,7 @@ export function Examples() {
             >
               <div className="relative -mx-5 -mt-5 h-36 overflow-hidden">
                 <Image
-                  src={SEGMENT_IMAGES[prompt.segment]}
+                  src={imageOverrides[prompt.segment] || SEGMENT_IMAGES[prompt.segment]}
                   alt={prompt.segment}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

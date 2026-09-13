@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { HERO_IMAGE } from "@/lib/images";
 
-export function Hero() {
+export function Hero({ imageUrl }: { imageUrl?: string }) {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <Image
-        src={HERO_IMAGE}
+        src={imageUrl || HERO_IMAGE}
         alt="Máquina pesada em operação em cenário industrial"
         fill
         priority
