@@ -1,11 +1,43 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useMemo, useState, type ChangeEvent, type ReactNode } from "react";
 import type { AdminPromptRow } from "@/lib/supabase/catalog";
 import { savePromptAction, deletePromptAction, toggleActiveAction } from "@/app/admin/actions";
+import { uploadPromptImage } from "@/lib/supabase/storage";
+import { ImageGallery } from "@/components/admin/ImageGallery";
+import { ImportPanel } from "@/components/admin/ImportPanel";
 
 const SEGMENTS = ["Geral", "Máquinas Pesadas", "Agro", "Mineração"];
 const TYPES = ["Imagem", "Vídeo", "Texto"];
+
+const FILTERS = [
+  "Todos",
+  "Máquinas Pesadas",
+  "Agro",
+  "Mineração",
+  "Imagem",
+  "Vídeo",
+  "Códigos",
+  "Combos",
+] as const;
+type FilterValue = (typeof FILTERS)[number];
+
+function matchesFilter(prompt: AdminPromptRow, filter: FilterValue): boolean {
+  if (filter === "Todos") return true;
+  if (filter === "Máquinas Pesadas" || filter === "Agro" || filter === "Mineração") {
+    return prompt.segment === filter;
+  }
+  if (filter === "Imagem" || filter === "Vídeo") {
+    return prompt.type === filter;
+  }
+  return prompt.tags.includes(filter);
+}
+
+function matchesSearch(prompt: AdminPromptRow, query: string): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  return prompt.code.toLowerCase().includes(q) || prompt.title.toLowerCase().includes(q);
+}
 
 const inputClass =
   "rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent/50";
@@ -39,28 +71,98 @@ function Checkbox({
 export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
   const [editing, setEditing] = useState<AdminPromptRow | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const [showImport, setShowImport] = useState(false);
+
+  const [formImageUrl, setFormImageUrl] = useState("");
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState<FilterValue>("Todos");
 
   function startCreate() {
     setEditing(null);
+    setFormImageUrl("");
+    setUploadError(null);
     setShowForm(true);
   }
 
   function startEdit(prompt: AdminPromptRow) {
     setEditing(prompt);
+    setFormImageUrl(prompt.image_url ?? "");
+    setUploadError(null);
     setShowForm(true);
   }
 
+  async function handleImageSelect(e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingImage(true);
+    setUploadError(null);
+
+    try {
+      const uploaded = await uploadPromptImage(file);
+      setFormImageUrl(uploaded.url);
+    } catch (err) {
+      console.error("Failed to upload prompt image:", err);
+      setUploadError("Falha ao enviar a imagem. Tente novamente.");
+    } finally {
+      setUploadingImage(false);
+      e.target.value = "";
+    }
+  }
+
+  const counts = useMemo(() => {
+    const map = new Map<FilterValue, number>();
+    for (const f of FILTERS) map.set(f, prompts.filter((p) => matchesFilter(p, f)).length);
+    return map;
+  }, [prompts]);
+
+  const visiblePrompts = useMemo(
+    () => prompts.filter((p) => matchesFilter(p, filter) && matchesSearch(p, search)),
+    [prompts, filter, search]
+  );
+
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <h1 className="text-lg font-bold text-foreground">Catálogo de prompts</h1>
-        <button
-          onClick={startCreate}
-          className="rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground"
-        >
-          Novo prompt
-        </button>
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => setShowImport((v) => !v)}
+            className="rounded-lg border border-border px-4 py-2 text-xs font-bold uppercase tracking-wide text-foreground"
+          >
+            Importar prompts
+          </button>
+          <button
+            onClick={() => setShowGallery((v) => !v)}
+            className="rounded-lg border border-border px-4 py-2 text-xs font-bold uppercase tracking-wide text-foreground"
+          >
+            Galeria de imagens
+          </button>
+          <button
+            onClick={startCreate}
+            className="rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground"
+          >
+            Novo prompt
+          </button>
+        </div>
       </div>
+
+      {showImport && (
+        <ImportPanel onClose={() => setShowImport(false)} onImported={() => setShowImport(false)} />
+      )}
+
+      {showGallery && (
+        <ImageGallery
+          canSelect={showForm}
+          onSelect={(url) => {
+            if (showForm) setFormImageUrl(url);
+          }}
+        />
+      )}
 
       {showForm && (
         <form
@@ -100,8 +202,41 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
             />
           </Field>
 
-          <Field label="Imagem (URL)">
-            <input name="image_url" defaultValue={editing?.image_url ?? ""} className={inputClass} />
+          <Field label="Imagem">
+            <div className="flex flex-col gap-2">
+              {formImageUrl && (
+                <div className="h-32 w-full max-w-[220px] overflow-hidden rounded-lg border border-border">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={formImageUrl} alt="" className="h-full w-full object-cover" />
+                </div>
+              )}
+
+              <div className="flex flex-wrap items-center gap-2">
+                <label className="cursor-pointer rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground">
+                  {uploadingImage ? "Enviando..." : formImageUrl ? "Substituir" : "Enviar imagem"}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageSelect}
+                    disabled={uploadingImage}
+                    className="hidden"
+                  />
+                </label>
+                {formImageUrl && (
+                  <button
+                    type="button"
+                    onClick={() => setFormImageUrl("")}
+                    className="text-xs font-medium text-red-400"
+                  >
+                    Remover
+                  </button>
+                )}
+              </div>
+
+              {uploadError && <span className="text-xs text-red-400">{uploadError}</span>}
+
+              <input type="hidden" name="image_url" value={formImageUrl} readOnly />
+            </div>
           </Field>
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -143,7 +278,8 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
           <div className="flex gap-2 pt-2">
             <button
               type="submit"
-              className="rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground"
+              disabled={uploadingImage}
+              className="rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground disabled:opacity-60"
             >
               Salvar
             </button>
@@ -158,26 +294,64 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
         </form>
       )}
 
+      <div className="flex flex-col gap-3">
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Buscar por código ou título..."
+          className={inputClass}
+        />
+
+        <div className="no-scrollbar flex gap-2 overflow-x-auto">
+          {FILTERS.map((f) => {
+            const isActive = f === filter;
+            return (
+              <button
+                key={f}
+                type="button"
+                onClick={() => setFilter(f)}
+                aria-pressed={isActive}
+                className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  isActive
+                    ? "border-accent bg-accent text-accent-foreground"
+                    : "border-border bg-surface text-muted hover:text-foreground"
+                }`}
+              >
+                {f} ({counts.get(f) ?? 0})
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="flex flex-col gap-2">
-        {prompts.length === 0 && (
+        {visiblePrompts.length === 0 && (
           <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted">
-            Nenhum prompt cadastrado ainda.
+            Nenhum prompt encontrado.
           </p>
         )}
 
-        {prompts.map((prompt) => (
+        {visiblePrompts.map((prompt) => (
           <div
             key={prompt.id}
             className="flex flex-col gap-2 rounded-xl border border-border bg-surface p-4 sm:flex-row sm:items-center sm:justify-between"
           >
-            <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-xs text-accent">{prompt.code}</span>
-              <span className="text-sm font-semibold text-foreground">{prompt.title}</span>
-              <span className="text-xs text-muted">
-                {prompt.segment} · {prompt.type}
-                {prompt.featured ? " · Destaque" : ""}
-                {prompt.is_premium ? " · Premium" : ""}
-              </span>
+            <div className="flex items-center gap-3">
+              {prompt.image_url && (
+                <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-border">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={prompt.image_url} alt="" className="h-full w-full object-cover" />
+                </div>
+              )}
+              <div className="flex flex-col gap-0.5">
+                <span className="font-mono text-xs text-accent">{prompt.code}</span>
+                <span className="text-sm font-semibold text-foreground">{prompt.title}</span>
+                <span className="text-xs text-muted">
+                  {prompt.segment} · {prompt.type}
+                  {prompt.featured ? " · Destaque" : ""}
+                  {prompt.is_premium ? " · Premium" : ""}
+                </span>
+              </div>
             </div>
 
             <div className="flex items-center gap-2">
