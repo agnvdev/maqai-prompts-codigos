@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import type { Prompt } from "@/lib/types";
-import { SEGMENT_IMAGES } from "@/lib/images";
 import { FavoriteButton } from "@/components/ui/FavoriteButton";
 import { TypeIcon } from "@/components/library/TypeIcon";
 
@@ -33,13 +32,19 @@ export function PromptCard({
       className={`group flex ${width} shrink-0 cursor-pointer flex-col gap-3 rounded-2xl border border-border bg-surface p-4 text-left shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface-2 focus:outline-none focus:ring-2 focus:ring-accent/40 active:translate-y-0 active:scale-[0.99]`}
     >
       <div className="relative -mx-4 -mt-4 h-28 overflow-hidden rounded-t-2xl sm:h-32">
-        <Image
-          src={SEGMENT_IMAGES[prompt.segment]}
-          alt={prompt.segment}
-          fill
-          sizes="260px"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
+        {prompt.image_url ? (
+          <Image
+            src={prompt.image_url}
+            alt={prompt.title}
+            fill
+            sizes="260px"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-surface-2">
+            <TypeIcon type={prompt.type} className="h-8 w-8 text-muted" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/10 to-transparent" />
       </div>
 

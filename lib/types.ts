@@ -13,6 +13,7 @@ export interface Prompt {
   category: PromptCategory;
   segment: PromptSegment;
   type: PromptType;
+  image_url?: string | null;
   tools: string[];
   prompt: string;
   featured: boolean;

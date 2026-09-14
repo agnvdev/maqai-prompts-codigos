@@ -81,6 +81,7 @@ export function toPrompt(row: PromptRow): Prompt {
     category: (row.categories?.name ?? DEFAULT_CATEGORY) as PromptCategory,
     segment: (row.segment ?? DEFAULT_SEGMENT) as PromptSegment,
     type: (row.type ?? DEFAULT_TYPE) as PromptType,
+    image_url: row.image_url,
     tools: row.tools ?? [],
     prompt: row.prompt_text ?? "",
     featured: row.featured,
