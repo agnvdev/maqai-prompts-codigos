@@ -7,12 +7,18 @@ export function Section({
   favorites,
   onToggleFavorite,
   onOpen,
+  hasMore = false,
+  loadingMore = false,
+  onLoadMore,
 }: {
   title: string;
   prompts: Prompt[];
   favorites: string[];
   onToggleFavorite: (id: string) => void;
   onOpen: (prompt: Prompt) => void;
+  hasMore?: boolean;
+  loadingMore?: boolean;
+  onLoadMore?: () => void;
 }) {
   if (prompts.length === 0) return null;
 
@@ -35,6 +41,17 @@ export function Section({
             onOpen={onOpen}
           />
         ))}
+
+        {hasMore && onLoadMore && (
+          <button
+            type="button"
+            onClick={onLoadMore}
+            disabled={loadingMore}
+            className="flex w-[110px] shrink-0 flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-border bg-surface p-4 text-center text-xs font-medium text-muted transition-colors duration-200 hover:border-accent/50 hover:text-foreground disabled:opacity-60"
+          >
+            {loadingMore ? "Carregando..." : "Carregar mais"}
+          </button>
+        )}
       </div>
     </section>
   );
