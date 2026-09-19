@@ -21,6 +21,11 @@ import { PromptDrawer } from "@/components/library/PromptDrawer";
 const SEARCH_DEBOUNCE_MS = 300;
 const GRID_PAGE_SIZE = 24;
 
+// "Ver todos" target: either one catalog section or the whole catalog.
+// `total` is the real count from the server (Supabase `count: "exact"`),
+// used for the "20 de 203" progress label — not derived from loaded rows.
+type CategoryView = { kind: SectionKind | "all"; title: string; total?: number };
+
 const SECTION_TITLES: Record<SectionKind, string> = {
   comeceAqui: "Comece aqui",
   maisUsados: "Mais usados",
@@ -93,13 +98,18 @@ function useSection(kind: SectionKind, enabled: boolean, initial?: PromptPage) {
 
 export function LibraryClient({
   initialSections = {},
+  sectionCounts = {},
+  totalCount,
 }: {
   initialSections?: Partial<Record<SectionKind, PromptPage>>;
+  sectionCounts?: Partial<Record<SectionKind, number>>;
+  totalCount?: number;
 }) {
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [filter, setFilter] = useState<FilterValue>("Todos");
   const [activePrompt, setActivePrompt] = useState<Prompt | null>(null);
+  const [categoryView, setCategoryView] = useState<CategoryView | null>(null);
 
   const { favorites, toggleFavorite } = useFavorites();
   const { recents, addRecent } = useRecents();
@@ -196,6 +206,69 @@ export function LibraryClient({
     }
   }
 
+  // "Ver todos": a dedicated paginated view scoped to one section (or the
+  // whole catalog), independent from the search/filter grid above. Same
+  // bounded-query + "Carregar mais" pattern — never fetches or renders the
+  // full 512-prompt catalog at once.
+  const [viewItems, setViewItems] = useState<Prompt[]>([]);
+  const [viewHasMore, setViewHasMore] = useState(false);
+  const [viewLoading, setViewLoading] = useState(false);
+
+  useEffect(() => {
+    if (!categoryView) return;
+    let cancelled = false;
+
+    async function run() {
+      setViewLoading(true);
+      try {
+        const page =
+          categoryView!.kind === "all"
+            ? await getPromptsPage({ offset: 0, limit: GRID_PAGE_SIZE })
+            : await getSectionPrompts({ kind: categoryView!.kind as SectionKind, offset: 0, limit: GRID_PAGE_SIZE });
+        if (cancelled) return;
+        setViewItems(page.items);
+        setViewHasMore(page.hasMore);
+      } catch (error) {
+        console.error("Failed to load category view:", error);
+      } finally {
+        if (!cancelled) setViewLoading(false);
+      }
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [categoryView]);
+
+  async function loadMoreView() {
+    if (viewLoading || !categoryView) return;
+    setViewLoading(true);
+    try {
+      const page =
+        categoryView.kind === "all"
+          ? await getPromptsPage({ offset: viewItems.length, limit: GRID_PAGE_SIZE })
+          : await getSectionPrompts({ kind: categoryView.kind as SectionKind, offset: viewItems.length, limit: GRID_PAGE_SIZE });
+      setViewItems((prev) => [...prev, ...page.items]);
+      setViewHasMore(page.hasMore);
+    } catch (error) {
+      console.error("Failed to load more of category view:", error);
+    } finally {
+      setViewLoading(false);
+    }
+  }
+
+  function selectQuery(value: string) {
+    setCategoryView(null);
+    setQuery(value);
+  }
+
+  function selectFilter(value: FilterValue) {
+    setCategoryView(null);
+    setFilter(value);
+  }
+
   function openPrompt(prompt: Prompt) {
     setActivePrompt(prompt);
     addRecent(prompt.id);
@@ -214,14 +287,80 @@ export function LibraryClient({
           </Link>
         </div>
 
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 sm:px-6">
+          <p className="text-xs font-medium text-muted">
+            {totalCount != null ? `${totalCount.toLocaleString("pt-BR")} prompts disponíveis` : ""}
+          </p>
+          <button
+            type="button"
+            onClick={() => setCategoryView({ kind: "all", title: "Todos os prompts", total: totalCount })}
+            className="shrink-0 text-xs font-semibold text-accent transition-colors duration-200 hover:underline"
+          >
+            Ver todos
+          </button>
+        </div>
+
         <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 pb-4 sm:px-6">
-          <SearchBar value={query} onChange={setQuery} />
-          <FilterChips active={filter} onChange={setFilter} />
+          <SearchBar value={query} onChange={selectQuery} />
+          <FilterChips active={filter} onChange={selectFilter} />
         </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 py-6">
-        {isBrowsingHome ? (
+        {categoryView ? (
+          <div className="flex flex-col gap-4 px-4 sm:px-6">
+            <button
+              type="button"
+              onClick={() => setCategoryView(null)}
+              className="w-fit text-xs font-medium text-muted transition-colors duration-200 hover:text-foreground"
+            >
+              ← Voltar
+            </button>
+
+            <div className="flex flex-col gap-1">
+              <h2 className="text-lg font-bold tracking-tight text-foreground">{categoryView.title}</h2>
+              <p className="text-sm font-medium text-muted">
+                {viewLoading && viewItems.length === 0
+                  ? "Carregando..."
+                  : categoryView.total != null
+                    ? `${viewItems.length} de ${categoryView.total}`
+                    : `${viewItems.length}${viewHasMore ? "+" : ""} prompts`}
+              </p>
+            </div>
+
+            {viewItems.length === 0 && !viewLoading ? (
+              <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border bg-surface/40 py-16 text-center">
+                <p className="font-medium text-foreground">Nenhum prompt encontrado</p>
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {viewItems.map((prompt) => (
+                    <PromptCard
+                      key={prompt.id}
+                      prompt={prompt}
+                      isFavorite={favorites.includes(prompt.id)}
+                      onToggleFavorite={toggleFavorite}
+                      onOpen={openPrompt}
+                      width="w-full"
+                    />
+                  ))}
+                </div>
+
+                {viewHasMore && (
+                  <button
+                    type="button"
+                    onClick={loadMoreView}
+                    disabled={viewLoading}
+                    className="mx-auto w-fit rounded-lg border border-accent px-6 py-3 text-sm font-semibold text-accent transition-all duration-200 hover:bg-accent hover:text-accent-foreground active:scale-[0.97] disabled:opacity-60"
+                  >
+                    {viewLoading ? "Carregando..." : "Carregar mais"}
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        ) : isBrowsingHome ? (
           <>
             {recentPrompts.length > 0 && (
               <Section
@@ -236,6 +375,7 @@ export function LibraryClient({
               <Section
                 key={kind}
                 title={SECTION_TITLES[kind]}
+                count={sectionCounts[kind]}
                 prompts={sections[kind].items}
                 favorites={favorites}
                 onToggleFavorite={toggleFavorite}
@@ -243,6 +383,7 @@ export function LibraryClient({
                 hasMore={sections[kind].hasMore}
                 loadingMore={sections[kind].loading}
                 onLoadMore={sections[kind].loadMore}
+                onViewAll={() => setCategoryView({ kind, title: SECTION_TITLES[kind], total: sectionCounts[kind] })}
               />
             ))}
           </>

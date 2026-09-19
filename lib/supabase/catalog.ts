@@ -123,6 +123,35 @@ export async function getPromptsPage({
   return { items: rows.map(toPrompt), hasMore: rows.length === limit };
 }
 
+// Same predicates as getPromptsPage (is_active + optional search/tag), just
+// counted instead of fetched — one indexed count query, no rows pulled.
+export async function getPromptsCount({
+  search,
+  filter,
+}: {
+  search?: string;
+  filter?: string;
+} = {}): Promise<number> {
+  let query = requireSupabase()
+    .from("prompts")
+    .select("id", { count: "exact", head: true })
+    .eq("is_active", true);
+
+  const trimmed = search?.trim();
+  if (trimmed) {
+    const like = `%${trimmed.replace(/[%,]/g, "")}%`;
+    query = query.or(`title.ilike.${like},description.ilike.${like},code.ilike.${like},prompt_text.ilike.${like}`);
+  }
+
+  if (filter && filter !== "Todos" && filter !== "Favoritos") {
+    query = query.contains("tags", [filter]);
+  }
+
+  const { count, error } = await query;
+  if (error) throw error;
+  return count ?? 0;
+}
+
 export async function getPromptsByIds(ids: string[]): Promise<Prompt[]> {
   if (ids.length === 0) return [];
 
@@ -160,6 +189,77 @@ async function getCategoryIdByName(name: string): Promise<string | null> {
   return data?.id ?? null;
 }
 
+// Shared by getSectionPrompts and getSectionCount so the "which rows
+// belong to this section" predicate is defined once.
+//
+// Split into an async lookup (resolveSectionScope) and a sync apply
+// (applySectionScope) on purpose: a postgrest query builder is itself
+// thenable, so returning one *through* an async function's return/await
+// makes JS auto-resolve it right there (running the query immediately,
+// before `.order()`/`.range()` get applied). Keeping applySectionScope
+// synchronous avoids that trap.
+type SectionScope =
+  | { type: "categoryIdOrNull"; categoryId: string | null }
+  | { type: "featured" }
+  | { type: "tagContains"; tag: string }
+  | { type: "segment"; segment: string }
+  | { type: "categoryId"; categoryId: string }
+  | { type: "none" }; // no rows can match (e.g. category not created yet)
+
+async function resolveSectionScope(kind: SectionKind): Promise<SectionScope> {
+  switch (kind) {
+    case "comeceAqui":
+      return { type: "categoryIdOrNull", categoryId: await getCategoryIdByName("Essenciais") };
+    case "maisUsados":
+      return { type: "featured" };
+    case "codigosVirais":
+      return { type: "tagContains", tag: "Códigos" };
+    case "maquinasPesadas":
+      return { type: "segment", segment: "Máquinas Pesadas" };
+    case "agro":
+      return { type: "segment", segment: "Agro" };
+    case "mineracao":
+      return { type: "segment", segment: "Mineração" };
+    case "combos": {
+      const id = await getCategoryIdByName("Combos");
+      return id ? { type: "categoryId", categoryId: id } : { type: "none" };
+    }
+  }
+}
+
+interface SectionFilterable<Q> {
+  eq: (column: string, value: unknown) => Q;
+  or: (filters: string) => Q;
+  is: (column: string, value: null) => Q;
+  contains: (column: string, value: unknown) => Q;
+}
+
+function applySectionScope<Q>(query: Q, scope: SectionScope): Q | null {
+  // The postgrest builder's real type has overloaded, narrower signatures
+  // for these methods (e.g. `contains` accepts specific value shapes, not
+  // `unknown`), which TS won't structurally match against a generic `Q`.
+  // The cast below is the single place that bridges that gap; every
+  // caller still gets back its own concrete `Q` (or null), unchanged.
+  const q = query as unknown as SectionFilterable<Q>;
+
+  switch (scope.type) {
+    case "categoryIdOrNull":
+      return scope.categoryId
+        ? q.or(`category_id.is.null,category_id.eq.${scope.categoryId}`)
+        : q.is("category_id", null);
+    case "featured":
+      return q.eq("featured", true);
+    case "tagContains":
+      return q.contains("tags", [scope.tag]);
+    case "segment":
+      return q.eq("segment", scope.segment);
+    case "categoryId":
+      return q.eq("category_id", scope.categoryId);
+    case "none":
+      return null;
+  }
+}
+
 export async function getSectionPrompts({
   kind,
   offset = 0,
@@ -169,42 +269,29 @@ export async function getSectionPrompts({
   offset?: number;
   limit?: number;
 }): Promise<PromptPage> {
-  let query = requireSupabase().from("prompts").select(PROMPT_COLUMNS).eq("is_active", true);
+  const scope = await resolveSectionScope(kind);
+  const base = requireSupabase().from("prompts").select(PROMPT_COLUMNS).eq("is_active", true);
+  const scoped = applySectionScope(base, scope);
+  if (!scoped) return { items: [], hasMore: false };
 
-  switch (kind) {
-    case "comeceAqui": {
-      const id = await getCategoryIdByName("Essenciais");
-      query = id ? query.or(`category_id.is.null,category_id.eq.${id}`) : query.is("category_id", null);
-      break;
-    }
-    case "maisUsados":
-      query = query.eq("featured", true);
-      break;
-    case "codigosVirais":
-      query = query.contains("tags", ["Códigos"]);
-      break;
-    case "maquinasPesadas":
-      query = query.eq("segment", "Máquinas Pesadas");
-      break;
-    case "agro":
-      query = query.eq("segment", "Agro");
-      break;
-    case "mineracao":
-      query = query.eq("segment", "Mineração");
-      break;
-    case "combos": {
-      const id = await getCategoryIdByName("Combos");
-      if (!id) return { items: [], hasMore: false };
-      query = query.eq("category_id", id);
-      break;
-    }
-  }
-
-  query = query.order("created_at", { ascending: false }).range(offset, offset + limit - 1);
-
-  const { data, error } = await query;
+  const { data, error } = await scoped
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
   if (error) throw error;
 
   const rows = data as unknown as PromptRow[];
   return { items: rows.map(toPrompt), hasMore: rows.length === limit };
+}
+
+// Real per-category total (not "loaded so far") — one indexed count
+// query per section, same predicate as getSectionPrompts.
+export async function getSectionCount(kind: SectionKind): Promise<number> {
+  const scope = await resolveSectionScope(kind);
+  const base = requireSupabase().from("prompts").select("id", { count: "exact", head: true }).eq("is_active", true);
+  const scoped = applySectionScope(base, scope);
+  if (!scoped) return 0;
+
+  const { count, error } = await scoped;
+  if (error) throw error;
+  return count ?? 0;
 }

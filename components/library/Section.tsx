@@ -3,6 +3,7 @@ import { PromptCard } from "@/components/library/PromptCard";
 
 export function Section({
   title,
+  count,
   prompts,
   favorites,
   onToggleFavorite,
@@ -10,8 +11,10 @@ export function Section({
   hasMore = false,
   loadingMore = false,
   onLoadMore,
+  onViewAll,
 }: {
   title: string;
+  count?: number;
   prompts: Prompt[];
   favorites: string[];
   onToggleFavorite: (id: string) => void;
@@ -19,12 +22,27 @@ export function Section({
   hasMore?: boolean;
   loadingMore?: boolean;
   onLoadMore?: () => void;
+  onViewAll?: () => void;
 }) {
   if (prompts.length === 0) return null;
 
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="px-4 text-lg font-bold tracking-tight text-foreground sm:px-6">{title}</h2>
+      <div className="flex items-center justify-between gap-3 px-4 sm:px-6">
+        <h2 className="text-lg font-bold tracking-tight text-foreground">
+          {title}
+          {count != null && <span className="ml-2 text-sm font-medium text-muted">({count})</span>}
+        </h2>
+        {onViewAll && (
+          <button
+            type="button"
+            onClick={onViewAll}
+            className="shrink-0 text-xs font-semibold text-accent transition-colors duration-200 hover:underline"
+          >
+            Ver todos
+          </button>
+        )}
+      </div>
       <div
         className="no-scrollbar flex gap-3 overflow-x-auto px-4 pb-1 sm:px-6"
         style={{
