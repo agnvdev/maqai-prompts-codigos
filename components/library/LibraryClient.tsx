@@ -11,6 +11,7 @@ import {
   type PromptPage,
   type SectionKind,
 } from "@/lib/supabase/catalog";
+import type { PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
 import { Brand } from "@/components/ui/Brand";
 import { SearchBar } from "@/components/library/SearchBar";
 import { FilterChips, type FilterValue } from "@/components/library/FilterChips";
@@ -100,10 +101,12 @@ export function LibraryClient({
   initialSections = {},
   sectionCounts = {},
   totalCount,
+  defaultImagesMap = {},
 }: {
   initialSections?: Partial<Record<SectionKind, PromptPage>>;
   sectionCounts?: Partial<Record<SectionKind, number>>;
   totalCount?: number;
+  defaultImagesMap?: PromptDefaultImagesMap;
 }) {
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
@@ -343,6 +346,7 @@ export function LibraryClient({
                       onToggleFavorite={toggleFavorite}
                       onOpen={openPrompt}
                       width="w-full"
+                      defaultImagesMap={defaultImagesMap}
                     />
                   ))}
                 </div>
@@ -369,6 +373,7 @@ export function LibraryClient({
                 favorites={favorites}
                 onToggleFavorite={toggleFavorite}
                 onOpen={openPrompt}
+                defaultImagesMap={defaultImagesMap}
               />
             )}
             {SECTION_ORDER.map((kind) => (
@@ -384,6 +389,7 @@ export function LibraryClient({
                 loadingMore={sections[kind].loading}
                 onLoadMore={sections[kind].loadMore}
                 onViewAll={() => setCategoryView({ kind, title: SECTION_TITLES[kind], total: sectionCounts[kind] })}
+                defaultImagesMap={defaultImagesMap}
               />
             ))}
           </>
@@ -415,6 +421,7 @@ export function LibraryClient({
                       onToggleFavorite={toggleFavorite}
                       onOpen={openPrompt}
                       width="w-full"
+                      defaultImagesMap={defaultImagesMap}
                     />
                   ))}
                 </div>

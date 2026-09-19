@@ -1,4 +1,5 @@
 import type { Prompt } from "@/lib/types";
+import type { PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
 import { PromptCard } from "@/components/library/PromptCard";
 
 export function Section({
@@ -12,6 +13,7 @@ export function Section({
   loadingMore = false,
   onLoadMore,
   onViewAll,
+  defaultImagesMap,
 }: {
   title: string;
   count?: number;
@@ -23,6 +25,7 @@ export function Section({
   loadingMore?: boolean;
   onLoadMore?: () => void;
   onViewAll?: () => void;
+  defaultImagesMap?: PromptDefaultImagesMap;
 }) {
   if (prompts.length === 0) return null;
 
@@ -57,6 +60,7 @@ export function Section({
             isFavorite={favorites.includes(prompt.id)}
             onToggleFavorite={onToggleFavorite}
             onOpen={onOpen}
+            defaultImagesMap={defaultImagesMap}
           />
         ))}
 

@@ -9,6 +9,11 @@ function refreshLp() {
   revalidatePath("/");
 }
 
+function refreshPromptDefaults() {
+  revalidatePath("/admin/media");
+  revalidatePath("/app");
+}
+
 export async function saveLpMediaAction(formData: FormData) {
   await requireAdmin();
   const supabase = await createSupabaseServerClient();
@@ -56,4 +61,57 @@ export async function toggleLpMediaActiveAction(id: string, isActive: boolean) {
   if (error) throw new Error(error.message);
 
   refreshLp();
+}
+
+export async function savePromptDefaultImageAction(formData: FormData) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const id = formData.get("id")?.toString();
+  const axis = formData.get("axis")?.toString().trim() ?? "";
+  const value = formData.get("value")?.toString().trim() ?? "";
+  const imageUrl = formData.get("image_url")?.toString().trim() ?? "";
+
+  if (!["category", "segment", "type"].includes(axis) || !value || !imageUrl) {
+    throw new Error("Eixo, valor e imagem são obrigatórios.");
+  }
+
+  const payload = {
+    axis,
+    value,
+    image_url: imageUrl,
+    position: Number(formData.get("position") ?? 0) || 0,
+    is_active: formData.get("is_active") === "on",
+  };
+
+  const { error } = id
+    ? await supabase.from("prompt_default_images").update(payload).eq("id", id)
+    : await supabase.from("prompt_default_images").insert(payload);
+
+  if (error) throw new Error(error.message);
+
+  refreshPromptDefaults();
+}
+
+export async function deletePromptDefaultImageAction(id: string) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase.from("prompt_default_images").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshPromptDefaults();
+}
+
+export async function togglePromptDefaultImageActiveAction(id: string, isActive: boolean) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase
+    .from("prompt_default_images")
+    .update({ is_active: isActive })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshPromptDefaults();
 }

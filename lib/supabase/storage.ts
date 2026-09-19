@@ -63,3 +63,13 @@ export function uploadLpMediaImage(file: File): Promise<UploadedImage> {
 export function listLpMediaImages(): Promise<UploadedImage[]> {
   return listBucket(LP_MEDIA_BUCKET);
 }
+
+// Default per-category/segment/type fallback images are still prompt
+// card images, so they share the prompt-images bucket.
+export function uploadPromptDefaultImage(file: File): Promise<UploadedImage> {
+  return uploadToBucket(PROMPT_BUCKET, file);
+}
+
+export function listPromptDefaultImages(): Promise<UploadedImage[]> {
+  return listBucket(PROMPT_BUCKET);
+}

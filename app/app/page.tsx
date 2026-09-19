@@ -7,6 +7,7 @@ import {
   type PromptPage,
   type SectionKind,
 } from "@/lib/supabase/catalog";
+import { getPromptDefaultImagesMap, type PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
 
 export const metadata: Metadata = {
   title: "Biblioteca de Prompts — MaqAI",
@@ -29,6 +30,7 @@ export default async function AppPage() {
   const initialSections: Partial<Record<SectionKind, PromptPage>> = {};
   const sectionCounts: Partial<Record<SectionKind, number>> = {};
   let totalCount: number | undefined;
+  let defaultImagesMap: PromptDefaultImagesMap = {};
 
   try {
     // Only the first page of each section is fetched here (bounded,
@@ -53,7 +55,24 @@ export default async function AppPage() {
     console.error("Failed to load initial catalog sections from Supabase:", error);
   }
 
+  try {
+    // Independent try/catch on purpose: the admin-managed pool of
+    // per-category/segment/type fallback images (see
+    // lib/supabase/promptDefaults.ts) is optional decoration — cards
+    // fall back to the TypeIcon placeholder when it's empty or the
+    // query fails, so its failure must never take down the sections
+    // above (e.g. before the migration adding this table is applied).
+    defaultImagesMap = await getPromptDefaultImagesMap();
+  } catch (error) {
+    console.error("Failed to load prompt default images:", error);
+  }
+
   return (
-    <LibraryClient initialSections={initialSections} sectionCounts={sectionCounts} totalCount={totalCount} />
+    <LibraryClient
+      initialSections={initialSections}
+      sectionCounts={sectionCounts}
+      totalCount={totalCount}
+      defaultImagesMap={defaultImagesMap}
+    />
   );
 }
