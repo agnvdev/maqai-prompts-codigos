@@ -108,10 +108,11 @@ export function LpBeforeAfterClient({ pairs }: { pairs: LpBeforeAfterPair[] }) {
           </p>
         </div>
         <button
+          type="button"
           onClick={startCreate}
           className="shrink-0 rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground"
         >
-          Novo par
+          + Novo Antes/Depois
         </button>
       </div>
 

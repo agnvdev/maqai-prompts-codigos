@@ -3,9 +3,10 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { LpMediaRow } from "@/lib/supabase/lpMedia";
 import type { PromptDefaultImageRow } from "@/lib/supabase/promptDefaults";
 import type { LpBeforeAfterPair } from "@/lib/supabase/lpBeforeAfter";
-import { LpMediaClient } from "@/components/admin/LpMediaClient";
 import { PromptDefaultImagesClient } from "@/components/admin/PromptDefaultImagesClient";
 import { LpBeforeAfterClient } from "@/components/admin/LpBeforeAfterClient";
+import { LpImagesClient } from "@/components/admin/LpImagesClient";
+import { BrandAssetsClient } from "@/components/admin/BrandAssetsClient";
 
 export default async function AdminMediaPage() {
   let items: LpMediaRow[] = [];
@@ -77,7 +78,9 @@ export default async function AdminMediaPage() {
       )}
       <LpBeforeAfterClient pairs={beforeAfterPairs} />
       <hr className="border-border" />
-      <LpMediaClient items={items} />
+      <LpImagesClient items={items} />
+      <hr className="border-border" />
+      <BrandAssetsClient items={items} />
     </>
   );
 }
