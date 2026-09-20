@@ -15,6 +15,7 @@ export interface AdminPromptRow {
   tags: string[];
   featured: boolean;
   is_premium: boolean;
+  is_tested: boolean;
   is_active: boolean;
   created_at: string;
 }
@@ -33,6 +34,7 @@ export interface PromptRow {
   image_url: string | null;
   category_id: string | null;
   is_premium: boolean;
+  is_tested: boolean;
   is_active: boolean;
   created_at: string;
   prompt_text: string | null;
@@ -50,7 +52,7 @@ function requireSupabase() {
 }
 
 const PROMPT_COLUMNS =
-  "id, code, title, description, image_url, category_id, is_premium, is_active, created_at, prompt_text, segment, type, tools, tags, featured, categories(name)";
+  "id, code, title, description, image_url, category_id, is_premium, is_tested, is_active, created_at, prompt_text, segment, type, tools, tags, featured, categories(name)";
 
 export async function getCategories(): Promise<CategoryRow[]> {
   const { data, error } = await requireSupabase()
@@ -76,6 +78,9 @@ export function toPrompt(row: PromptRow): Prompt {
     prompt: row.prompt_text ?? "",
     featured: row.featured,
     tags: (row.tags ?? []) as FilterTag[],
+    is_premium: row.is_premium,
+    is_tested: row.is_tested,
+    created_at: row.created_at,
   };
 }
 

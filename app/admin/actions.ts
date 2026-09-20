@@ -41,6 +41,7 @@ export async function savePromptAction(formData: FormData) {
     tags: parseList(formData.get("tags")),
     featured: formData.get("featured") === "on",
     is_premium: formData.get("is_premium") === "on",
+    is_tested: formData.get("is_tested") === "on",
     is_active: formData.get("is_active") === "on",
   };
 
@@ -157,6 +158,7 @@ export async function importPromptsAction(rows: ImportRow[]): Promise<ImportResu
     tags: r.tags ?? [],
     featured: !!r.featured,
     is_premium: !!r.is_premium,
+    is_tested: !!r.is_tested,
     is_active: r.is_active ?? true,
   }));
 

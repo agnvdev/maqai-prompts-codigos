@@ -270,6 +270,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
           <div className="flex flex-wrap gap-4 pt-1">
             <Checkbox name="featured" label="Destaque" defaultChecked={editing?.featured} />
             <Checkbox name="is_premium" label="Premium" defaultChecked={editing?.is_premium} />
+            <Checkbox name="is_tested" label="Testado" defaultChecked={editing?.is_tested} />
             <Checkbox name="is_active" label="Ativo" defaultChecked={editing?.is_active ?? true} />
           </div>
 
@@ -348,6 +349,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
                   {prompt.segment} · {prompt.type}
                   {prompt.featured ? " · Destaque" : ""}
                   {prompt.is_premium ? " · Premium" : ""}
+                  {prompt.is_tested ? " · Testado" : ""}
                 </span>
               </div>
             </div>

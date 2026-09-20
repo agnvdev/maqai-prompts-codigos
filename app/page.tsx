@@ -1,5 +1,6 @@
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
+import { TrustStrip } from "@/components/landing/TrustStrip";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Examples } from "@/components/landing/Examples";
 import { Segments } from "@/components/landing/Segments";
@@ -32,6 +33,7 @@ export default async function Home() {
       <Header />
       <main className="flex flex-1 flex-col">
         <Hero imageUrl={heroMedia.hero} />
+        <TrustStrip />
         <HowItWorks />
         <Examples imageOverrides={examplesMedia} />
         <Segments imageOverrides={segmentsMedia} />

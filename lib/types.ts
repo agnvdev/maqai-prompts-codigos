@@ -18,4 +18,7 @@ export interface Prompt {
   prompt: string;
   featured: boolean;
   tags: FilterTag[];
+  is_premium: boolean;
+  is_tested: boolean;
+  created_at: string;
 }

@@ -28,16 +28,16 @@ export function Hero({ imageUrl }: { imageUrl?: string }) {
           className="animate-fade-up text-4xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-6xl"
           style={{ animationDelay: "80ms" }}
         >
-          <span className="text-accent">10.150</span> prompts e códigos de IA
-          <br /> para máquinas pesadas
+          Prompts de IA testados
+          <br /> para <span className="text-accent">máquinas pesadas</span>
         </h1>
 
         <p
           className="animate-fade-up max-w-2xl text-balance text-base leading-relaxed text-muted sm:text-lg"
           style={{ animationDelay: "140ms" }}
         >
-          Prompts prontos para criar imagens, vídeos, conteúdos, anúncios e transformações com
-          máquinas pesadas, agro e mineração.
+          Uma biblioteca premium de prompts, códigos e combinações para máquinas pesadas, agro e
+          equipamentos pesados.
         </p>
 
         <Link
@@ -45,7 +45,7 @@ export function Hero({ imageUrl }: { imageUrl?: string }) {
           className="animate-fade-up group relative mt-2 inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-sm font-extrabold uppercase tracking-wide text-accent-foreground shadow-[0_0_0_1px_rgba(245,197,24,0.35),0_20px_40px_-16px_rgba(245,197,24,0.45)] transition-all duration-200 hover:shadow-[0_0_0_1px_rgba(245,197,24,0.5),0_24px_48px_-16px_rgba(245,197,24,0.6)] hover:brightness-105 active:scale-[0.98] sm:text-base"
           style={{ animationDelay: "200ms" }}
         >
-          Acessar os 10.150 comandos
+          Acessar a MaqAI - R$ 29,90/mês
           <svg
             viewBox="0 0 24 24"
             fill="none"

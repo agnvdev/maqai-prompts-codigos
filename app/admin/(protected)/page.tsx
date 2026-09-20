@@ -13,7 +13,7 @@ export default async function AdminPage() {
     const { data, error } = await supabase
       .from("prompts")
       .select(
-        "id, code, title, description, image_url, prompt_text, segment, type, tools, tags, featured, is_premium, is_active, created_at"
+        "id, code, title, description, image_url, prompt_text, segment, type, tools, tags, featured, is_premium, is_tested, is_active, created_at"
       )
       .order("created_at", { ascending: false });
 

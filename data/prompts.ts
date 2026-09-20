@@ -16,6 +16,9 @@ export const prompts: Prompt[] = [
       "Corte técnico realista de uma [escavadeira/trator/caminhão fora de estrada], revelando o componente interno danificado ([motor/transmissão/hidráulico]) em destaque, iluminação de estúdio industrial, fundo cinza-grafite, estilo diagrama técnico premium, ultra detalhado, 8k --ar 3:4",
     featured: true,
     tags: ["Essenciais", "Máquinas", "Imagem", "Códigos"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "darkpremium",
@@ -31,6 +34,9 @@ export const prompts: Prompt[] = [
       "Fotografia de produto de uma [máquina pesada/implemento agrícola], fundo preto grafite com gradiente sutil, luz lateral dramática destacando a lataria e os detalhes metálicos, reflexo suave no piso, estética premium de showroom, alta definição, 8k --ar 16:9",
     featured: true,
     tags: ["Essenciais", "Imagem", "Máquinas", "Códigos"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "xraymachine",
@@ -46,6 +52,9 @@ export const prompts: Prompt[] = [
       "Ilustração estilo raio-X (X-ray view) de uma [máquina pesada], mostrando estrutura interna, motor, engrenagens e sistema hidráulico em camadas translúcidas azul-ciano sobre fundo preto, estética técnica futurista, alto contraste, 8k --ar 16:9",
     featured: false,
     tags: ["Máquinas", "Imagem", "Códigos"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "mudpower",
@@ -61,6 +70,9 @@ export const prompts: Prompt[] = [
       "Vídeo cinematográfico em câmera lenta de [trator/colheitadeira/caminhão] atravessando lama espessa, respingos realistas voando em todas as direções, pneus girando com força total, luz dourada de fim de tarde, som de motor grave, 4k, 24fps",
     featured: true,
     tags: ["Agro", "Vídeo", "Mineração"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "nightoperation",
@@ -76,6 +88,9 @@ export const prompts: Prompt[] = [
       "Vídeo cinematográfico noturno de [caminhão fora de estrada/escavadeira] operando em mina a céu aberto, faróis potentes cortando a poeira no ar, faíscas e poeira iluminadas, câmera baixa em contra-plongée, atmosfera épica e industrial, 4k",
     featured: false,
     tags: ["Mineração", "Vídeo"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "explodedview",
@@ -91,6 +106,9 @@ export const prompts: Prompt[] = [
       "Vista explodida (exploded view) em 3D de uma [máquina pesada/motor diesel], todas as peças flutuando organizadas no espaço com linhas guia sutis, fundo cinza-grafite gradiente, render estilo manual técnico premium, iluminação de estúdio, 8k --ar 1:1",
     featured: true,
     tags: ["Máquinas", "Imagem", "Essenciais"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "cinematic",
@@ -106,6 +124,9 @@ export const prompts: Prompt[] = [
       "Sequência de abertura cinematográfica de [máquina pesada] revelada em contraluz ao amanhecer, câmera em movimento lento tipo drone descendo, poeira suspensa no ar, trilha sonora épica implícita, color grading dark premium com destaque em amarelo, 4k, formato vertical 9:16",
     featured: true,
     tags: ["Essenciais", "Vídeo", "Instagram"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "agro",
@@ -121,6 +142,9 @@ export const prompts: Prompt[] = [
       "Fotografia épica de [colheitadeira/trator] em plantação extensa durante o pôr do sol, poeira dourada suspensa no ar, céu dramático em tons laranja e roxo, ângulo baixo heroico, ultra realista, 8k --ar 16:9",
     featured: true,
     tags: ["Agro", "Imagem", "Essenciais"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "miningpower",
@@ -136,6 +160,9 @@ export const prompts: Prompt[] = [
       "Fotografia industrial de [caminhão fora de estrada de mineração] gigante em mina a céu aberto, escala monumental, poeira e nuvens de fundo, luz dura de meio-dia, cores terrosas e metálicas, extremamente detalhado, 8k --ar 16:9",
     featured: false,
     tags: ["Mineração", "Imagem"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "heavyduty",
@@ -151,6 +178,9 @@ export const prompts: Prompt[] = [
       "Fotografia realista de [máquina pesada] coberta de lama e poeira após jornada extrema de trabalho, arranhões e desgaste visíveis na lataria, ambiente de obra pesada ao fundo desfocado, luz dura lateral, estética heavy-duty, 8k --ar 4:5",
     featured: false,
     tags: ["Máquinas", "Imagem", "Essenciais"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "viralreel",
@@ -166,6 +196,9 @@ export const prompts: Prompt[] = [
       "Crie um roteiro de reel de 30 segundos para Instagram sobre [tipo de máquina], com gancho nos primeiros 2 segundos, 3 cortes de cena mostrando força/velocidade/detalhe técnico, legenda com CTA para orçamento, e sugestão de música em alta. Tom: impactante, direto, sem enrolação.",
     featured: true,
     tags: ["Vídeo", "Instagram", "Combos", "Códigos"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
   {
     id: "machinesales",
@@ -181,6 +214,9 @@ export const prompts: Prompt[] = [
       "Escreva um anúncio de venda persuasivo para [modelo da máquina], destacando estado de conservação, horas de uso, diferenciais técnicos e urgência de compra. Inclua título chamativo, 3 bullets de benefícios e uma chamada final para contato via WhatsApp.",
     featured: true,
     tags: ["Vendas", "Combos", "Códigos"],
+    is_premium: false,
+    is_tested: false,
+    created_at: "2026-09-12T23:05:00.000Z",
   },
 ];
 

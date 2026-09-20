@@ -10,14 +10,14 @@ export function FinalCta() {
           Comece a criar com <span className="text-accent">IA</span> agora mesmo
         </h2>
         <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-          Milhares de comandos prontos, organizados para o seu segmento. Sem enrolação, sem
-          curva de aprendizado.
+          Novos prompts e tendências adicionados constantemente. Sem enrolação, sem curva de
+          aprendizado.
         </p>
         <Link
           href="/app"
           className="group relative inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-sm font-extrabold uppercase tracking-wide text-accent-foreground shadow-[0_0_0_1px_rgba(245,197,24,0.35),0_20px_40px_-16px_rgba(245,197,24,0.45)] transition-all duration-200 hover:shadow-[0_0_0_1px_rgba(245,197,24,0.5),0_24px_48px_-16px_rgba(245,197,24,0.6)] hover:brightness-105 active:scale-[0.98] sm:text-base"
         >
-          Acessar os 10.150 comandos
+          Acessar a MaqAI - R$ 29,90/mês
           <svg
             viewBox="0 0 24 24"
             fill="none"

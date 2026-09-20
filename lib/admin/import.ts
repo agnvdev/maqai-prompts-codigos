@@ -13,6 +13,7 @@ export interface ImportRow {
   tags?: string[];
   featured?: boolean;
   is_premium?: boolean;
+  is_tested?: boolean;
   is_active?: boolean;
 }
 
@@ -107,6 +108,7 @@ function rawRowToImportRow(raw: Record<string, unknown>): ImportRow {
     tags: toList(raw.tags),
     featured: toBool(raw.featured),
     is_premium: toBool(raw.is_premium ?? raw.premium),
+    is_tested: toBool(raw.is_tested ?? raw.tested),
     is_active: raw.is_active === undefined && raw.active === undefined ? true : toBool(raw.is_active ?? raw.active),
   };
 }
