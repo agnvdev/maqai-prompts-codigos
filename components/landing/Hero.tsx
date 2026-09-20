@@ -21,7 +21,7 @@ export function Hero({ imageUrl }: { imageUrl?: string }) {
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 sm:py-28">
         <span className="animate-fade-up rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent shadow-card">
-          Biblioteca de IA para o setor pesado
+          Plataforma de IA para o setor pesado.
         </span>
 
         <h1
@@ -45,7 +45,7 @@ export function Hero({ imageUrl }: { imageUrl?: string }) {
           className="animate-fade-up group relative mt-2 inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-sm font-extrabold uppercase tracking-wide text-accent-foreground shadow-[0_0_0_1px_rgba(245,197,24,0.35),0_20px_40px_-16px_rgba(245,197,24,0.45)] transition-all duration-200 hover:shadow-[0_0_0_1px_rgba(245,197,24,0.5),0_24px_48px_-16px_rgba(245,197,24,0.6)] hover:brightness-105 active:scale-[0.98] sm:text-base"
           style={{ animationDelay: "200ms" }}
         >
-          Acessar a MaqAI - R$ 29,90/mês
+          Acessar a MaqDesk - R$ 29,90/mês
           <svg
             viewBox="0 0 24 24"
             fill="none"

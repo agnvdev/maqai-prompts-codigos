@@ -10,7 +10,7 @@ import {
 import { getPromptDefaultImagesMap, type PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
 
 export const metadata: Metadata = {
-  title: "Biblioteca de Prompts - MaqAI",
+  title: "Biblioteca de Prompts - MaqDesk",
   description: "Explore, favorite e copie prompts de IA testados para máquinas pesadas, agro e equipamentos pesados.",
 };
 

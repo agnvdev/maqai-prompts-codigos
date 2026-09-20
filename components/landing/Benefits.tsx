@@ -25,7 +25,7 @@ export function Benefits() {
     <section className="border-b border-border bg-surface/40">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
         <h2 className="text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-          Por que assinar a MaqAI
+          Por que assinar a MaqDesk
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">

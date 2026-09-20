@@ -12,7 +12,7 @@ export function Showcase({ items }: { items: LpShowcaseItem[] }) {
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="flex flex-col items-center gap-2 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Resultados que você pode criar com a MaqAI
+            Resultados que você pode criar com a MaqDesk
           </h2>
         </div>
 

@@ -16,7 +16,7 @@ export function BrandAssetsClient({ items }: { items: LpMediaRow[] }) {
         <h1 className="text-lg font-bold text-foreground">Marca</h1>
         <p className="text-xs text-muted">
           Reservado para logo/assets em imagem. Dimensão recomendada: 512×512 (quadrado) ou SVG.
-          Ainda não exibido publicamente — a marca hoje usa só texto (&quot;MaqAI&quot;).
+          Ainda não exibido publicamente — a marca hoje usa só texto (&quot;MaqDesk&quot;).
         </p>
       </div>
 

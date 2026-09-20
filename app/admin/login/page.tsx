@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
         onSubmit={handleSubmit}
         className="flex w-full max-w-sm flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-card"
       >
-        <h1 className="text-lg font-bold text-foreground">Admin MagAI</h1>
+        <h1 className="text-lg font-bold text-foreground">Admin MaqDesk</h1>
 
         <label className="flex flex-col gap-1.5 text-xs font-medium text-muted">
           E-mail

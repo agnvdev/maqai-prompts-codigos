@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MaqAI - Biblioteca Premium de Prompts para Máquinas Pesadas",
+  title: "MaqDesk - Plataforma de IA para o Setor Pesado",
   description:
-    "Prompts de IA testados para máquinas pesadas, agro e equipamentos pesados. Biblioteca premium, testada, validada e em uso real. Copie e cole, sem curva de aprendizado.",
+    "MaqDesk: prompts de IA testados para máquinas pesadas, agro e equipamentos pesados. Biblioteca premium, testada, validada e em uso real. Copie e cole, sem curva de aprendizado.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

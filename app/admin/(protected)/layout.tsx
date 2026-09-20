@@ -17,7 +17,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
         <div className="flex max-w-sm flex-col items-center gap-3 rounded-2xl border border-border bg-surface p-8 text-center shadow-card">
           <h1 className="text-lg font-bold text-foreground">Acesso negado</h1>
           <p className="text-sm text-muted">
-            Sua conta está autenticada, mas não tem permissão de administrador no MagAI.
+            Sua conta está autenticada, mas não tem permissão de administrador no MaqDesk.
           </p>
           <SignOutButton />
         </div>
@@ -32,7 +32,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3.5 sm:px-6">
         <div className="flex items-center gap-4">
           <Link href="/admin" className="text-sm font-bold text-foreground">
-            MagAI Admin
+            MaqDesk Admin
           </Link>
           <nav className="flex items-center gap-3 text-xs font-medium text-muted">
             <Link href="/admin" className="transition-colors hover:text-foreground">

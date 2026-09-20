@@ -68,7 +68,7 @@ export function LpShowcaseClient({ items }: { items: LpShowcaseItem[] }) {
         <div>
           <h1 className="text-lg font-bold text-foreground">Mostruário</h1>
           <p className="text-xs text-muted">
-            Resultados exibidos na seção &quot;Resultados que você pode criar com a MaqAI&quot; da
+            Resultados exibidos na seção &quot;Resultados que você pode criar com a MaqDesk&quot; da
             página inicial. Apenas imagem, título curto e segmento opcional - nunca um card real do
             catálogo. Dimensão recomendada: 1200×1500 (4:5) ou 1600×900 (16:9).
           </p>
@@ -170,7 +170,7 @@ export function LpShowcaseClient({ items }: { items: LpShowcaseItem[] }) {
       {items.length === 0 ? (
         <p className="rounded-xl border border-dashed border-border p-4 text-center text-xs text-muted">
           Nenhum resultado cadastrado - a seção &quot;Resultados que você pode criar com a
-          MaqAI&quot; fica oculta na página inicial até o primeiro item ativo.
+          MaqDesk&quot; fica oculta na página inicial até o primeiro item ativo.
         </p>
       ) : (
         <div className="flex flex-col gap-2">
