@@ -14,6 +14,11 @@ function refreshPromptDefaults() {
   revalidatePath("/app");
 }
 
+function refreshBeforeAfter() {
+  revalidatePath("/admin/media");
+  revalidatePath("/");
+}
+
 export async function saveLpMediaAction(formData: FormData) {
   await requireAdmin();
   const supabase = await createSupabaseServerClient();
@@ -114,4 +119,56 @@ export async function togglePromptDefaultImageActiveAction(id: string, isActive:
   if (error) throw new Error(error.message);
 
   refreshPromptDefaults();
+}
+
+export async function saveLpBeforeAfterPairAction(formData: FormData) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const id = formData.get("id")?.toString();
+  const beforeImageUrl = formData.get("before_image_url")?.toString().trim() ?? "";
+  const afterImageUrl = formData.get("after_image_url")?.toString().trim() ?? "";
+
+  if (!beforeImageUrl || !afterImageUrl) {
+    throw new Error("As imagens de Antes e Depois são obrigatórias.");
+  }
+
+  const payload = {
+    before_image_url: beforeImageUrl,
+    after_image_url: afterImageUrl,
+    prompt_code: formData.get("prompt_code")?.toString().trim() || null,
+    position: Number(formData.get("position") ?? 0) || 0,
+    is_active: formData.get("is_active") === "on",
+  };
+
+  const { error } = id
+    ? await supabase.from("lp_before_after_pairs").update(payload).eq("id", id)
+    : await supabase.from("lp_before_after_pairs").insert(payload);
+
+  if (error) throw new Error(error.message);
+
+  refreshBeforeAfter();
+}
+
+export async function deleteLpBeforeAfterPairAction(id: string) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase.from("lp_before_after_pairs").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshBeforeAfter();
+}
+
+export async function toggleLpBeforeAfterPairActiveAction(id: string, isActive: boolean) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase
+    .from("lp_before_after_pairs")
+    .update({ is_active: isActive })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshBeforeAfter();
 }

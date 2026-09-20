@@ -242,8 +242,14 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
             />
           </Field>
 
-          <Field label="Imagem">
+          <Field label="Imagem de resultado do prompt">
             <div className="flex flex-col gap-2">
+              <p className="text-[11px] leading-relaxed text-muted">
+                Imagem criada/testada com este prompt. Recomendado: 1080×1350 (4:5). Opcional — se
+                vazio, o card usa automaticamente uma imagem padrão compatível da biblioteca, ou o
+                ícone padrão.
+              </p>
+
               {formImageUrl && (
                 <div className="h-32 w-full max-w-[220px] overflow-hidden rounded-lg border border-border">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -253,7 +259,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
 
               <div className="flex flex-wrap items-center gap-2">
                 <label className="cursor-pointer rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground">
-                  {uploadingImage ? "Enviando..." : formImageUrl ? "Substituir" : "Enviar imagem"}
+                  {uploadingImage ? "Enviando..." : formImageUrl ? "Substituir resultado" : "Adicionar resultado"}
                   <input
                     type="file"
                     accept="image/*"
@@ -444,8 +450,8 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
                 {quickImageUploadingId === prompt.id
                   ? "Enviando..."
                   : prompt.image_url
-                    ? "Substituir imagem"
-                    : "Adicionar imagem"}
+                    ? "Substituir resultado"
+                    : "Adicionar resultado"}
                 <input
                   type="file"
                   accept="image/*"

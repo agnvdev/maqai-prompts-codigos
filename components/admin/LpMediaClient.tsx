@@ -7,12 +7,55 @@ import { uploadLpMediaImage } from "@/lib/supabase/storage";
 
 const SLOT_LABELS: Record<LpMediaSlot, string> = {
   hero: "Hero",
-  before_after: "Antes/Depois",
+  before_after: "Antes/Depois (legado)",
   examples: "Exemplos",
   segments: "Segmentos",
   final_cta: "CTA final",
   logo: "Logo/Assets",
 };
+
+// Purpose + recommended dimension shown under each slot, plus the exact
+// identifier values each slot actually reads (Hero/Examples/Segments are
+// keyed by literal string match — a typo in the identifier silently does
+// nothing). Kept here instead of a DB column since it only ever changes
+// alongside the components that consume it.
+const SLOT_GUIDANCE: Record<LpMediaSlot, { purpose: string; dimension: string; identifiers?: string }> = {
+  hero: {
+    purpose: "Imagem de fundo da seção principal, no topo da página.",
+    dimension: "1920×1080 (16:9) ou maior, formato paisagem.",
+    identifiers: 'Identificador precisa ser exatamente "hero".',
+  },
+  before_after: {
+    purpose:
+      "Substituído pela seção dedicada \"Antes/Depois\" abaixo, que guarda os pares completos. Este slot antigo só guardava uma imagem solta e não é mais exibido no site — mantido aqui apenas para não perder o que já foi enviado.",
+    dimension: "—",
+  },
+  examples: {
+    purpose: "Foto de fundo dos cards de exemplo de prompts, por segmento.",
+    dimension: "1600×900 (16:9).",
+    identifiers: 'Identificador precisa ser um segmento exato: "Geral", "Máquinas Pesadas", "Agro" ou "Mineração".',
+  },
+  segments: {
+    purpose: "Foto de fundo dos 3 cards de segmento (Máquinas Pesadas, Agro, Mineração).",
+    dimension: "1200×1500 (4:5, retrato) ou maior — a imagem é cortada (object-cover).",
+    identifiers: 'Identificador precisa ser exatamente "Máquinas Pesadas", "Agro" ou "Mineração".',
+  },
+  final_cta: {
+    purpose: "Reservado para uma imagem de fundo na seção final de call-to-action.",
+    dimension: "1920×1080 (16:9).",
+    identifiers: "Ainda não exibido publicamente — nenhum componente da LP lê este slot hoje.",
+  },
+  logo: {
+    purpose: 'Reservado para um logo em imagem. Hoje a marca usa só texto ("MaqAI").',
+    dimension: "512×512 (quadrado) ou SVG.",
+    identifiers: "Ainda não exibido publicamente — nenhum componente da LP lê este slot hoje.",
+  },
+};
+
+// Combined so admins get autocomplete for the identifiers that actually
+// matter, without needing per-slot dynamic filtering (the slot itself is
+// picked in the same form via a plain <select>).
+const KNOWN_IDENTIFIERS = ["hero", "Geral", "Máquinas Pesadas", "Agro", "Mineração"];
 
 const inputClass =
   "rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent/50";
@@ -81,6 +124,7 @@ export function LpMediaClient({ items }: { items: LpMediaRow[] }) {
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-bold text-foreground">Mídias da LP</h1>
         <button
+          type="button"
           onClick={() => startCreate()}
           className="rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground"
         >
@@ -112,11 +156,17 @@ export function LpMediaClient({ items }: { items: LpMediaRow[] }) {
             <Field label="Identificador">
               <input
                 name="identifier"
+                list="lp-media-identifiers"
                 defaultValue={editing?.identifier}
-                placeholder="ex.: hero, Agro, antes, depois..."
+                placeholder="ex.: hero, Agro, Máquinas Pesadas..."
                 required
                 className={inputClass}
               />
+              <datalist id="lp-media-identifiers">
+                {KNOWN_IDENTIFIERS.map((id) => (
+                  <option key={id} value={id} />
+                ))}
+              </datalist>
             </Field>
           </div>
 
@@ -203,11 +253,24 @@ export function LpMediaClient({ items }: { items: LpMediaRow[] }) {
               <div className="flex items-center justify-between">
                 <h2 className="text-sm font-bold text-foreground">{SLOT_LABELS[slot]}</h2>
                 <button
+                  type="button"
                   onClick={() => startCreate(slot)}
                   className="text-xs font-medium text-accent"
                 >
                   + Adicionar
                 </button>
+              </div>
+
+              <div className="flex flex-col gap-0.5 text-xs text-muted">
+                <p>
+                  <span className="font-semibold text-foreground">Finalidade:</span>{" "}
+                  {SLOT_GUIDANCE[slot].purpose}
+                </p>
+                <p>
+                  <span className="font-semibold text-foreground">Dimensão recomendada:</span>{" "}
+                  {SLOT_GUIDANCE[slot].dimension}
+                </p>
+                {SLOT_GUIDANCE[slot].identifiers && <p>{SLOT_GUIDANCE[slot].identifiers}</p>}
               </div>
 
               {slotItems.length === 0 ? (
