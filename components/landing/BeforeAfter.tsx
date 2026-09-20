@@ -58,55 +58,32 @@ export function BeforeAfter({ pairs }: { pairs: LpBeforeAfterPair[] }) {
           <p className="max-w-xl text-sm text-muted">Arraste para comparar antes e depois.</p>
         </div>
 
-        <div className="relative mt-10">
-          <div
-            ref={scrollerRef}
-            className="no-scrollbar flex snap-x snap-mandatory scroll-smooth overflow-x-auto sm:flex-wrap sm:justify-center sm:gap-5 sm:overflow-visible sm:snap-none"
-          >
-            {pairs.map((pair, index) => (
-              <div
-                key={pair.id}
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
-                data-index={index}
-                className="w-full shrink-0 snap-center px-8 sm:w-auto sm:shrink sm:px-0"
-              >
-                <BeforeAfterSlider
-                  beforeUrl={pair.before_image_url}
-                  afterUrl={pair.after_image_url}
-                  title={pair.title ?? undefined}
-                />
-              </div>
-            ))}
-          </div>
-
-          {pairs.length > 1 && (
-            <>
-              <button
-                type="button"
-                aria-label="Par anterior"
-                onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
-                disabled={activeIndex === 0}
-                className="absolute left-0 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/85 text-foreground shadow-card backdrop-blur-sm transition-opacity duration-200 disabled:opacity-30 sm:hidden"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                aria-label="Próximo par"
-                onClick={() => scrollToIndex(Math.min(pairs.length - 1, activeIndex + 1))}
-                disabled={activeIndex === pairs.length - 1}
-                className="absolute right-0 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/85 text-foreground shadow-card backdrop-blur-sm transition-opacity duration-200 disabled:opacity-30 sm:hidden"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </>
-          )}
+        <div
+          ref={scrollerRef}
+          className="no-scrollbar mt-10 flex snap-x snap-mandatory scroll-smooth overflow-x-auto sm:flex-wrap sm:justify-center sm:gap-5 sm:overflow-visible sm:snap-none"
+        >
+          {pairs.map((pair, index) => (
+            <div
+              key={pair.id}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              data-index={index}
+              className="w-full shrink-0 snap-center sm:w-auto sm:shrink"
+            >
+              <BeforeAfterSlider
+                beforeUrl={pair.before_image_url}
+                afterUrl={pair.after_image_url}
+                title={pair.title ?? undefined}
+                onPrev={pairs.length > 1 ? () => scrollToIndex(Math.max(0, activeIndex - 1)) : undefined}
+                onNext={
+                  pairs.length > 1 ? () => scrollToIndex(Math.min(pairs.length - 1, activeIndex + 1)) : undefined
+                }
+                prevDisabled={activeIndex === 0}
+                nextDisabled={activeIndex === pairs.length - 1}
+              />
+            </div>
+          ))}
         </div>
 
         {pairs.length > 1 && (

@@ -12,10 +12,22 @@ export function BeforeAfterSlider({
   beforeUrl,
   afterUrl,
   title,
+  onPrev,
+  onNext,
+  prevDisabled,
+  nextDisabled,
 }: {
   beforeUrl: string;
   afterUrl: string;
   title?: string;
+  // Card-to-card navigation, rendered as overlays on this component's own
+  // image (per the "buttons sit on the image" requirement) but otherwise
+  // owned by the carousel (BeforeAfter.tsx) — this component only calls
+  // them back, it has no idea how many cards exist or which one is active.
+  onPrev?: () => void;
+  onNext?: () => void;
+  prevDisabled?: boolean;
+  nextDisabled?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const clipRef = useRef<HTMLDivElement>(null);
@@ -60,20 +72,36 @@ export function BeforeAfterSlider({
     else if (e.key === "End") setPercent(100);
   }
 
+  const showNav = Boolean(onPrev && onNext);
+
   return (
-    <div className="mx-auto flex w-full max-w-[340px] flex-col gap-2 sm:mx-0 sm:w-[340px] sm:shrink-0">
+    <div className="mx-auto flex w-full max-w-[420px] flex-col gap-2 sm:mx-0 sm:w-[340px] sm:shrink-0">
       <div
         ref={containerRef}
-        className="group relative aspect-[4/5] w-full touch-none select-none overflow-hidden rounded-2xl border border-border bg-surface-2 shadow-card"
+        className="group relative aspect-[3/4] w-full touch-none select-none overflow-hidden rounded-2xl border border-border bg-surface-2 shadow-card"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <Image src={afterUrl} alt="Depois" fill sizes="340px" className="object-cover" draggable={false} />
+        <Image
+          src={afterUrl}
+          alt="Depois"
+          fill
+          sizes="(min-width: 640px) 340px, 100vw"
+          className="object-cover"
+          draggable={false}
+        />
 
         <div ref={clipRef} className="absolute inset-0" style={{ clipPath: "inset(0 50% 0 0)" }}>
-          <Image src={beforeUrl} alt="Antes" fill sizes="340px" className="object-cover" draggable={false} />
+          <Image
+            src={beforeUrl}
+            alt="Antes"
+            fill
+            sizes="(min-width: 640px) 340px, 100vw"
+            className="object-cover"
+            draggable={false}
+          />
         </div>
 
         <span className="pointer-events-none absolute bottom-2.5 left-2.5 rounded-full bg-background/85 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-muted backdrop-blur-sm">
@@ -107,6 +135,38 @@ export function BeforeAfterSlider({
             </svg>
           </div>
         </div>
+
+        {showNav && (
+          <>
+            {/* onPointerDown stopPropagation is load-bearing: without it,
+                tapping an arrow would also bubble to the container above
+                and start a compare-drag from wherever the tap landed. */}
+            <button
+              type="button"
+              aria-label="Par anterior"
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={onPrev}
+              disabled={prevDisabled}
+              className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/45 text-white shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 disabled:opacity-30 sm:hidden"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Próximo par"
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={onNext}
+              disabled={nextDisabled}
+              className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/45 text-white shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 disabled:opacity-30 sm:hidden"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
 
       {title && <span className="px-1 text-sm font-medium text-foreground">{title}</span>}
