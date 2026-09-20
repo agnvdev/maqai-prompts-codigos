@@ -1,9 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 
-export function FinalCta() {
+export function FinalCta({ imageUrl }: { imageUrl?: string }) {
   return (
     <section className="relative overflow-hidden">
-      <div className="bg-grid pointer-events-none absolute inset-0" />
+      {imageUrl ? (
+        <>
+          <Image src={imageUrl} alt="" fill sizes="100vw" className="object-cover" />
+          <div className="pointer-events-none absolute inset-0 bg-background/80" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
+        </>
+      ) : (
+        <div className="bg-grid pointer-events-none absolute inset-0" />
+      )}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(245,197,24,0.14),transparent_60%)]" />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 sm:py-24">
         <h2 className="text-3xl font-bold uppercase leading-tight tracking-tight text-foreground sm:text-4xl">

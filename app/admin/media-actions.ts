@@ -19,6 +19,11 @@ function refreshBeforeAfter() {
   revalidatePath("/");
 }
 
+function refreshShowcase() {
+  revalidatePath("/admin/media");
+  revalidatePath("/");
+}
+
 export async function saveLpMediaAction(formData: FormData) {
   await requireAdmin();
   const supabase = await createSupabaseServerClient();
@@ -136,7 +141,7 @@ export async function saveLpBeforeAfterPairAction(formData: FormData) {
   const payload = {
     before_image_url: beforeImageUrl,
     after_image_url: afterImageUrl,
-    prompt_code: formData.get("prompt_code")?.toString().trim() || null,
+    title: formData.get("title")?.toString().trim() || null,
     position: Number(formData.get("position") ?? 0) || 0,
     is_active: formData.get("is_active") === "on",
   };
@@ -171,4 +176,56 @@ export async function toggleLpBeforeAfterPairActiveAction(id: string, isActive: 
   if (error) throw new Error(error.message);
 
   refreshBeforeAfter();
+}
+
+export async function saveLpShowcaseItemAction(formData: FormData) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const id = formData.get("id")?.toString();
+  const imageUrl = formData.get("image_url")?.toString().trim() ?? "";
+  const title = formData.get("title")?.toString().trim() ?? "";
+
+  if (!imageUrl || !title) {
+    throw new Error("Imagem e título são obrigatórios.");
+  }
+
+  const payload = {
+    image_url: imageUrl,
+    title,
+    segment: formData.get("segment")?.toString().trim() || null,
+    position: Number(formData.get("position") ?? 0) || 0,
+    is_active: formData.get("is_active") === "on",
+  };
+
+  const { error } = id
+    ? await supabase.from("lp_showcase_items").update(payload).eq("id", id)
+    : await supabase.from("lp_showcase_items").insert(payload);
+
+  if (error) throw new Error(error.message);
+
+  refreshShowcase();
+}
+
+export async function deleteLpShowcaseItemAction(id: string) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase.from("lp_showcase_items").delete().eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshShowcase();
+}
+
+export async function toggleLpShowcaseItemActiveAction(id: string, isActive: boolean) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase
+    .from("lp_showcase_items")
+    .update({ is_active: isActive })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshShowcase();
 }

@@ -14,6 +14,10 @@ const segments = [
     title: "Mineração",
     description: "Operações de grande escala, caminhões fora de estrada e frentes de lavra.",
   },
+  {
+    title: "Equipamentos Pesados",
+    description: "Guindastes, geradores e equipamentos industriais em uso real.",
+  },
 ] as const;
 
 export function Segments({ imageOverrides = {} }: { imageOverrides?: Record<string, string> }) {
@@ -24,15 +28,11 @@ export function Segments({ imageOverrides = {} }: { imageOverrides?: Record<stri
           Segmentos
         </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:grid-rows-2">
-          {segments.map((segment, i) => (
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {segments.map((segment) => (
             <div
               key={segment.title}
-              className={
-                i === 0
-                  ? "group relative flex flex-col justify-center gap-3 overflow-hidden rounded-2xl border border-accent/25 p-7 shadow-card sm:row-span-2 sm:p-9"
-                  : "group relative flex flex-col gap-2 overflow-hidden rounded-2xl border border-border p-6 shadow-card transition-colors hover:border-accent/30"
-              }
+              className="group relative flex aspect-[4/3] flex-col justify-end gap-2 overflow-hidden rounded-2xl border border-border p-6 shadow-card transition-colors hover:border-accent/30"
             >
               <Image
                 src={imageOverrides[segment.title] || SEGMENT_IMAGES[segment.title]}
@@ -41,26 +41,11 @@ export function Segments({ imageOverrides = {} }: { imageOverrides?: Record<stri
                 sizes="(min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/35" />
-              {i === 0 && (
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(155deg,rgba(245,197,24,0.14),transparent_65%)]" />
-              )}
-              <h3
-                className={
-                  i === 0
-                    ? "relative z-10 text-2xl font-bold text-accent sm:text-[28px]"
-                    : "relative z-10 text-lg font-bold text-accent"
-                }
-              >
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/25" />
+              <h3 className="relative z-10 text-lg font-bold text-accent sm:text-xl">
                 {segment.title}
               </h3>
-              <p
-                className={
-                  i === 0
-                    ? "relative z-10 max-w-[26ch] text-sm leading-relaxed text-muted sm:text-base"
-                    : "relative z-10 text-sm leading-relaxed text-muted"
-                }
-              >
+              <p className="relative z-10 text-sm leading-relaxed text-muted">
                 {segment.description}
               </p>
             </div>

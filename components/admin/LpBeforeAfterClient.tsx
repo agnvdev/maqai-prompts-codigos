@@ -147,11 +147,11 @@ export function LpBeforeAfterClient({ pairs }: { pairs: LpBeforeAfterPair[] }) {
           {uploadError && <span className="text-xs text-red-400">{uploadError}</span>}
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <Field label="Código/prompt (opcional)">
+            <Field label="Título (opcional)">
               <input
-                name="prompt_code"
-                defaultValue={editing?.prompt_code ?? ""}
-                placeholder="ex.: /darkpremium"
+                name="title"
+                defaultValue={editing?.title ?? ""}
+                placeholder="ex.: Acabamento premium em 30 segundos"
                 className={inputClass}
               />
             </Field>
@@ -213,9 +213,7 @@ export function LpBeforeAfterClient({ pairs }: { pairs: LpBeforeAfterPair[] }) {
                   </div>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  {pair.prompt_code && (
-                    <span className="font-mono text-xs text-accent">{pair.prompt_code}</span>
-                  )}
+                  {pair.title && <span className="text-xs font-semibold text-foreground">{pair.title}</span>}
                   <span className="text-xs text-muted">Posição {pair.position}</span>
                 </div>
               </div>
