@@ -1,7 +1,51 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import type { LpBeforeAfterPair } from "@/lib/supabase/lpBeforeAfter";
 import { BeforeAfterSlider } from "@/components/landing/BeforeAfterSlider";
 
+// One card per view on mobile (scroll-snap carousel + dots/arrows/"1 de
+// N"), all cards at once on larger screens (sm:) where there's no
+// touch-swipe-vs-drag-to-compare conflict to solve in the first place.
+// Card-to-card navigation (dots, arrows, native swipe on the snap
+// container) is deliberately a separate surface from the compare
+// slider's own drag area (see BeforeAfterSlider) — swiping the image
+// itself always compares, never advances the carousel.
 export function BeforeAfter({ pairs }: { pairs: LpBeforeAfterPair[] }) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller || pairs.length === 0) return;
+
+    // IntersectionObserver instead of a scroll listener — no per-frame
+    // work, and it naturally reports which card is actually centered in
+    // the snap container.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let best: { index: number; ratio: number } | null = null;
+        for (const entry of entries) {
+          const index = Number((entry.target as HTMLElement).dataset.index);
+          if (entry.intersectionRatio > (best?.ratio ?? 0)) best = { index, ratio: entry.intersectionRatio };
+        }
+        if (best && best.ratio > 0.5) setActiveIndex(best.index);
+      },
+      { root: scroller, threshold: [0.5, 0.75, 1] }
+    );
+
+    for (const card of cardRefs.current) {
+      if (card) observer.observe(card);
+    }
+
+    return () => observer.disconnect();
+  }, [pairs.length]);
+
+  function scrollToIndex(index: number) {
+    cardRefs.current[index]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
   if (pairs.length === 0) return null;
 
   return (
@@ -14,16 +58,78 @@ export function BeforeAfter({ pairs }: { pairs: LpBeforeAfterPair[] }) {
           <p className="max-w-xl text-sm text-muted">Arraste para comparar antes e depois.</p>
         </div>
 
-        <div className="no-scrollbar mt-10 flex gap-4 overflow-x-auto px-1 pb-2 sm:justify-center sm:flex-wrap">
-          {pairs.map((pair) => (
-            <BeforeAfterSlider
-              key={pair.id}
-              beforeUrl={pair.before_image_url}
-              afterUrl={pair.after_image_url}
-              title={pair.title ?? undefined}
-            />
-          ))}
+        <div className="relative mt-10">
+          <div
+            ref={scrollerRef}
+            className="no-scrollbar flex snap-x snap-mandatory scroll-smooth overflow-x-auto sm:flex-wrap sm:justify-center sm:gap-5 sm:overflow-visible sm:snap-none"
+          >
+            {pairs.map((pair, index) => (
+              <div
+                key={pair.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                data-index={index}
+                className="w-full shrink-0 snap-center px-8 sm:w-auto sm:shrink sm:px-0"
+              >
+                <BeforeAfterSlider
+                  beforeUrl={pair.before_image_url}
+                  afterUrl={pair.after_image_url}
+                  title={pair.title ?? undefined}
+                />
+              </div>
+            ))}
+          </div>
+
+          {pairs.length > 1 && (
+            <>
+              <button
+                type="button"
+                aria-label="Par anterior"
+                onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
+                disabled={activeIndex === 0}
+                className="absolute left-0 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/85 text-foreground shadow-card backdrop-blur-sm transition-opacity duration-200 disabled:opacity-30 sm:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="Próximo par"
+                onClick={() => scrollToIndex(Math.min(pairs.length - 1, activeIndex + 1))}
+                disabled={activeIndex === pairs.length - 1}
+                className="absolute right-0 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/85 text-foreground shadow-card backdrop-blur-sm transition-opacity duration-200 disabled:opacity-30 sm:hidden"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
+
+        {pairs.length > 1 && (
+          <div className="mt-4 flex flex-col items-center gap-2 sm:hidden">
+            <div className="flex items-center gap-1.5">
+              {pairs.map((pair, index) => (
+                <button
+                  key={pair.id}
+                  type="button"
+                  aria-label={`Ir para o par ${index + 1}`}
+                  aria-current={index === activeIndex}
+                  onClick={() => scrollToIndex(index)}
+                  className={`h-1.5 rounded-full transition-all duration-200 ${
+                    index === activeIndex ? "w-5 bg-accent" : "w-1.5 bg-border"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="text-xs text-muted">
+              {activeIndex + 1} de {pairs.length}
+            </span>
+          </div>
+        )}
       </div>
     </section>
   );

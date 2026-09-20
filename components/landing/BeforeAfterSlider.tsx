@@ -20,6 +20,7 @@ export function BeforeAfterSlider({
   const containerRef = useRef<HTMLDivElement>(null);
   const clipRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const percentRef = useRef(50);
   const draggingRef = useRef(false);
 
@@ -27,10 +28,8 @@ export function BeforeAfterSlider({
     const clamped = Math.min(100, Math.max(0, percent));
     percentRef.current = clamped;
     if (clipRef.current) clipRef.current.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
-    if (handleRef.current) {
-      handleRef.current.style.left = `${clamped}%`;
-      handleRef.current.setAttribute("aria-valuenow", String(Math.round(clamped)));
-    }
+    if (handleRef.current) handleRef.current.style.left = `${clamped}%`;
+    if (sliderRef.current) sliderRef.current.setAttribute("aria-valuenow", String(Math.round(clamped)));
   }
 
   function percentFromClientX(clientX: number): number {
@@ -62,7 +61,7 @@ export function BeforeAfterSlider({
   }
 
   return (
-    <div className="flex w-[280px] shrink-0 flex-col gap-2 sm:w-[340px]">
+    <div className="mx-auto flex w-full max-w-[340px] flex-col gap-2 sm:mx-0 sm:w-[340px] sm:shrink-0">
       <div
         ref={containerRef}
         className="group relative aspect-[4/5] w-full touch-none select-none overflow-hidden rounded-2xl border border-border bg-surface-2 shadow-card"
@@ -87,6 +86,7 @@ export function BeforeAfterSlider({
         <div ref={handleRef} className="absolute inset-y-0 cursor-ew-resize" style={{ left: "50%" }}>
           <div className="h-full w-0.5 -translate-x-1/2 bg-white/90 shadow-[0_0_8px_rgba(0,0,0,0.4)]" />
           <div
+            ref={sliderRef}
             role="slider"
             tabIndex={0}
             aria-label="Comparar antes e depois"
