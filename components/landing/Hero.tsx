@@ -25,11 +25,14 @@ export function Hero({ imageUrl }: { imageUrl?: string }) {
         </span>
 
         <h1
-          className="animate-fade-up text-4xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-6xl"
+          className="animate-fade-up text-2xl font-bold uppercase leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-6xl lg:leading-[1.05]"
           style={{ animationDelay: "80ms" }}
         >
-          Prompts de IA testados
-          <br /> para <span className="text-accent">máquinas pesadas</span>
+          Prompts e comandos
+          <br />
+          aprovados para
+          <br />
+          <span className="text-accent">equipamentos pesados</span>
         </h1>
 
         <p
