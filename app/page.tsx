@@ -18,14 +18,16 @@ export default async function Home() {
   let heroMedia: Record<string, string> = {};
   let segmentsMedia: Record<string, string> = {};
   let finalCtaMedia: Record<string, string> = {};
+  let logoMedia: Record<string, string> = {};
   let beforeAfterPairs: LpBeforeAfterPair[] = [];
   let showcaseItems: LpShowcaseItem[] = [];
 
   try {
-    [heroMedia, segmentsMedia, finalCtaMedia] = await Promise.all([
+    [heroMedia, segmentsMedia, finalCtaMedia, logoMedia] = await Promise.all([
       getActiveLpMediaMap("hero"),
       getActiveLpMediaMap("segments"),
       getActiveLpMediaMap("final_cta"),
+      getActiveLpMediaMap("logo"),
     ]);
   } catch (error) {
     // A misconfigured/unreachable Supabase must not fail this page's
@@ -53,7 +55,7 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
+      <Header logoUrl={logoMedia.Logo} />
       <main className="flex flex-1 flex-col">
         <Hero imageUrl={heroMedia.hero} />
         <BeforeAfter pairs={beforeAfterPairs} />
@@ -64,7 +66,7 @@ export default async function Home() {
         <Positioning />
         <FinalCta imageUrl={finalCtaMedia.final_cta} />
       </main>
-      <Footer />
+      <Footer logoUrl={logoMedia.Logo} />
     </>
   );
 }

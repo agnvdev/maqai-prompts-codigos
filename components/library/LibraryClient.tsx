@@ -102,11 +102,13 @@ export function LibraryClient({
   sectionCounts = {},
   totalCount,
   defaultImagesMap = {},
+  logoUrl,
 }: {
   initialSections?: Partial<Record<SectionKind, PromptPage>>;
   sectionCounts?: Partial<Record<SectionKind, number>>;
   totalCount?: number;
   defaultImagesMap?: PromptDefaultImagesMap;
+  logoUrl?: string | null;
 }) {
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
@@ -281,7 +283,7 @@ export function LibraryClient({
     <div className="flex min-h-dvh flex-col bg-background">
       <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3.5 sm:px-6">
-          <Brand />
+          <Brand logoUrl={logoUrl} />
           <Link
             href="/"
             className="text-xs font-medium text-muted transition-colors duration-200 hover:text-foreground"

@@ -8,6 +8,7 @@ import {
   type SectionKind,
 } from "@/lib/supabase/catalog";
 import { getPromptDefaultImagesMap, type PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
+import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
 
 export const metadata: Metadata = {
   title: "Biblioteca de Prompts - MaqDesk",
@@ -31,6 +32,7 @@ export default async function AppPage() {
   const sectionCounts: Partial<Record<SectionKind, number>> = {};
   let totalCount: number | undefined;
   let defaultImagesMap: PromptDefaultImagesMap = {};
+  let logoUrl: string | undefined;
 
   try {
     // Only the first page of each section is fetched here (bounded,
@@ -67,12 +69,22 @@ export default async function AppPage() {
     console.error("Failed to load prompt default images:", error);
   }
 
+  try {
+    // Same lp_media table already used by the LP - independent try/catch
+    // just to be consistent with the other decorative fetches above.
+    const logoMedia = await getActiveLpMediaMap("logo");
+    logoUrl = logoMedia.Logo;
+  } catch (error) {
+    console.error("Failed to load logo media:", error);
+  }
+
   return (
     <LibraryClient
       initialSections={initialSections}
       sectionCounts={sectionCounts}
       totalCount={totalCount}
       defaultImagesMap={defaultImagesMap}
+      logoUrl={logoUrl}
     />
   );
 }

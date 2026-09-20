@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
+import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
+import { Brand } from "@/components/ui/Brand";
 
 const SIGN_IN_TIMEOUT_MS = 10_000;
 
@@ -28,6 +30,22 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [logoUrl, setLogoUrl] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    // This page renders before the admin auth guard, so a client-side
+    // fetch of the (public, is_active-only) lp_media row is simplest -
+    // no need to touch the protected layout's server-side auth flow.
+    let cancelled = false;
+    getActiveLpMediaMap("logo")
+      .then((map) => {
+        if (!cancelled) setLogoUrl(map.Logo);
+      })
+      .catch((err) => console.error("Failed to load logo media:", err));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -67,7 +85,10 @@ export default function AdminLoginPage() {
         onSubmit={handleSubmit}
         className="flex w-full max-w-sm flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-card"
       >
-        <h1 className="text-lg font-bold text-foreground">Admin MaqDesk</h1>
+        <div className="flex items-center gap-3">
+          <Brand logoUrl={logoUrl} />
+          <span className="text-sm font-bold text-foreground">Admin</span>
+        </div>
 
         <label className="flex flex-col gap-1.5 text-xs font-medium text-muted">
           E-mail
