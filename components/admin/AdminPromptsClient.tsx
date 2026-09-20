@@ -2,7 +2,13 @@
 
 import { useMemo, useState, type ChangeEvent, type ReactNode } from "react";
 import type { AdminPromptRow } from "@/lib/supabase/catalog";
-import { savePromptAction, deletePromptAction, toggleActiveAction } from "@/app/admin/actions";
+import {
+  savePromptAction,
+  deletePromptAction,
+  toggleActiveAction,
+  toggleTestedAction,
+  setPromptImageAction,
+} from "@/app/admin/actions";
 import { uploadPromptImage } from "@/lib/supabase/storage";
 import { ImageGallery } from "@/components/admin/ImageGallery";
 import { ImportPanel } from "@/components/admin/ImportPanel";
@@ -17,6 +23,12 @@ const FILTERS = [
   "Vídeo",
   "Códigos",
   "Combos",
+  "Testados",
+  "Não testados",
+  "Com imagem",
+  "Sem imagem",
+  "Ativos",
+  "Inativos",
 ] as const;
 type FilterValue = (typeof FILTERS)[number];
 
@@ -28,6 +40,12 @@ function matchesFilter(prompt: AdminPromptRow, filter: FilterValue): boolean {
   if (filter === "Imagem" || filter === "Vídeo") {
     return prompt.type === filter;
   }
+  if (filter === "Testados") return prompt.is_tested;
+  if (filter === "Não testados") return !prompt.is_tested;
+  if (filter === "Com imagem") return !!prompt.image_url;
+  if (filter === "Sem imagem") return !prompt.image_url;
+  if (filter === "Ativos") return prompt.is_active;
+  if (filter === "Inativos") return !prompt.is_active;
   return prompt.tags.includes(filter);
 }
 
@@ -78,6 +96,30 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<FilterValue>("Todos");
+
+  // Quick "add/replace image" from the list row, without opening the full
+  // edit form. Keyed by prompt id so multiple rows have independent state.
+  const [quickImageUploadingId, setQuickImageUploadingId] = useState<string | null>(null);
+  const [quickImageErrorId, setQuickImageErrorId] = useState<string | null>(null);
+
+  async function handleQuickImageSelect(promptId: string, e: ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setQuickImageUploadingId(promptId);
+    setQuickImageErrorId(null);
+
+    try {
+      const uploaded = await uploadPromptImage(file);
+      await setPromptImageAction(promptId, uploaded.url);
+    } catch (err) {
+      console.error("Failed to set prompt image:", err);
+      setQuickImageErrorId(promptId);
+    } finally {
+      setQuickImageUploadingId(null);
+      e.target.value = "";
+    }
+  }
 
   function startCreate() {
     setEditing(null);
@@ -333,28 +375,60 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
         {visiblePrompts.map((prompt) => (
           <div
             key={prompt.id}
-            className="flex flex-col gap-2 rounded-xl border border-border bg-surface p-4 sm:flex-row sm:items-center sm:justify-between"
+            className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-4 sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="flex items-center gap-3">
-              {prompt.image_url && (
-                <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-border">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface-2">
+                {prompt.image_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={prompt.image_url} alt="" className="h-full w-full object-cover" />
+                ) : (
+                  <span className="px-1 text-center text-[9px] font-semibold uppercase leading-tight text-muted">
+                    Sem imagem
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <div className="flex flex-wrap items-baseline gap-1.5">
+                  <span className="font-mono text-xs text-accent">{prompt.code}</span>
+                  <span className="text-sm font-semibold text-foreground">{prompt.title}</span>
                 </div>
-              )}
-              <div className="flex flex-col gap-0.5">
-                <span className="font-mono text-xs text-accent">{prompt.code}</span>
-                <span className="text-sm font-semibold text-foreground">{prompt.title}</span>
-                <span className="text-xs text-muted">
-                  {prompt.segment} · {prompt.type}
-                  {prompt.featured ? " · Destaque" : ""}
-                  {prompt.is_premium ? " · Premium" : ""}
-                  {prompt.is_tested ? " · Testado" : ""}
-                </span>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted">
+                    {prompt.segment}
+                  </span>
+                  <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted">
+                    {prompt.type}
+                  </span>
+                  {prompt.featured && (
+                    <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted">
+                      Destaque
+                    </span>
+                  )}
+                  {prompt.is_premium && (
+                    <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted">
+                      Premium
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {/* Testado / Ativo: each button is both the visible sim/não
+                  status and the quick toggle action for it. */}
+              <form action={toggleTestedAction.bind(null, prompt.id, !prompt.is_tested)}>
+                <button
+                  type="submit"
+                  className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
+                    prompt.is_tested ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"
+                  }`}
+                >
+                  {prompt.is_tested ? "Testado" : "Não testado"}
+                </button>
+              </form>
+
               <form action={toggleActiveAction.bind(null, prompt.id, !prompt.is_active)}>
                 <button
                   type="submit"
@@ -365,6 +439,24 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
                   {prompt.is_active ? "Ativo" : "Inativo"}
                 </button>
               </form>
+
+              <label className="cursor-pointer rounded-lg border border-border px-3 py-1 text-xs font-medium text-foreground">
+                {quickImageUploadingId === prompt.id
+                  ? "Enviando..."
+                  : prompt.image_url
+                    ? "Substituir imagem"
+                    : "Adicionar imagem"}
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  disabled={quickImageUploadingId === prompt.id}
+                  onChange={(e) => handleQuickImageSelect(prompt.id, e)}
+                />
+              </label>
+              {quickImageErrorId === prompt.id && (
+                <span className="text-xs text-red-400">Falha ao enviar.</span>
+              )}
 
               <button
                 onClick={() => startEdit(prompt)}

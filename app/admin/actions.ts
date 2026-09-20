@@ -77,6 +77,38 @@ export async function toggleActiveAction(id: string, isActive: boolean) {
   refreshCatalog();
 }
 
+// "Testado" is only ever set here or from the edit form's checkbox -
+// never inferred automatically, so it stays a true, explicit curation
+// signal (see lib/badges.ts on the /app side).
+export async function toggleTestedAction(id: string, isTested: boolean) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase
+    .from("prompts")
+    .update({ is_tested: isTested })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshCatalog();
+}
+
+// Quick "add/replace image" action for the admin list: the file upload
+// itself happens client-side (uploadPromptImage), this just persists the
+// resulting URL without requiring the full edit form.
+export async function setPromptImageAction(id: string, imageUrl: string) {
+  await requireAdmin();
+  const supabase = await createSupabaseServerClient();
+
+  const { error } = await supabase
+    .from("prompts")
+    .update({ image_url: imageUrl })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  refreshCatalog();
+}
+
 export async function importPromptsAction(rows: ImportRow[]): Promise<ImportResult> {
   await requireAdmin();
   const supabase = await createSupabaseServerClient();
