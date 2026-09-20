@@ -41,6 +41,14 @@ export function PromptDefaultImagesClient({ items }: { items: PromptDefaultImage
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
 
+  // Batch upload state, keyed by "axis:value" so each group's progress is
+  // independent. Each selected file becomes its own row in that group
+  // (one insert per file) so a whole pool can be built in one action
+  // instead of repeating the single-image form N times.
+  const [batchKey, setBatchKey] = useState<string | null>(null);
+  const [batchProgress, setBatchProgress] = useState<{ done: number; total: number } | null>(null);
+  const [batchError, setBatchError] = useState<string | null>(null);
+
   function startCreate(axis?: PromptDefaultAxis, value?: string) {
     setEditing(axis ? { axis, value } : null);
     setFormImageUrl("");
@@ -74,6 +82,42 @@ export function PromptDefaultImagesClient({ items }: { items: PromptDefaultImage
     }
   }
 
+  async function handleBatchUpload(
+    axis: PromptDefaultAxis,
+    value: string,
+    files: FileList,
+    startPosition: number
+  ) {
+    const key = `${axis}:${value}`;
+    const fileList = Array.from(files);
+    if (fileList.length === 0) return;
+
+    setBatchKey(key);
+    setBatchError(null);
+    setBatchProgress({ done: 0, total: fileList.length });
+
+    try {
+      let position = startPosition;
+      for (const file of fileList) {
+        const uploaded = await uploadPromptDefaultImage(file);
+        const formData = new FormData();
+        formData.set("axis", axis);
+        formData.set("value", value);
+        formData.set("image_url", uploaded.url);
+        formData.set("position", String(position++));
+        formData.set("is_active", "on");
+        await savePromptDefaultImageAction(formData);
+        setBatchProgress((prev) => (prev ? { ...prev, done: prev.done + 1 } : prev));
+      }
+    } catch (err) {
+      console.error("Failed to batch-upload prompt default images:", err);
+      setBatchError(key);
+    } finally {
+      setBatchKey(null);
+      setBatchProgress(null);
+    }
+  }
+
   // axis -> value -> rows. Multiple rows per (axis, value) are expected
   // (a small pool of default images to add variety), unlike lp_media.
   const grouped = useMemo(() => {
@@ -96,10 +140,12 @@ export function PromptDefaultImagesClient({ items }: { items: PromptDefaultImage
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-bold text-foreground">Imagens padrão dos prompts</h1>
+          <h1 className="text-lg font-bold text-foreground">Biblioteca de imagens dos prompts</h1>
           <p className="text-xs text-muted">
-            Usadas nos cards quando o prompt não tem imagem própria. Prioridade: imagem do
-            prompt → categoria → segmento → tipo → ícone padrão.
+            Prioridade nos cards: imagem do próprio prompt (sempre vence, inclusive em
+            premium/testados) → imagem da biblioteca compatível com categoria, segmento ou tipo →
+            ícone padrão. Um grupo com várias imagens é distribuído entre os prompts dele de forma
+            determinística, para não repetir sempre a mesma foto.
           </p>
         </div>
         <button
@@ -229,16 +275,51 @@ export function PromptDefaultImagesClient({ items }: { items: PromptDefaultImage
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{AXIS_LABELS[axis]}</h2>
             {AXIS_VALUES[axis].map((value) => {
               const rows = grouped.get(axis)?.get(value) ?? [];
+              const key = `${axis}:${value}`;
+              const isBatchUploading = batchKey === key;
               return (
                 <div key={value} className="flex flex-col gap-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-semibold text-foreground">{value}</h3>
-                    <button
-                      onClick={() => startCreate(axis, value)}
-                      className="text-xs font-medium text-accent"
-                    >
-                      + Adicionar
-                    </button>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-sm font-semibold text-foreground">
+                      {value}
+                      <span className="ml-2 text-xs font-normal text-muted">
+                        {rows.length} {rows.length === 1 ? "imagem" : "imagens"}
+                      </span>
+                    </h3>
+                    <div className="flex items-center gap-3">
+                      {isBatchUploading && batchProgress && (
+                        <span className="text-xs text-muted">
+                          Enviando {batchProgress.done}/{batchProgress.total}...
+                        </span>
+                      )}
+                      {batchError === key && (
+                        <span className="text-xs text-red-400">Falha ao enviar algumas imagens.</span>
+                      )}
+                      <label
+                        className={`cursor-pointer text-xs font-medium ${isBatchUploading ? "text-muted" : "text-accent"}`}
+                      >
+                        {isBatchUploading ? "Enviando..." : "+ Upload múltiplo"}
+                        <input
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          disabled={isBatchUploading}
+                          onChange={(e) => {
+                            if (e.target.files && e.target.files.length > 0) {
+                              handleBatchUpload(axis, value, e.target.files, rows.length);
+                            }
+                            e.target.value = "";
+                          }}
+                          className="hidden"
+                        />
+                      </label>
+                      <button
+                        onClick={() => startCreate(axis, value)}
+                        className="text-xs font-medium text-accent"
+                      >
+                        + Adicionar
+                      </button>
+                    </div>
                   </div>
 
                   {rows.length === 0 ? (
