@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { createSupabaseServiceRoleClient } from "@/lib/supabase/serviceRole";
 import { createPreapproval } from "@/lib/mercadopago";
+import { getEffectivePaymentConfig } from "@/lib/paymentConfig";
 import { PLANS, isPlanId } from "@/lib/plans";
 
 function mapMpError(message: string): string {
@@ -58,9 +59,18 @@ export async function POST(request: NextRequest) {
   const plan = PLANS[planId];
   const origin = request.nextUrl.origin;
 
+  const { accessToken } = await getEffectivePaymentConfig();
+  if (!accessToken) {
+    return NextResponse.json(
+      { message: "Pagamentos ainda não configurados. Tente novamente mais tarde." },
+      { status: 503 }
+    );
+  }
+
   let preapproval;
   try {
     preapproval = await createPreapproval({
+      accessToken,
       reason: `MaqAI - Plano ${plan.label}`,
       externalReference: user.id,
       payerEmail,

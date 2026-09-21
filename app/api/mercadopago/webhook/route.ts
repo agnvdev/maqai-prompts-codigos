@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getPreapproval, verifyWebhookSignature } from "@/lib/mercadopago";
 import { createSupabaseServiceRoleClient } from "@/lib/supabase/serviceRole";
+import { getEffectivePaymentConfig } from "@/lib/paymentConfig";
 import type { PlanId } from "@/lib/plans";
 
 // Accepts both notification shapes Mercado Pago has used for
@@ -43,7 +44,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  const webhookSecret = process.env.MERCADOPAGO_WEBHOOK_SECRET;
+  const { accessToken, webhookSecret } = await getEffectivePaymentConfig();
+
   if (webhookSecret) {
     const valid = verifyWebhookSignature({
       xSignature: request.headers.get("x-signature"),
@@ -57,15 +59,20 @@ export async function POST(request: NextRequest) {
     }
   } else {
     console.warn(
-      "MERCADOPAGO_WEBHOOK_SECRET not configured - webhook signature is not being verified."
+      "No webhook secret configured (admin panel or MERCADOPAGO_WEBHOOK_SECRET) - webhook signature is not being verified."
     );
+  }
+
+  if (!accessToken) {
+    console.error("No Mercado Pago access token configured - cannot verify preapproval status.");
+    return NextResponse.json({ message: "Payments not configured" }, { status: 503 });
   }
 
   // Never trust the payload's own status - always ask Mercado Pago for
   // the current, authoritative state of this preapproval.
   let preapproval;
   try {
-    preapproval = await getPreapproval(preapprovalId);
+    preapproval = await getPreapproval(preapprovalId, accessToken);
   } catch (error) {
     console.error(`Failed to fetch preapproval ${preapprovalId} from Mercado Pago:`, error);
     return NextResponse.json({ message: "Failed to verify subscription" }, { status: 502 });

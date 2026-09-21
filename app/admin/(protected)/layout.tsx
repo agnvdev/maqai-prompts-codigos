@@ -41,6 +41,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             <Link href="/admin/media" className="transition-colors hover:text-foreground">
               Mídias da LP
             </Link>
+            <Link href="/admin/settings/payments" className="transition-colors hover:text-foreground">
+              Pagamentos
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-3">

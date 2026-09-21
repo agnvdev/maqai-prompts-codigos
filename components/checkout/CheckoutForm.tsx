@@ -39,13 +39,17 @@ export function CheckoutForm({
   plan,
   userEmail,
   userName,
+  publicKey,
 }: {
   plan: Plan;
   userEmail: string | null;
   userName: string | null;
+  // Resolved server-side by the /checkout page (admin-configured value
+  // falling back to NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY) so this
+  // component never reads process.env itself - see lib/paymentConfig.ts.
+  publicKey: string | null;
 }) {
   const router = useRouter();
-  const publicKey = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY;
   const mpRef = useRef<MercadoPagoInstance | null>(null);
   // Lazy initial check instead of an effect: if the SDK global already
   // exists (e.g. a prior mount already loaded it), reflect that in the

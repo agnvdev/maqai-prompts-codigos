@@ -8,6 +8,7 @@ import { getCustomerAuthState } from "@/lib/supabase/customerDal";
 import { getSafeRedirect } from "@/lib/safeRedirect";
 import { PLANS, isPlanId } from "@/lib/plans";
 import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
+import { getEffectivePaymentConfig } from "@/lib/paymentConfig";
 import { HERO_IMAGE } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -49,6 +50,12 @@ export default async function CheckoutPage({
     console.error("Failed to load LP media from Supabase:", error);
   }
 
+  // Resolved server-side (admin-configured value, falling back to the
+  // env var) so an admin can change the Public Key from
+  // /admin/settings/payments without a redeploy - CheckoutForm never
+  // reads process.env itself, only this prop.
+  const { publicKey } = await getEffectivePaymentConfig();
+
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <header className="border-b border-border px-4 py-3.5 sm:px-6">
@@ -81,7 +88,12 @@ export default async function CheckoutPage({
           <p className="mt-1 text-sm text-muted">Pagamento com cartão de crédito, processado pelo Mercado Pago.</p>
 
           <div className="mt-6">
-            <CheckoutForm plan={plan} userEmail={auth.user.email} userName={auth.user.fullName} />
+            <CheckoutForm
+              plan={plan}
+              userEmail={auth.user.email}
+              userName={auth.user.fullName}
+              publicKey={publicKey}
+            />
           </div>
         </section>
       </main>

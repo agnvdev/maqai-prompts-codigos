@@ -2,12 +2,6 @@ import { createHmac } from "node:crypto";
 
 const MP_API_BASE = "https://api.mercadopago.com";
 
-function requireAccessToken(): string {
-  const token = process.env.MERCADOPAGO_ACCESS_TOKEN;
-  if (!token) throw new Error("MERCADOPAGO_ACCESS_TOKEN não configurado.");
-  return token;
-}
-
 export interface MpPreapproval {
   id: string;
   status: string;
@@ -20,6 +14,7 @@ export interface MpPreapproval {
 }
 
 export interface CreatePreapprovalInput {
+  accessToken: string;
   reason: string;
   externalReference: string;
   payerEmail: string;
@@ -35,12 +30,16 @@ export interface CreatePreapprovalInput {
 // token - no redirect through Mercado Pago's own checkout page. Throws
 // with MP's own message on failure (declined card, invalid token, etc.)
 // so the route handler can translate it into a friendly PT-BR message.
+// accessToken is resolved by the caller via
+// lib/paymentConfig.ts#getEffectivePaymentConfig (admin-configured
+// value, falling back to MERCADOPAGO_ACCESS_TOKEN) - this module has no
+// opinion on where it came from.
 export async function createPreapproval(input: CreatePreapprovalInput): Promise<MpPreapproval> {
   const res = await fetch(`${MP_API_BASE}/preapproval`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${requireAccessToken()}`,
+      Authorization: `Bearer ${input.accessToken}`,
     },
     body: JSON.stringify({
       reason: input.reason,
@@ -70,9 +69,9 @@ export async function createPreapproval(input: CreatePreapprovalInput): Promise<
 // The webhook must never trust the status embedded in the notification
 // payload - it only exists to tell us *something* changed for this id,
 // then we ask Mercado Pago directly what the real current status is.
-export async function getPreapproval(id: string): Promise<MpPreapproval> {
+export async function getPreapproval(id: string, accessToken: string): Promise<MpPreapproval> {
   const res = await fetch(`${MP_API_BASE}/preapproval/${encodeURIComponent(id)}`, {
-    headers: { Authorization: `Bearer ${requireAccessToken()}` },
+    headers: { Authorization: `Bearer ${accessToken}` },
   });
   const data = await res.json().catch(() => null);
   if (!res.ok) {
@@ -83,10 +82,10 @@ export async function getPreapproval(id: string): Promise<MpPreapproval> {
 
 // Validates the `x-signature` header Mercado Pago sends on webhook
 // deliveries (HMAC-SHA256 over "id:<data.id>;request-id:<x-request-id>;
-// ts:<ts>;", per MP's documented scheme). Only enforced when
-// MERCADOPAGO_WEBHOOK_SECRET is configured - see the final report for
-// where to get that secret and why an unconfigured webhook still works
-// (but unverified) until then.
+// ts:<ts>;", per MP's documented scheme). Only enforced when a webhook
+// secret is configured (admin panel or MERCADOPAGO_WEBHOOK_SECRET, see
+// lib/paymentConfig.ts) - an unconfigured webhook still works, just
+// unverified.
 export function verifyWebhookSignature({
   xSignature,
   xRequestId,
