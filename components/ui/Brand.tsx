@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // The mark is a square symbol, not a full horizontal signature, so it
-// always sits beside the "MaqDesk" wordmark rather than replacing it.
+// always sits beside the "MaqAI" wordmark rather than replacing it.
 // logoUrl comes from the admin-managed lp_media row (slot "logo",
 // identifier "Logo" — see BrandAssetsClient.tsx); with none set, only
 // the wordmark renders.
@@ -16,7 +16,7 @@ export function Brand({ href = "/", logoUrl }: { href?: string; logoUrl?: string
         </span>
       )}
       <span className="text-xl font-bold leading-none tracking-[-0.02em] text-foreground">
-        Maq<span className="text-accent transition-colors group-hover:text-accent/80">Desk</span>
+        Maq<span className="text-accent transition-colors group-hover:text-accent/80">AI</span>
       </span>
     </Link>
   );

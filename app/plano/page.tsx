@@ -14,9 +14,9 @@ import { getActiveLpShowcaseItems, type LpShowcaseItem } from "@/lib/supabase/lp
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Plano MaqDesk - R$ 29,90/mês",
+  title: "Plano MaqAI - R$ 29,90/mês",
   description:
-    "Assine a MaqDesk por R$ 29,90/mês no lançamento. Biblioteca premium de prompts para máquinas pesadas, agro e equipamentos pesados.",
+    "Assine a MaqAI por R$ 29,90/mês no lançamento. Biblioteca premium de prompts para máquinas pesadas, agro e equipamentos pesados.",
 };
 
 export default async function PlanoPage() {
@@ -59,7 +59,7 @@ export default async function PlanoPage() {
             </span>
 
             <h1 className="text-3xl font-bold uppercase leading-tight tracking-tight text-foreground sm:text-4xl">
-              Assine a <span className="text-accent">MaqDesk</span>
+              Assine a <span className="text-accent">MaqAI</span>
             </h1>
             <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
               Biblioteca premium de prompts, códigos e combinações para máquinas pesadas, agro e

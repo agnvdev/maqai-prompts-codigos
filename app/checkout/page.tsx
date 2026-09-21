@@ -11,7 +11,7 @@ import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
 import { HERO_IMAGE } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Checkout - MaqDesk",
+  title: "Checkout - MaqAI",
 };
 
 export default async function CheckoutPage({

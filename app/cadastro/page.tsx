@@ -120,7 +120,7 @@ function CadastroForm() {
   }
 
   return (
-    <AuthShell title="Criar conta" subtitle="Comece a usar a MaqDesk." logoUrl={logoUrl}>
+    <AuthShell title="Criar conta" subtitle="Comece a usar a MaqAI." logoUrl={logoUrl}>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="flex flex-col gap-1.5 text-xs font-medium text-muted">
           Nome

@@ -250,7 +250,7 @@ export function CheckoutForm({
       </button>
 
       <p className="text-center text-[11px] leading-relaxed text-muted">
-        Pagamento processado com segurança pelo Mercado Pago. A MaqDesk nunca armazena os dados do
+        Pagamento processado com segurança pelo Mercado Pago. A MaqAI nunca armazena os dados do
         seu cartão.
       </p>
     </form>

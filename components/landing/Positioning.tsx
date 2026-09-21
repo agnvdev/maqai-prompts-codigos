@@ -6,7 +6,7 @@ export function Positioning() {
           Feito para o setor pesado, não para todo mundo
         </h2>
         <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-          A MaqDesk não tenta atender qualquer nicho. Cada prompt é pensado para máquinas pesadas,
+          A MaqAI não tenta atender qualquer nicho. Cada prompt é pensado para máquinas pesadas,
           agro, mineração e equipamentos pesados, com foco e validação nesse setor.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 text-xs font-bold uppercase tracking-widest">

@@ -83,7 +83,7 @@ function LoginForm() {
   }
 
   return (
-    <AuthShell title="Entrar na MaqDesk" subtitle="Acesse sua biblioteca de prompts." logoUrl={logoUrl}>
+    <AuthShell title="Entrar na MaqAI" subtitle="Acesse sua biblioteca de prompts." logoUrl={logoUrl}>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="flex flex-col gap-1.5 text-xs font-medium text-muted">
           E-mail

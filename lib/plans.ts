@@ -1,4 +1,4 @@
-// Plan catalog for the MaqDesk subscription offer. No database table for
+// Plan catalog for the MaqAI subscription offer. No database table for
 // plans on purpose - only 2 fixed plans exist today, so a table would be
 // pure overhead. subscriptions.plan just stores this id as text.
 export type PlanId = "monthly" | "annual";

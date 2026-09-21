@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
   let preapproval;
   try {
     preapproval = await createPreapproval({
-      reason: `MaqDesk - Plano ${plan.label}`,
+      reason: `MaqAI - Plano ${plan.label}`,
       externalReference: user.id,
       payerEmail,
       cardTokenId,

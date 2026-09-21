@@ -4,7 +4,7 @@ import { Brand } from "@/components/ui/Brand";
 import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
 
 export const metadata: Metadata = {
-  title: "Assinatura confirmada - MaqDesk",
+  title: "Assinatura confirmada - MaqAI",
 };
 
 export default async function CheckoutSucessoPage() {
@@ -38,7 +38,7 @@ export default async function CheckoutSucessoPage() {
         <div className="flex flex-col gap-1.5">
           <h1 className="text-xl font-bold tracking-tight text-foreground">Assinatura confirmada</h1>
           <p className="text-sm text-muted">
-            Seu pagamento foi aprovado. Sua assinatura MaqDesk já está ativa.
+            Seu pagamento foi aprovado. Sua assinatura MaqAI já está ativa.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default async function CheckoutSucessoPage() {
           href="/app"
           className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-accent px-8 py-4 text-sm font-extrabold uppercase tracking-wide text-accent-foreground shadow-[0_0_0_1px_rgba(245,197,24,0.35),0_20px_40px_-16px_rgba(245,197,24,0.45)] transition-all duration-200 hover:brightness-105 active:scale-[0.98]"
         >
-          Entrar na MaqDesk
+          Entrar na MaqAI
         </Link>
       </div>
     </div>

@@ -1,5 +1,5 @@
 export const PLAN_BENEFITS = [
-  "Acesso completo à MaqDesk",
+  "Acesso completo à MaqAI",
   "Prompts e comandos aprovados",
   "Novos conteúdos e atualizações",
   "Cancele quando quiser",

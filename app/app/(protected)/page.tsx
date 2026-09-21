@@ -11,7 +11,7 @@ import { getPromptDefaultImagesMap, type PromptDefaultImagesMap } from "@/lib/su
 import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
 
 export const metadata: Metadata = {
-  title: "Biblioteca de Prompts - MaqDesk",
+  title: "Biblioteca de Prompts - MaqAI",
   description: "Explore, favorite e copie prompts de IA testados para máquinas pesadas, agro e equipamentos pesados.",
 };
 
