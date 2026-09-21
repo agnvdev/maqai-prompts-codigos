@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { HERO_IMAGE } from "@/lib/images";
+import { CtaButton } from "@/components/landing/CtaButton";
 
 export function Hero({ imageUrl }: { imageUrl?: string }) {
   return (
@@ -43,27 +43,12 @@ export function Hero({ imageUrl }: { imageUrl?: string }) {
           equipamentos pesados.
         </p>
 
-        <Link
-          href="/login"
-          className="animate-fade-up group relative mt-2 inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-sm font-extrabold uppercase tracking-wide text-accent-foreground shadow-[0_0_0_1px_rgba(245,197,24,0.35),0_20px_40px_-16px_rgba(245,197,24,0.45)] transition-all duration-200 hover:shadow-[0_0_0_1px_rgba(245,197,24,0.5),0_24px_48px_-16px_rgba(245,197,24,0.6)] hover:brightness-105 active:scale-[0.98] sm:text-base"
+        <CtaButton
+          href="/plano"
+          label="Começar por R$ 29,90/mês"
+          className="animate-fade-up mt-2"
           style={{ animationDelay: "200ms" }}
-        >
-          Começar por R$ 29,90/mês
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
-            aria-hidden="true"
-          >
-            <path
-              d="M5 12h14M13 6l6 6-6 6"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </Link>
+        />
       </div>
     </section>
   );
