@@ -3,8 +3,10 @@ import { Header } from "@/components/landing/Header";
 import { BeforeAfter } from "@/components/landing/BeforeAfter";
 import { Showcase } from "@/components/landing/Showcase";
 import { Footer } from "@/components/landing/Footer";
-import { PricingCard } from "@/components/landing/PricingCard";
+import { PlanCard } from "@/components/landing/PlanCard";
+import { PlanBenefitsList } from "@/components/landing/PlanBenefitsList";
 import { CtaButton } from "@/components/landing/CtaButton";
+import { PLANS } from "@/lib/plans";
 import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
 import { getActiveLpBeforeAfterPairs, type LpBeforeAfterPair } from "@/lib/supabase/lpBeforeAfter";
 import { getActiveLpShowcaseItems, type LpShowcaseItem } from "@/lib/supabase/lpShowcase";
@@ -64,7 +66,16 @@ export default async function PlanoPage() {
               equipamentos pesados.
             </p>
 
-            <PricingCard ctaLabel="Assinar MaqDesk" ctaHref="/login" />
+            <div className="mt-4 grid w-full max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
+              <PlanCard plan={PLANS.monthly} />
+              <PlanCard plan={PLANS.annual} highlighted />
+            </div>
+
+            <PlanBenefitsList className="mt-4 items-center text-center" />
+
+            <p className="mt-2 text-xs leading-relaxed text-muted">
+              Garanta o valor de lançamento enquanto sua assinatura permanecer ativa.
+            </p>
           </div>
         </section>
 
@@ -87,7 +98,7 @@ export default async function PlanoPage() {
             <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
               Garanta o preço de lançamento antes que ele acabe.
             </p>
-            <CtaButton href="/login" label="Assinar MaqDesk" />
+            <CtaButton href="/checkout?plan=monthly" label="Assinar plano mensal" />
           </div>
         </section>
       </main>

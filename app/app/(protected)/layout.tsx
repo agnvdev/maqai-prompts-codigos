@@ -6,17 +6,18 @@ import { getCustomerAuthState } from "@/lib/supabase/customerDal";
 // (Brand + navigation + sign out), so this layout only decides who gets
 // past the door — no extra chrome to avoid doubling anything.
 //
-// Structured to extend cleanly for subscription gating later:
-//   authenticated + subscription active   -> render children (today)
-//   authenticated + subscription inactive -> redirect("/assinatura")
-// Not implemented yet - no subscription_status exists to check, so
-// there is exactly one state to add here when it does (see
-// lib/supabase/customerDal.ts).
+// Subscription gating: authenticated without an active subscription goes
+// to /plano instead of rendering the library (see
+// lib/supabase/customerDal.ts for what counts as active).
 export default async function AppProtectedLayout({ children }: { children: ReactNode }) {
   const auth = await getCustomerAuthState();
 
   if (auth.status === "unauthenticated") {
     redirect("/login?redirect=/app");
+  }
+
+  if (auth.status === "no_subscription") {
+    redirect("/plano");
   }
 
   return <>{children}</>;

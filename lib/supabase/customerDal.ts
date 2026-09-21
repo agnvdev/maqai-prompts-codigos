@@ -13,12 +13,13 @@ export interface CustomerUser {
   fullName: string | null;
 }
 
-// Deliberately only 2 states today. When subscription gating ships,
-// add a third state here ("no_subscription" or similar) the exact same
-// way "forbidden" was added to AdminAuthState — do not invent a
-// subscription_status field/column before it actually exists.
+// Subscription gating has shipped: a third state was added the same way
+// "forbidden" was added to AdminAuthState, backed by the real
+// subscriptions table (see supabase/migrations/20260921150000_subscriptions.sql)
+// instead of a guessed-at profiles column.
 export type CustomerAuthState =
   | { status: "unauthenticated" }
+  | { status: "no_subscription"; user: CustomerUser }
   | { status: "authenticated"; user: CustomerUser };
 
 export const getCustomerAuthState = cache(async (): Promise<CustomerAuthState> => {
@@ -37,10 +38,38 @@ export const getCustomerAuthState = cache(async (): Promise<CustomerAuthState> =
       .eq("id", user.id)
       .maybeSingle();
 
-    return {
-      status: "authenticated",
-      user: { id: user.id, email: user.email ?? null, fullName: profile?.full_name ?? null },
+    const customerUser: CustomerUser = {
+      id: user.id,
+      email: user.email ?? null,
+      fullName: profile?.full_name ?? null,
     };
+
+    // Independent try/catch: if the subscriptions migration hasn't been
+    // applied yet, this must not take down auth entirely (that would
+    // read as "logged out" for every customer) - it should just fail
+    // closed into no_subscription, same as truly having none.
+    //
+    // Only "authorized" (Mercado Pago's own status for a live, paid-up
+    // preapproval) counts as active - "pending", "paused" and
+    // "cancelled" all fall through to no_subscription.
+    let hasActiveSubscription = false;
+    try {
+      const { data: activeSubscription } = await supabase
+        .from("subscriptions")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("status", "authorized")
+        .limit(1)
+        .maybeSingle();
+      hasActiveSubscription = !!activeSubscription;
+    } catch (error) {
+      unstable_rethrow(error);
+      console.error("Failed to resolve subscription status:", error);
+    }
+
+    if (!hasActiveSubscription) return { status: "no_subscription", user: customerUser };
+
+    return { status: "authenticated", user: customerUser };
   } catch (error) {
     // Next throws a control-flow error from `cookies()` while probing a
     // route for static rendering; that must propagate, not be swallowed.
