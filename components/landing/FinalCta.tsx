@@ -30,9 +30,6 @@ export function FinalCta({ imageUrl }: { imageUrl?: string }) {
         <h2 className="text-3xl font-bold uppercase leading-tight tracking-tight text-foreground sm:text-4xl">
           Comece a criar com <span className="text-accent">IA</span> agora mesmo
         </h2>
-        <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-          Condição exclusiva para os primeiros acessos.
-        </p>
 
         <div className="w-full max-w-sm rounded-2xl border border-border bg-surface p-8 shadow-card">
           <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
@@ -43,6 +40,9 @@ export function FinalCta({ imageUrl }: { imageUrl?: string }) {
           </div>
           <p className="mt-1 text-sm text-muted">
             de <span className="line-through">R$ 79,90/mês</span> no preço regular
+          </p>
+          <p className="mt-2 text-sm font-semibold text-accent">
+            Condição exclusiva para os primeiros acessos.
           </p>
 
           <ul className="mt-6 flex flex-col gap-3 text-left">
