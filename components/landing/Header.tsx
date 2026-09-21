@@ -7,7 +7,7 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
         <Brand logoUrl={logoUrl} />
         <Link
-          href="/app"
+          href="/login"
           className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-[0_1px_0_rgba(255,255,255,0.35)_inset] transition-all duration-200 hover:brightness-110 active:scale-[0.97]"
         >
           Acessar

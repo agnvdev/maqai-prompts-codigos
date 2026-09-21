@@ -13,6 +13,7 @@ import {
 } from "@/lib/supabase/catalog";
 import type { PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
 import { Brand } from "@/components/ui/Brand";
+import { SignOutButton } from "@/components/library/SignOutButton";
 import { SearchBar } from "@/components/library/SearchBar";
 import { FilterChips, type FilterValue } from "@/components/library/FilterChips";
 import { Section } from "@/components/library/Section";
@@ -284,12 +285,15 @@ export function LibraryClient({
       <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3.5 sm:px-6">
           <Brand logoUrl={logoUrl} />
-          <Link
-            href="/"
-            className="text-xs font-medium text-muted transition-colors duration-200 hover:text-foreground"
-          >
-            ← Início
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/"
+              className="text-xs font-medium text-muted transition-colors duration-200 hover:text-foreground"
+            >
+              ← Início
+            </Link>
+            <SignOutButton />
+          </div>
         </div>
 
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 sm:px-6">
