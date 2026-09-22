@@ -8,7 +8,9 @@ import { getCustomerAuthState } from "@/lib/supabase/customerDal";
 //
 // Subscription gating: authenticated without an active subscription goes
 // to /plano instead of rendering the library (see
-// lib/supabase/customerDal.ts for what counts as active).
+// lib/supabase/customerDal.ts for what counts as active). Admins never
+// hit that branch - getCustomerAuthState() returns "authenticated" for
+// them unconditionally, without even querying subscriptions.
 export default async function AppProtectedLayout({ children }: { children: ReactNode }) {
   const auth = await getCustomerAuthState();
 

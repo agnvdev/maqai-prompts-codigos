@@ -50,7 +50,7 @@ function LoginForm() {
 
     try {
       const supabase = createSupabaseBrowserClient();
-      const { error: signInError } = await withTimeout(
+      const { data: signInData, error: signInError } = await withTimeout(
         supabase.auth.signInWithPassword({ email, password }),
         SIGN_IN_TIMEOUT_MS
       );
@@ -67,7 +67,20 @@ function LoginForm() {
         return;
       }
 
-      router.replace(getSafeRedirect(redirectParam));
+      // An admin account logging in here (this is the customer login,
+      // not /admin/login) always goes straight to /admin, ignoring
+      // ?redirect= entirely - never /app or /plano, both of which are
+      // gated by a subscription an admin never has. Regular customers
+      // keep going wherever ?redirect= (default /app) points; the /app
+      // layout itself decides /app vs /plano from there based on
+      // subscription status, so that branching isn't duplicated here.
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("is_admin")
+        .eq("id", signInData.user.id)
+        .maybeSingle();
+
+      router.replace(profile?.is_admin ? "/admin" : getSafeRedirect(redirectParam));
       router.refresh();
     } catch (err) {
       console.error("Login failed:", err);

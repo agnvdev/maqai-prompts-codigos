@@ -3,14 +3,17 @@ import { unstable_rethrow } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 // Mirrors lib/supabase/dal.ts's getAdminAuthState shape/pattern, but for
-// the customer-facing side: no is_admin check here at all — a customer
-// is authorized just by having a valid session, admin authorization is
-// a completely separate concern handled by dal.ts/requireAdmin.ts,
-// untouched by this file.
+// the customer-facing side. Admin authorization itself is still a
+// completely separate concern, handled entirely by
+// dal.ts/requireAdmin.ts for /admin - this file only reads is_admin to
+// decide whether *this* gate (the /app subscription check) applies to
+// the signed-in user at all, since an admin must reach /app without
+// ever needing a subscription.
 export interface CustomerUser {
   id: string;
   email: string | null;
   fullName: string | null;
+  isAdmin: boolean;
 }
 
 // Subscription gating has shipped: a third state was added the same way
@@ -34,7 +37,7 @@ export const getCustomerAuthState = cache(async (): Promise<CustomerAuthState> =
 
     const { data: profile } = await supabase
       .from("profiles")
-      .select("full_name")
+      .select("full_name, is_admin")
       .eq("id", user.id)
       .maybeSingle();
 
@@ -42,7 +45,16 @@ export const getCustomerAuthState = cache(async (): Promise<CustomerAuthState> =
       id: user.id,
       email: user.email ?? null,
       fullName: profile?.full_name ?? null,
+      isAdmin: profile?.is_admin === true,
     };
+
+    // Admins bypass the subscription check entirely - they never had
+    // one and never need one, and the subscriptions table is not even
+    // queried for them (nothing to consult, per the /admin gate's own
+    // rule that it never touches subscriptions either).
+    if (customerUser.isAdmin) {
+      return { status: "authenticated", user: customerUser };
+    }
 
     // Independent try/catch: if the subscriptions migration hasn't been
     // applied yet, this must not take down auth entirely (that would
