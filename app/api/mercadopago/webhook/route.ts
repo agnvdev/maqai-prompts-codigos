@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
   }
 
   const { accessToken, webhookSecret } = await getEffectivePaymentConfig();
+  const isProduction = process.env.NODE_ENV === "production";
 
   if (webhookSecret) {
     const valid = verifyWebhookSignature({
@@ -57,9 +58,16 @@ export async function POST(request: NextRequest) {
       console.error("Rejected Mercado Pago webhook: invalid signature.");
       return NextResponse.json({ message: "Invalid signature" }, { status: 401 });
     }
+  } else if (isProduction) {
+    // A production deployment must not accept unsigned webhook calls -
+    // without a secret we cannot tell a real Mercado Pago notification
+    // from anyone who discovers this URL and POSTs a guessed/observed
+    // preapproval id. Fail closed instead of the old warn-and-continue.
+    console.error("Rejected Mercado Pago webhook: no webhook secret configured in production.");
+    return NextResponse.json({ message: "Webhook not configured" }, { status: 401 });
   } else {
     console.warn(
-      "No webhook secret configured (admin panel or MERCADOPAGO_WEBHOOK_SECRET) - webhook signature is not being verified."
+      "No webhook secret configured (admin panel or MERCADOPAGO_WEBHOOK_SECRET) - webhook signature is not being verified (non-production only)."
     );
   }
 

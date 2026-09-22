@@ -37,12 +37,10 @@ const MP_SDK_SRC = "https://sdk.mercadopago.com/js/v2";
 // the current render.
 export function CheckoutForm({
   plan,
-  userEmail,
   userName,
   publicKey,
 }: {
   plan: Plan;
-  userEmail: string | null;
   userName: string | null;
   // Resolved server-side by the /checkout page (admin-configured value
   // falling back to NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY) so this
@@ -65,7 +63,6 @@ export function CheckoutForm({
   const [expirationYear, setExpirationYear] = useState("");
   const [securityCode, setSecurityCode] = useState("");
   const [identificationNumber, setIdentificationNumber] = useState("");
-  const [email] = useState(userEmail ?? "");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -124,13 +121,15 @@ export function CheckoutForm({
         identificationNumber: identificationNumber.replace(/\D+/g, ""),
       });
 
+      // No payerEmail here - the server derives it from the session
+      // itself (see api/checkout/create-subscription), never from
+      // client input.
       const res = await fetch("/api/checkout/create-subscription", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           plan: plan.id,
           cardTokenId: tokenResult.id,
-          payerEmail: email,
         }),
       });
 

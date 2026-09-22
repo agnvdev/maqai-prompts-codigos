@@ -90,7 +90,6 @@ export default async function CheckoutPage({
           <div className="mt-6">
             <CheckoutForm
               plan={plan}
-              userEmail={auth.user.email}
               userName={auth.user.fullName}
               publicKey={publicKey}
             />

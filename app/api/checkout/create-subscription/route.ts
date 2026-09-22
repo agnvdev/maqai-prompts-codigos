@@ -3,7 +3,11 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { createSupabaseServiceRoleClient } from "@/lib/supabase/serviceRole";
 import { createPreapproval } from "@/lib/mercadopago";
 import { getEffectivePaymentConfig } from "@/lib/paymentConfig";
+import { checkRateLimit } from "@/lib/rateLimit";
 import { PLANS, isPlanId } from "@/lib/plans";
+
+const CHECKOUT_RATE_LIMIT = 5;
+const CHECKOUT_RATE_WINDOW_MS = 10 * 60 * 1000;
 
 function mapMpError(message: string): string {
   const lower = message.toLowerCase();
@@ -26,15 +30,15 @@ export async function POST(request: NextRequest) {
 
   const planId = typeof body.plan === "string" ? body.plan : null;
   const cardTokenId = typeof body.cardTokenId === "string" ? body.cardTokenId : null;
-  const payerEmail = typeof body.payerEmail === "string" ? body.payerEmail : null;
 
-  if (!isPlanId(planId) || !cardTokenId || !payerEmail) {
+  if (!isPlanId(planId) || !cardTokenId) {
     return NextResponse.json({ message: "Dados de checkout incompletos." }, { status: 400 });
   }
 
   // The client never gets to say who it's paying for - the session
   // cookie is the only source of truth for user.id (used as Mercado
-  // Pago's external_reference).
+  // Pago's external_reference) and payer_email (never trust a
+  // client-supplied email for a payment record - use the account's own).
   const supabase = await createSupabaseServerClient();
   const {
     data: { user },
@@ -42,6 +46,23 @@ export async function POST(request: NextRequest) {
 
   if (!user) {
     return NextResponse.json({ message: "Sessão expirada. Faça login novamente." }, { status: 401 });
+  }
+
+  if (!user.email) {
+    return NextResponse.json({ message: "Sua conta não tem um e-mail válido para cobrança." }, { status: 400 });
+  }
+  const payerEmail = user.email;
+
+  // Keyed by user.id (not IP) - this route already requires auth, and
+  // the threat this guards against (repeated card-token attempts, i.e.
+  // card testing) is inherently tied to a session, not a network
+  // address. See lib/rateLimit.ts for the in-memory/per-instance caveat.
+  const rateLimit = checkRateLimit(`checkout:${user.id}`, CHECKOUT_RATE_LIMIT, CHECKOUT_RATE_WINDOW_MS);
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { message: "Muitas tentativas. Aguarde alguns minutos antes de tentar novamente." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil(rateLimit.retryAfterMs / 1000)) } }
+    );
   }
 
   const { data: existingActive } = await supabase
