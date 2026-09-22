@@ -1,19 +1,41 @@
 import { createSupabaseServiceRoleClient } from "@/lib/supabase/serviceRole";
+import {
+  TEST_ADMIN_EMAIL,
+  TEST_CLIENT_EMAIL,
+  TEST_SUBSCRIPTION_ID,
+  TEST_ENV_UNAVAILABLE_MESSAGE,
+} from "@/lib/testAccountsConstants";
 
-// Fixed, well-known identities - the whole point is that re-running
-// "Preparar ambiente de teste" always converges on the same 2 users and
-// the same 1 subscription row instead of piling up duplicates. Real
-// users never have a @maqai.local address, so there is no realistic
-// collision with production accounts.
-export const TEST_ADMIN_EMAIL = "admin.teste@maqai.local";
-export const TEST_CLIENT_EMAIL = "cliente.teste@maqai.local";
-export const TEST_SUBSCRIPTION_ID = "manual_test_cliente_001";
+export { TEST_ADMIN_EMAIL, TEST_CLIENT_EMAIL, TEST_SUBSCRIPTION_ID, TEST_ENV_UNAVAILABLE_MESSAGE };
 
 export interface TestAccountsStatus {
   adminOk: boolean;
   clienteOk: boolean;
   assinaturaOk: boolean;
   assinaturaStatus: string | null;
+  // true only when the service-role connection itself is missing/broken
+  // (env vars absent, or the Admin API call failed outright) - every
+  // other partial failure just leaves the affected field false/null
+  // instead of flipping this, so a single degraded check never hides
+  // the ones that did succeed.
+  unavailable: boolean;
+}
+
+const EMPTY_STATUS: TestAccountsStatus = {
+  adminOk: false,
+  clienteOk: false,
+  assinaturaOk: false,
+  assinaturaStatus: null,
+  unavailable: true,
+};
+
+function logStageError(stage: string, error: unknown) {
+  // Never log the service-role key or any request header - Supabase
+  // client errors (AuthError/PostgrestError) only ever carry
+  // message/code/details/hint, never the credentials used to connect.
+  const detail =
+    error instanceof Error ? { message: error.message, name: error.name } : { message: String(error) };
+  console.error(`[test-accounts] ${stage} failed:`, detail);
 }
 
 type ServiceRoleClient = ReturnType<typeof createSupabaseServiceRoleClient>;
@@ -85,59 +107,113 @@ async function ensureTestSubscription(serviceRole: ServiceRoleClient, clientUser
   if (error) throw error;
 }
 
+// Never throws. Every step is caught independently so one failing query
+// (say, the subscriptions read) can't hide a status the earlier steps
+// already resolved successfully - each field just stays at its safe
+// default when its own check fails.
 export async function getTestAccountsStatus(): Promise<TestAccountsStatus> {
-  const serviceRole = createSupabaseServiceRoleClient();
+  let serviceRole: ServiceRoleClient;
+  try {
+    serviceRole = createSupabaseServiceRoleClient();
+  } catch (error) {
+    logStageError("createSupabaseServiceRoleClient", error);
+    return EMPTY_STATUS;
+  }
 
-  const { data: usersPage, error: listError } = await serviceRole.auth.admin.listUsers({
-    page: 1,
-    perPage: 1000,
-  });
-  if (listError) throw listError;
-
-  const adminUser = usersPage.users.find((u) => u.email === TEST_ADMIN_EMAIL);
-  const clientUser = usersPage.users.find((u) => u.email === TEST_CLIENT_EMAIL);
+  let adminUser: { id: string } | undefined;
+  let clientUser: { id: string } | undefined;
+  try {
+    const { data, error } = await serviceRole.auth.admin.listUsers({ page: 1, perPage: 1000 });
+    if (error) throw error;
+    adminUser = data.users.find((u) => u.email === TEST_ADMIN_EMAIL);
+    clientUser = data.users.find((u) => u.email === TEST_CLIENT_EMAIL);
+  } catch (error) {
+    logStageError("listUsers", error);
+    return EMPTY_STATUS;
+  }
 
   let adminOk = false;
   if (adminUser) {
-    const { data } = await serviceRole.from("profiles").select("is_admin").eq("id", adminUser.id).maybeSingle();
-    adminOk = data?.is_admin === true;
+    try {
+      const { data, error } = await serviceRole
+        .from("profiles")
+        .select("is_admin")
+        .eq("id", adminUser.id)
+        .maybeSingle();
+      if (error) throw error;
+      adminOk = data?.is_admin === true;
+    } catch (error) {
+      logStageError("read admin profile", error);
+    }
   }
 
   let clienteOk = false;
   let assinaturaOk = false;
   let assinaturaStatus: string | null = null;
   if (clientUser) {
-    const { data } = await serviceRole.from("profiles").select("is_admin").eq("id", clientUser.id).maybeSingle();
-    clienteOk = data?.is_admin === false;
+    try {
+      const { data, error } = await serviceRole
+        .from("profiles")
+        .select("is_admin")
+        .eq("id", clientUser.id)
+        .maybeSingle();
+      if (error) throw error;
+      clienteOk = data?.is_admin === false;
+    } catch (error) {
+      logStageError("read client profile", error);
+    }
 
-    const { data: sub } = await serviceRole
-      .from("subscriptions")
-      .select("status")
-      .eq("provider_subscription_id", TEST_SUBSCRIPTION_ID)
-      .eq("user_id", clientUser.id)
-      .maybeSingle();
-    assinaturaStatus = sub?.status ?? null;
-    assinaturaOk = assinaturaStatus === "authorized";
+    try {
+      const { data, error } = await serviceRole
+        .from("subscriptions")
+        .select("status")
+        .eq("provider_subscription_id", TEST_SUBSCRIPTION_ID)
+        .eq("user_id", clientUser.id)
+        .maybeSingle();
+      if (error) throw error;
+      assinaturaStatus = data?.status ?? null;
+      assinaturaOk = assinaturaStatus === "authorized";
+    } catch (error) {
+      logStageError("read test subscription", error);
+    }
   }
 
-  return { adminOk, clienteOk, assinaturaOk, assinaturaStatus };
+  return { adminOk, clienteOk, assinaturaOk, assinaturaStatus, unavailable: false };
 }
 
+// This one CAN throw - it's only ever called from the Server Actions in
+// app/admin/test-accounts-actions.ts, which catch it and convert
+// whatever comes out into a single friendly string before it ever
+// reaches the client (see the "ações devem retornar erro amigável"
+// requirement). logStageError below still records which exact step
+// failed for server-side debugging.
 export async function prepareTestEnvironment(
   adminPassword: string,
   clientPassword: string
 ): Promise<TestAccountsStatus> {
   const serviceRole = createSupabaseServiceRoleClient();
 
-  await ensureTestUser(serviceRole, TEST_ADMIN_EMAIL, adminPassword, "Admin de Teste", true);
-  const clientUserId = await ensureTestUser(
-    serviceRole,
-    TEST_CLIENT_EMAIL,
-    clientPassword,
-    "Cliente de Teste",
-    false
-  );
-  await ensureTestSubscription(serviceRole, clientUserId);
+  try {
+    await ensureTestUser(serviceRole, TEST_ADMIN_EMAIL, adminPassword, "Admin de Teste", true);
+  } catch (error) {
+    logStageError("ensure admin test user", error);
+    throw error;
+  }
+
+  let clientUserId: string;
+  try {
+    clientUserId = await ensureTestUser(serviceRole, TEST_CLIENT_EMAIL, clientPassword, "Cliente de Teste", false);
+  } catch (error) {
+    logStageError("ensure client test user", error);
+    throw error;
+  }
+
+  try {
+    await ensureTestSubscription(serviceRole, clientUserId);
+  } catch (error) {
+    logStageError("ensure test subscription", error);
+    throw error;
+  }
 
   return getTestAccountsStatus();
 }
@@ -149,7 +225,10 @@ export async function cancelTestSubscription(): Promise<TestAccountsStatus> {
     .from("subscriptions")
     .update({ status: "cancelled", updated_at: new Date().toISOString() })
     .eq("provider_subscription_id", TEST_SUBSCRIPTION_ID);
-  if (error) throw error;
+  if (error) {
+    logStageError("cancel test subscription", error);
+    throw error;
+  }
 
   return getTestAccountsStatus();
 }

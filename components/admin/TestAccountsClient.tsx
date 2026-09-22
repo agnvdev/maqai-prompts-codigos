@@ -6,14 +6,7 @@ import {
   cancelTestSubscriptionAction,
 } from "@/app/admin/test-accounts-actions";
 import type { TestAccountsStatus } from "@/lib/testAccounts";
-
-// Duplicated as plain literals (not imported from lib/testAccounts.ts)
-// on purpose: that module pulls in the service-role client, which must
-// never be reachable from a "use client" file, even transitively. Keep
-// these in sync with the TEST_ADMIN_EMAIL/TEST_CLIENT_EMAIL constants
-// there - they're just display strings, not secrets.
-const TEST_ADMIN_EMAIL = "admin.teste@maqai.local";
-const TEST_CLIENT_EMAIL = "cliente.teste@maqai.local";
+import { TEST_ADMIN_EMAIL, TEST_CLIENT_EMAIL } from "@/lib/testAccountsConstants";
 
 function StatusBadge({ label, ok }: { label: string; ok: boolean }) {
   return (
@@ -32,10 +25,10 @@ export function TestAccountsClient({
   initialStatus,
   initialError,
 }: {
-  initialStatus: TestAccountsStatus | null;
+  initialStatus: TestAccountsStatus;
   initialError: string | null;
 }) {
-  const [status, setStatus] = useState<TestAccountsStatus | null>(initialStatus);
+  const [status, setStatus] = useState<TestAccountsStatus>(initialStatus);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(
     initialError ? { type: "error", text: initialError } : null
   );
@@ -89,12 +82,12 @@ export function TestAccountsClient({
       </div>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <StatusBadge label="Admin" ok={status?.adminOk ?? false} />
-        <StatusBadge label="Cliente" ok={status?.clienteOk ?? false} />
-        <StatusBadge label="Assinatura" ok={status?.assinaturaOk ?? false} />
+        <StatusBadge label="Admin" ok={status.adminOk} />
+        <StatusBadge label="Cliente" ok={status.clienteOk} />
+        <StatusBadge label="Assinatura" ok={status.assinaturaOk} />
       </div>
 
-      {status?.assinaturaStatus && (
+      {status.assinaturaStatus && (
         <p className="text-xs text-muted">
           Status atual da assinatura de teste: <span className="font-mono">{status.assinaturaStatus}</span>
         </p>

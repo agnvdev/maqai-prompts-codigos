@@ -2,12 +2,22 @@
 
 import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/supabase/requireAdmin";
-import { prepareTestEnvironment, cancelTestSubscription, type TestAccountsStatus } from "@/lib/testAccounts";
+import {
+  prepareTestEnvironment,
+  cancelTestSubscription,
+  TEST_ENV_UNAVAILABLE_MESSAGE,
+  type TestAccountsStatus,
+} from "@/lib/testAccounts";
 
 // Same admin-write pattern as actions.ts/payment-settings-actions.ts:
 // requireAdmin() first, every time - this is the only gate, since the
 // actual work below runs through the service-role client and would
 // otherwise happen unchecked for anyone who could call this action.
+//
+// Both actions below only ever let a plain, friendly string cross back
+// to the client - never the raw Supabase/Postgres error object (which
+// could carry more detail than we want a browser to see, even if it's
+// not a literal secret). The real error is logged here, server-side.
 export async function prepareTestEnvironmentAction(formData: FormData): Promise<TestAccountsStatus> {
   await requireAdmin();
 
@@ -18,15 +28,31 @@ export async function prepareTestEnvironmentAction(formData: FormData): Promise<
     throw new Error("As senhas de teste precisam ter pelo menos 6 caracteres.");
   }
 
-  const status = await prepareTestEnvironment(adminPassword, clientPassword);
-  revalidatePath("/admin/settings/test-accounts");
-  return status;
+  try {
+    const status = await prepareTestEnvironment(adminPassword, clientPassword);
+    revalidatePath("/admin/settings/test-accounts");
+    return status;
+  } catch (error) {
+    console.error(
+      "[test-accounts] prepareTestEnvironmentAction failed:",
+      error instanceof Error ? error.message : String(error)
+    );
+    throw new Error(TEST_ENV_UNAVAILABLE_MESSAGE);
+  }
 }
 
 export async function cancelTestSubscriptionAction(): Promise<TestAccountsStatus> {
   await requireAdmin();
 
-  const status = await cancelTestSubscription();
-  revalidatePath("/admin/settings/test-accounts");
-  return status;
+  try {
+    const status = await cancelTestSubscription();
+    revalidatePath("/admin/settings/test-accounts");
+    return status;
+  } catch (error) {
+    console.error(
+      "[test-accounts] cancelTestSubscriptionAction failed:",
+      error instanceof Error ? error.message : String(error)
+    );
+    throw new Error(TEST_ENV_UNAVAILABLE_MESSAGE);
+  }
 }
