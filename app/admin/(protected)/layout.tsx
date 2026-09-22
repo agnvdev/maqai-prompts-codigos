@@ -44,6 +44,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             <Link href="/admin/settings/payments" className="transition-colors hover:text-foreground">
               Pagamentos
             </Link>
+            <Link href="/admin/settings/test-accounts" className="transition-colors hover:text-foreground">
+              Contas de teste
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-3">
