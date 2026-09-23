@@ -20,6 +20,7 @@ import { SignOutButton } from "@/components/library/SignOutButton";
 import { SearchBar } from "@/components/library/SearchBar";
 import { FilterChips, type FilterValue } from "@/components/library/FilterChips";
 import { TypeTabs } from "@/components/library/TypeTabs";
+import { FavoritesToggle } from "@/components/library/FavoritesToggle";
 import { Section } from "@/components/library/Section";
 import { PromptCard } from "@/components/library/PromptCard";
 import { PromptDrawer } from "@/components/library/PromptDrawer";
@@ -53,6 +54,26 @@ const SECTION_ORDER: SectionKind[] = [
   "mineracao",
   "combos",
 ];
+
+// Only used for the favorites-only view (see below): the favorited set
+// is small and fetched by id, so search/category narrowing happens in
+// memory instead of a server query - these mirror the same predicates
+// getPromptsPage applies server-side (title/description/code/prompt
+// ilike; tags contains the category), just run client-side.
+function matchesSearch(prompt: Prompt, query: string): boolean {
+  if (!query.trim()) return true;
+  const q = query.trim().toLowerCase();
+  return (
+    prompt.title.toLowerCase().includes(q) ||
+    prompt.description.toLowerCase().includes(q) ||
+    prompt.code.toLowerCase().includes(q) ||
+    prompt.prompt.toLowerCase().includes(q)
+  );
+}
+
+function matchesCategoryFilter(prompt: Prompt, filter: FilterValue): boolean {
+  return filter === "Todos" || prompt.tags.includes(filter);
+}
 
 // Each home section paginates on its own (bounded query + "carregar
 // mais"), so browsing the home view never fetches or renders more than
@@ -133,11 +154,18 @@ export function LibraryClient({
   const [filter, setFilter] = useState<FilterValue>("Todos");
   const [activePrompt, setActivePrompt] = useState<Prompt | null>(null);
   const [categoryView, setCategoryView] = useState<CategoryView | null>(initialCategoryView);
+  // Separate from `filter` on purpose - favorites is a personal,
+  // cross-cutting dimension, not a taxonomy value, so it composes with
+  // both the active type tab and the active category chip instead of
+  // being one more option inside FilterChips (see selectFavoritesOnly,
+  // which deliberately never resets `filter`/`query`, and selectType/
+  // selectQuery/selectFilter, which deliberately never reset this).
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
   const { favorites, toggleFavorite } = useFavorites();
   const { recents, addRecent } = useRecents();
 
-  const isBrowsingHome = filter === "Todos" && debouncedQuery.trim() === "";
+  const isBrowsingHome = filter === "Todos" && debouncedQuery.trim() === "" && !showFavoritesOnly;
 
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedQuery(query), SEARCH_DEBOUNCE_MS);
@@ -213,6 +241,17 @@ export function LibraryClient({
     async function run() {
       setGridLoading(true);
       try {
+        if (showFavoritesOnly) {
+          const items = await getPromptsByIds(favorites);
+          const filtered = items.filter(
+            (p) => p.type === activeType && matchesSearch(p, debouncedQuery) && matchesCategoryFilter(p, filter),
+          );
+          if (cancelled) return;
+          setGridItems(filtered);
+          setGridHasMore(false);
+          return;
+        }
+
         const page = await getPromptsPage({
           search: debouncedQuery,
           filter,
@@ -236,10 +275,10 @@ export function LibraryClient({
     return () => {
       cancelled = true;
     };
-  }, [isBrowsingHome, filter, debouncedQuery, activeType]);
+  }, [isBrowsingHome, filter, debouncedQuery, activeType, showFavoritesOnly, favorites]);
 
   async function loadMoreGrid() {
-    if (gridLoading) return;
+    if (gridLoading || showFavoritesOnly) return;
     setGridLoading(true);
     try {
       const page = await getPromptsPage({
@@ -344,6 +383,14 @@ export function LibraryClient({
     setFilter(value);
   }
 
+  // Deliberately does not touch `filter`/`query` - toggling favorites
+  // combines with whatever category/search is already active instead of
+  // replacing it ("manter categorias secundárias funcionando junto").
+  function selectFavoritesOnly() {
+    setCategoryView(null);
+    setShowFavoritesOnly((prev) => !prev);
+  }
+
   function openPrompt(prompt: Prompt) {
     setActivePrompt(prompt);
     addRecent(prompt.id);
@@ -370,7 +417,12 @@ export function LibraryClient({
         <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 pb-4 sm:px-6">
           <TypeTabs active={activeType} counts={typeCounts} onChange={selectType} />
 
-          <SearchBar value={query} onChange={selectQuery} />
+          <div className="flex items-center gap-2">
+            <div className="min-w-0 flex-1">
+              <SearchBar value={query} onChange={selectQuery} />
+            </div>
+            <FavoritesToggle active={showFavoritesOnly} onToggle={selectFavoritesOnly} count={favorites.length} />
+          </div>
 
           <div className="flex items-center gap-3">
             <div className="min-w-0 flex-1">
@@ -481,12 +533,29 @@ export function LibraryClient({
             </h2>
 
             {gridItems.length === 0 && !gridLoading ? (
-              <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border bg-surface/40 py-16 text-center">
-                <p className="font-medium text-foreground">Nenhum prompt encontrado</p>
-                <p className="text-sm text-muted">
-                  Tente outra busca ou remova os filtros aplicados.
-                </p>
-              </div>
+              showFavoritesOnly ? (
+                <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border bg-surface/40 py-16 text-center">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-muted" aria-hidden="true">
+                    <path
+                      d="M12 21s-7.5-4.6-10-9.1C0.3 8.2 2 4.5 5.6 4c2.1-.3 4 .8 6.4 3.4C14.4 4.8 16.3 3.7 18.4 4c3.6.5 5.3 4.2 3.6 7.9C19.5 16.4 12 21 12 21Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p className="font-medium text-foreground">Nenhum favorito ainda</p>
+                  <p className="text-sm text-muted">
+                    Toque no coração de um prompt para guardá-lo aqui.
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-border bg-surface/40 py-16 text-center">
+                  <p className="font-medium text-foreground">Nenhum prompt encontrado</p>
+                  <p className="text-sm text-muted">
+                    Tente outra busca ou remova os filtros aplicados.
+                  </p>
+                </div>
+              )
             ) : (
               <>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
