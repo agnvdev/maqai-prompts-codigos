@@ -71,8 +71,10 @@ function matchesSearch(prompt: Prompt, query: string): boolean {
   );
 }
 
+// Canonical category is prompt.category (sourced from category_id, not
+// tags - see the same fix in lib/supabase/catalog.ts's getPromptsPage).
 function matchesCategoryFilter(prompt: Prompt, filter: FilterValue): boolean {
-  return filter === "Todos" || prompt.tags.includes(filter);
+  return filter === "Todos" || prompt.category === filter;
 }
 
 // Each home section paginates on its own (bounded query + "carregar

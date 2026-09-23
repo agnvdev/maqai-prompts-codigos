@@ -123,8 +123,15 @@ export async function getPromptsPage({
     query = query.or(`title.ilike.${like},description.ilike.${like},code.ilike.${like},prompt_text.ilike.${like}`);
   }
 
+  // Category is canonically category_id (-> categories.name), not tags:
+  // tags is free-form and only populated on a handful of seed rows, so
+  // filtering by it silently excluded almost the entire catalog. See
+  // toPrompt() below, which already derives Prompt.category the same
+  // way (via the embedded categories(name) join).
   if (filter && filter !== "Todos" && filter !== "Favoritos") {
-    query = query.contains("tags", [filter]);
+    const categoryId = (await getCategoryIdMap()).get(filter);
+    if (!categoryId) return { items: [], hasMore: false };
+    query = query.eq("category_id", categoryId);
   }
 
   query = query.order("created_at", { ascending: false }).range(offset, offset + limit - 1);
@@ -160,8 +167,12 @@ export async function getPromptsCount({
     query = query.or(`title.ilike.${like},description.ilike.${like},code.ilike.${like},prompt_text.ilike.${like}`);
   }
 
+  // Same canonical category_id predicate as getPromptsPage - see the
+  // comment there.
   if (filter && filter !== "Todos" && filter !== "Favoritos") {
-    query = query.contains("tags", [filter]);
+    const categoryId = (await getCategoryIdMap()).get(filter);
+    if (!categoryId) return 0;
+    query = query.eq("category_id", categoryId);
   }
 
   const { count, error } = await query;
@@ -195,15 +206,25 @@ export type SectionKind =
   | "mineracao"
   | "combos";
 
-async function getCategoryIdByName(name: string): Promise<string | null> {
-  const { data, error } = await requireSupabase()
-    .from("categories")
-    .select("id")
-    .eq("name", name)
-    .maybeSingle();
+// Categories are a fixed 6-row reference table (see
+// supabase/migrations/20260912223000_catalog_full_fields.sql) with no
+// admin CRUD to change them at runtime, so the name->id map is resolved
+// once per server process and reused - avoids a round trip on every
+// grid search keystroke / "Ver todos" page instead of just the couple
+// of call sites (resolveSectionScope) that used to look it up.
+let categoryIdByNameCache: Map<string, string> | null = null;
 
+async function getCategoryIdMap(): Promise<Map<string, string>> {
+  if (categoryIdByNameCache) return categoryIdByNameCache;
+  const { data, error } = await requireSupabase().from("categories").select("id, name");
   if (error) throw error;
-  return data?.id ?? null;
+  categoryIdByNameCache = new Map(data.map((c) => [c.name as string, c.id as string]));
+  return categoryIdByNameCache;
+}
+
+async function getCategoryIdByName(name: string): Promise<string | null> {
+  const map = await getCategoryIdMap();
+  return map.get(name) ?? null;
 }
 
 // Shared by getSectionPrompts and getSectionCount so the "which rows
