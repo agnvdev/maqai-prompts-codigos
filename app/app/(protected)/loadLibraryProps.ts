@@ -2,9 +2,11 @@ import {
   getPromptsCount,
   getSectionCount,
   getSectionPrompts,
+  getTypeCounts,
   type PromptPage,
   type SectionKind,
 } from "@/lib/supabase/catalog";
+import type { PromptType } from "@/lib/types";
 import { getPromptDefaultImagesMap, type PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
 import { getActiveLpMediaMap } from "@/lib/supabase/lpMedia";
 
@@ -37,14 +39,19 @@ export interface LibraryBaseProps {
   initialSections: Partial<Record<SectionKind, PromptPage>>;
   sectionCounts: Partial<Record<SectionKind, number>>;
   totalCount?: number;
+  typeCounts: Partial<Record<PromptType, number>>;
   defaultImagesMap: PromptDefaultImagesMap;
   logoUrl?: string;
 }
 
-export async function loadLibraryBaseProps(): Promise<LibraryBaseProps> {
+// activeType scopes every section/count query - "Nunca misturar tipos em
+// uma mesma seção, contagem ou Ver todos" is enforced right here, at the
+// one place that fetches this data, not left to each caller to remember.
+export async function loadLibraryBaseProps(activeType: PromptType): Promise<LibraryBaseProps> {
   const initialSections: Partial<Record<SectionKind, PromptPage>> = {};
   const sectionCounts: Partial<Record<SectionKind, number>> = {};
   let totalCount: number | undefined;
+  let typeCounts: Partial<Record<PromptType, number>> = {};
   let defaultImagesMap: PromptDefaultImagesMap = {};
   let logoUrl: string | undefined;
 
@@ -53,12 +60,12 @@ export async function loadLibraryBaseProps(): Promise<LibraryBaseProps> {
     // indexed queries) — the catalog can hold 10k+ prompts without this
     // ever pulling more than a few dozen rows per section. The counts
     // are separate `count: "exact", head: true` queries — no extra rows,
-    // just the real totals shown in the UI ("512 prompts disponíveis",
-    // per-category counts, "Ver todos", "4 de 52").
+    // just the real totals shown in the UI (per-type tab labels,
+    // per-section counts, "Ver todos", "4 de 52").
     const [sectionResults, countResults, total] = await Promise.all([
-      Promise.all(SECTION_KINDS.map((kind) => getSectionPrompts({ kind }))),
-      Promise.all(SECTION_KINDS.map((kind) => getSectionCount(kind))),
-      getPromptsCount(),
+      Promise.all(SECTION_KINDS.map((kind) => getSectionPrompts({ kind, type: activeType }))),
+      Promise.all(SECTION_KINDS.map((kind) => getSectionCount(kind, activeType))),
+      getPromptsCount({ type: activeType }),
     ]);
     SECTION_KINDS.forEach((kind, i) => {
       initialSections[kind] = sectionResults[i];
@@ -69,6 +76,15 @@ export async function loadLibraryBaseProps(): Promise<LibraryBaseProps> {
     // A misconfigured/unreachable Supabase must not fail this page's
     // prerender and take the whole production build down with it.
     console.error("Failed to load initial catalog sections from Supabase:", error);
+  }
+
+  try {
+    // Independent try/catch: the 3 tab counts are their own 3 queries,
+    // separate from the section/type-scoped ones above - one failing
+    // must not take down the other.
+    typeCounts = await getTypeCounts();
+  } catch (error) {
+    console.error("Failed to load per-type counts from Supabase:", error);
   }
 
   try {
@@ -92,5 +108,5 @@ export async function loadLibraryBaseProps(): Promise<LibraryBaseProps> {
     console.error("Failed to load logo media:", error);
   }
 
-  return { initialSections, sectionCounts, totalCount, defaultImagesMap, logoUrl };
+  return { initialSections, sectionCounts, totalCount, typeCounts, defaultImagesMap, logoUrl };
 }

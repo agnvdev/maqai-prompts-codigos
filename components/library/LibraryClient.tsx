@@ -3,20 +3,23 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import type { Prompt } from "@/lib/types";
+import type { Prompt, PromptType } from "@/lib/types";
 import { useFavorites, useRecents } from "@/lib/hooks";
 import {
   getPromptsByIds,
   getPromptsPage,
+  getSectionCount,
   getSectionPrompts,
   type PromptPage,
   type SectionKind,
 } from "@/lib/supabase/catalog";
 import type { PromptDefaultImagesMap } from "@/lib/supabase/promptDefaults";
+import { slugFromType, DEFAULT_TAB_TYPE } from "@/lib/typeSlug";
 import { Brand } from "@/components/ui/Brand";
 import { SignOutButton } from "@/components/library/SignOutButton";
 import { SearchBar } from "@/components/library/SearchBar";
 import { FilterChips, type FilterValue } from "@/components/library/FilterChips";
+import { TypeTabs } from "@/components/library/TypeTabs";
 import { Section } from "@/components/library/Section";
 import { PromptCard } from "@/components/library/PromptCard";
 import { PromptDrawer } from "@/components/library/PromptDrawer";
@@ -24,9 +27,11 @@ import { PromptDrawer } from "@/components/library/PromptDrawer";
 const SEARCH_DEBOUNCE_MS = 300;
 const GRID_PAGE_SIZE = 24;
 
-// "Ver todos" target: either one catalog section or the whole catalog.
-// `total` is the real count from the server (Supabase `count: "exact"`),
-// used for the "20 de 203" progress label — not derived from loaded rows.
+// "Ver todos" target: either one catalog section or the whole catalog,
+// always within the active type (see REGRA OBRIGATÓRIA: never mix
+// types in a section, count, or "Ver todos"). `total` is the real count
+// from the server (Supabase `count: "exact"`), used for the "20 de 203"
+// progress label — not derived from loaded rows.
 type CategoryView = { kind: SectionKind | "all"; title: string; total?: number };
 
 const SECTION_TITLES: Record<SectionKind, string> = {
@@ -49,48 +54,45 @@ const SECTION_ORDER: SectionKind[] = [
   "combos",
 ];
 
-function matchesSearch(prompt: Prompt, query: string): boolean {
-  if (!query.trim()) return true;
-  const q = query.trim().toLowerCase();
-  return (
-    prompt.title.toLowerCase().includes(q) ||
-    prompt.description.toLowerCase().includes(q) ||
-    prompt.code.toLowerCase().includes(q) ||
-    prompt.prompt.toLowerCase().includes(q)
-  );
-}
-
 // Each home section paginates on its own (bounded query + "carregar
 // mais"), so browsing the home view never fetches or renders more than
 // a couple dozen cards per section, regardless of catalog size.
-function useSection(kind: SectionKind, enabled: boolean, initial?: PromptPage) {
+//
+// Re-fetches whenever `type` changes (a tab switch), not just once: the
+// `seedKey` ref tracks which exact (kind, type) combo `items` currently
+// holds, so the SSR-provided `initial` page is used as-is on mount but
+// any later change to `type` always goes back to the server instead of
+// silently keeping stale, wrong-type cards.
+function useSection(kind: SectionKind, type: PromptType, enabled: boolean, initial?: PromptPage) {
+  const seedKey = useRef<string | null>(initial ? `${kind}:${type}` : null);
   const [items, setItems] = useState<Prompt[]>(initial?.items ?? []);
   const [hasMore, setHasMore] = useState(initial?.hasMore ?? false);
   const [loading, setLoading] = useState(false);
-  const fetchedInitial = useRef(Boolean(initial));
 
   useEffect(() => {
-    if (!enabled || fetchedInitial.current) return;
-    fetchedInitial.current = true;
+    if (!enabled) return;
+    const key = `${kind}:${type}`;
+    if (seedKey.current === key) return;
+    seedKey.current = key;
     setLoading(true);
-    getSectionPrompts({ kind })
+    getSectionPrompts({ kind, type })
       .then((page) => {
         setItems(page.items);
         setHasMore(page.hasMore);
       })
-      .catch((error) => console.error(`Failed to load section "${kind}":`, error))
+      .catch((error) => console.error(`Failed to load section "${kind}" (${type}):`, error))
       .finally(() => setLoading(false));
-  }, [enabled, kind]);
+  }, [enabled, kind, type]);
 
   async function loadMore() {
     if (loading) return;
     setLoading(true);
     try {
-      const page = await getSectionPrompts({ kind, offset: items.length });
+      const page = await getSectionPrompts({ kind, type, offset: items.length });
       setItems((prev) => [...prev, ...page.items]);
       setHasMore(page.hasMore);
     } catch (error) {
-      console.error(`Failed to load more of section "${kind}":`, error);
+      console.error(`Failed to load more of section "${kind}" (${type}):`, error);
     } finally {
       setLoading(false);
     }
@@ -100,16 +102,18 @@ function useSection(kind: SectionKind, enabled: boolean, initial?: PromptPage) {
 }
 
 export function LibraryClient({
+  initialType,
+  typeCounts = {},
   initialSections = {},
   sectionCounts = {},
-  totalCount,
   defaultImagesMap = {},
   logoUrl,
   initialCategoryView = null,
 }: {
+  initialType: PromptType;
+  typeCounts?: Partial<Record<PromptType, number>>;
   initialSections?: Partial<Record<SectionKind, PromptPage>>;
   sectionCounts?: Partial<Record<SectionKind, number>>;
-  totalCount?: number;
   defaultImagesMap?: PromptDefaultImagesMap;
   logoUrl?: string | null;
   // Set by app/app/(protected)/secao/[kind]/page.tsx so "Ver todos" is a
@@ -118,6 +122,12 @@ export function LibraryClient({
   initialCategoryView?: CategoryView | null;
 }) {
   const router = useRouter();
+  // Captured once at mount (lazy initializer, not a ref - this needs to
+  // be readable during render, e.g. in effectiveSectionCounts below).
+  // Stays pointed at the type this instance's SSR data was fetched for,
+  // even as `activeType` changes on tab switches.
+  const [initialTypeSeed] = useState(() => initialType);
+  const [activeType, setActiveType] = useState<PromptType>(initialType);
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [filter, setFilter] = useState<FilterValue>("Todos");
@@ -135,17 +145,43 @@ export function LibraryClient({
   }, [query]);
 
   const sections: Record<SectionKind, ReturnType<typeof useSection>> = {
-    comeceAqui: useSection("comeceAqui", isBrowsingHome, initialSections.comeceAqui),
-    maisUsados: useSection("maisUsados", isBrowsingHome, initialSections.maisUsados),
-    codigosVirais: useSection("codigosVirais", isBrowsingHome, initialSections.codigosVirais),
-    maquinasPesadas: useSection("maquinasPesadas", isBrowsingHome, initialSections.maquinasPesadas),
-    agro: useSection("agro", isBrowsingHome, initialSections.agro),
-    mineracao: useSection("mineracao", isBrowsingHome, initialSections.mineracao),
-    combos: useSection("combos", isBrowsingHome, initialSections.combos),
+    comeceAqui: useSection("comeceAqui", activeType, isBrowsingHome, initialSections.comeceAqui),
+    maisUsados: useSection("maisUsados", activeType, isBrowsingHome, initialSections.maisUsados),
+    codigosVirais: useSection("codigosVirais", activeType, isBrowsingHome, initialSections.codigosVirais),
+    maquinasPesadas: useSection("maquinasPesadas", activeType, isBrowsingHome, initialSections.maquinasPesadas),
+    agro: useSection("agro", activeType, isBrowsingHome, initialSections.agro),
+    mineracao: useSection("mineracao", activeType, isBrowsingHome, initialSections.mineracao),
+    combos: useSection("combos", activeType, isBrowsingHome, initialSections.combos),
   };
+
+  // The SSR-provided sectionCounts are only valid for initialType - once
+  // the user switches tabs, re-fetch all 7 counts scoped to the new
+  // type so the "(N)" / "X de Y" numbers next to each section never lag
+  // behind a type switch.
+  const [dynamicSectionCounts, setDynamicSectionCounts] = useState<Partial<Record<SectionKind, number>>>({});
+  useEffect(() => {
+    // Nothing to fetch when back on the original type - the derived
+    // effectiveSectionCounts below already ignores dynamicSectionCounts
+    // in that case, so there's no stale value to clear either.
+    if (activeType === initialTypeSeed) return;
+    let cancelled = false;
+    Promise.all(SECTION_ORDER.map((kind) => getSectionCount(kind, activeType)))
+      .then((counts) => {
+        if (cancelled) return;
+        setDynamicSectionCounts(Object.fromEntries(SECTION_ORDER.map((kind, i) => [kind, counts[i]])));
+      })
+      .catch((error) => console.error("Failed to load section counts:", error));
+    return () => {
+      cancelled = true;
+    };
+  }, [activeType, initialTypeSeed]);
+  const effectiveSectionCounts = activeType === initialTypeSeed ? sectionCounts : dynamicSectionCounts;
 
   // "Vistos recentemente": bounded to a handful of ids (see RECENTS_LIMIT
   // in lib/hooks.ts), fetched by id instead of filtered from a full list.
+  // Filtered down to the active type client-side (the id list itself is
+  // never type-scoped, since a user can favorite/view across all 3
+  // tabs) so this section never mixes types either.
   const [recentPrompts, setRecentPrompts] = useState<Prompt[]>([]);
   useEffect(() => {
     if (!isBrowsingHome || recents.length === 0) return;
@@ -159,11 +195,13 @@ export function LibraryClient({
       cancelled = true;
     };
   }, [isBrowsingHome, recents]);
+  const visibleRecents = recentPrompts.filter((p) => p.type === activeType);
 
-  // Grid view: search and/or a filter chip. "Favoritos" is id-bound (the
-  // favorited set is inherently small) so it's fetched once and searched
-  // in memory; every other filter/search goes through a paginated,
-  // indexed Supabase query.
+  // Grid view: search and/or a filter chip, always within the active
+  // type. "Favoritos" is id-bound (the favorited set is inherently
+  // small) so it's fetched once and searched/type-filtered in memory;
+  // every other filter/search goes through a paginated, indexed
+  // Supabase query.
   const [gridItems, setGridItems] = useState<Prompt[]>([]);
   const [gridHasMore, setGridHasMore] = useState(false);
   const [gridLoading, setGridLoading] = useState(false);
@@ -175,13 +213,13 @@ export function LibraryClient({
     async function run() {
       setGridLoading(true);
       try {
-        const page =
-          filter === "Favoritos"
-            ? {
-                items: (await getPromptsByIds(favorites)).filter((p) => matchesSearch(p, debouncedQuery)),
-                hasMore: false,
-              }
-            : await getPromptsPage({ search: debouncedQuery, filter, offset: 0, limit: GRID_PAGE_SIZE });
+        const page = await getPromptsPage({
+          search: debouncedQuery,
+          filter,
+          type: activeType,
+          offset: 0,
+          limit: GRID_PAGE_SIZE,
+        });
 
         if (cancelled) return;
         setGridItems(page.items);
@@ -198,15 +236,16 @@ export function LibraryClient({
     return () => {
       cancelled = true;
     };
-  }, [isBrowsingHome, filter, debouncedQuery, favorites]);
+  }, [isBrowsingHome, filter, debouncedQuery, activeType]);
 
   async function loadMoreGrid() {
-    if (gridLoading || filter === "Favoritos") return;
+    if (gridLoading) return;
     setGridLoading(true);
     try {
       const page = await getPromptsPage({
         search: debouncedQuery,
         filter,
+        type: activeType,
         offset: gridItems.length,
         limit: GRID_PAGE_SIZE,
       });
@@ -220,9 +259,11 @@ export function LibraryClient({
   }
 
   // "Ver todos": a dedicated paginated view scoped to one section (or the
-  // whole catalog), independent from the search/filter grid above. Same
-  // bounded-query + "Carregar mais" pattern — never fetches or renders the
-  // full 512-prompt catalog at once.
+  // whole catalog) *and* the active type, independent from the
+  // search/filter grid above. Same bounded-query + "Carregar mais"
+  // pattern — never fetches or renders the full catalog at once.
+  // categoryView is always cleared on a type switch (see selectType), so
+  // activeType here is always the type this view was opened for.
   const [viewItems, setViewItems] = useState<Prompt[]>([]);
   const [viewHasMore, setViewHasMore] = useState(false);
   const [viewLoading, setViewLoading] = useState(false);
@@ -236,8 +277,13 @@ export function LibraryClient({
       try {
         const page =
           categoryView!.kind === "all"
-            ? await getPromptsPage({ offset: 0, limit: GRID_PAGE_SIZE })
-            : await getSectionPrompts({ kind: categoryView!.kind as SectionKind, offset: 0, limit: GRID_PAGE_SIZE });
+            ? await getPromptsPage({ type: activeType, offset: 0, limit: GRID_PAGE_SIZE })
+            : await getSectionPrompts({
+                kind: categoryView!.kind as SectionKind,
+                type: activeType,
+                offset: 0,
+                limit: GRID_PAGE_SIZE,
+              });
         if (cancelled) return;
         setViewItems(page.items);
         setViewHasMore(page.hasMore);
@@ -253,7 +299,7 @@ export function LibraryClient({
     return () => {
       cancelled = true;
     };
-  }, [categoryView]);
+  }, [categoryView, activeType]);
 
   async function loadMoreView() {
     if (viewLoading || !categoryView) return;
@@ -261,8 +307,13 @@ export function LibraryClient({
     try {
       const page =
         categoryView.kind === "all"
-          ? await getPromptsPage({ offset: viewItems.length, limit: GRID_PAGE_SIZE })
-          : await getSectionPrompts({ kind: categoryView.kind as SectionKind, offset: viewItems.length, limit: GRID_PAGE_SIZE });
+          ? await getPromptsPage({ type: activeType, offset: viewItems.length, limit: GRID_PAGE_SIZE })
+          : await getSectionPrompts({
+              kind: categoryView.kind as SectionKind,
+              type: activeType,
+              offset: viewItems.length,
+              limit: GRID_PAGE_SIZE,
+            });
       setViewItems((prev) => [...prev, ...page.items]);
       setViewHasMore(page.hasMore);
     } catch (error) {
@@ -270,6 +321,17 @@ export function LibraryClient({
     } finally {
       setViewLoading(false);
     }
+  }
+
+  function homeHref(type: PromptType) {
+    return type === DEFAULT_TAB_TYPE ? "/app" : `/app?tipo=${slugFromType(type)}`;
+  }
+
+  function selectType(type: PromptType) {
+    if (type === activeType) return;
+    setCategoryView(null);
+    setActiveType(type);
+    router.replace(homeHref(type), { scroll: false });
   }
 
   function selectQuery(value: string) {
@@ -287,6 +349,8 @@ export function LibraryClient({
     addRecent(prompt.id);
   }
 
+  const viewAllAllHref = `/app/secao/todos?tipo=${slugFromType(activeType)}`;
+
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur-md">
@@ -303,21 +367,22 @@ export function LibraryClient({
           </div>
         </div>
 
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 sm:px-6">
-          <p className="text-xs font-medium text-muted">
-            {totalCount != null ? `${totalCount.toLocaleString("pt-BR")} prompts disponíveis` : ""}
-          </p>
-          <Link
-            href="/app/secao/todos"
-            className="shrink-0 text-xs font-semibold text-accent transition-colors duration-200 hover:underline"
-          >
-            Ver todos
-          </Link>
-        </div>
-
         <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 pb-4 sm:px-6">
+          <TypeTabs active={activeType} counts={typeCounts} onChange={selectType} />
+
           <SearchBar value={query} onChange={selectQuery} />
-          <FilterChips active={filter} onChange={selectFilter} />
+
+          <div className="flex items-center gap-3">
+            <div className="min-w-0 flex-1">
+              <FilterChips active={filter} onChange={selectFilter} />
+            </div>
+            <Link
+              href={viewAllAllHref}
+              className="shrink-0 text-xs font-semibold text-accent transition-colors duration-200 hover:underline"
+            >
+              Ver todos
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -326,7 +391,7 @@ export function LibraryClient({
           <div className="flex flex-col gap-4 px-4 sm:px-6">
             <button
               type="button"
-              onClick={() => router.push("/app")}
+              onClick={() => router.push(homeHref(activeType))}
               className="w-fit text-xs font-medium text-muted transition-colors duration-200 hover:text-foreground"
             >
               ← Voltar
@@ -378,10 +443,10 @@ export function LibraryClient({
           </div>
         ) : isBrowsingHome ? (
           <>
-            {recentPrompts.length > 0 && (
+            {visibleRecents.length > 0 && (
               <Section
                 title="Vistos recentemente"
-                prompts={recentPrompts}
+                prompts={visibleRecents}
                 favorites={favorites}
                 onToggleFavorite={toggleFavorite}
                 onOpen={openPrompt}
@@ -392,7 +457,7 @@ export function LibraryClient({
               <Section
                 key={kind}
                 title={SECTION_TITLES[kind]}
-                count={sectionCounts[kind]}
+                count={effectiveSectionCounts[kind]}
                 prompts={sections[kind].items}
                 favorites={favorites}
                 onToggleFavorite={toggleFavorite}
@@ -400,7 +465,7 @@ export function LibraryClient({
                 hasMore={sections[kind].hasMore}
                 loadingMore={sections[kind].loading}
                 onLoadMore={sections[kind].loadMore}
-                onViewAll={() => router.push(`/app/secao/${kind}`)}
+                onViewAll={() => router.push(`/app/secao/${kind}?tipo=${slugFromType(activeType)}`)}
                 defaultImagesMap={defaultImagesMap}
               />
             ))}

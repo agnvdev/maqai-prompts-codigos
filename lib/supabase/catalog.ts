@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 import type { FilterTag, Prompt, PromptCategory, PromptSegment, PromptType } from "@/lib/types";
-import { DEFAULT_CATEGORY, DEFAULT_SEGMENT, DEFAULT_TYPE } from "@/lib/taxonomy";
+import { DEFAULT_CATEGORY, DEFAULT_SEGMENT, DEFAULT_TYPE, TYPES } from "@/lib/taxonomy";
 
 export interface AdminPromptRow {
   id: string;
@@ -99,15 +99,23 @@ const DEFAULT_SECTION_SIZE = 20;
 export async function getPromptsPage({
   search,
   filter,
+  type,
   offset = 0,
   limit = DEFAULT_PAGE_SIZE,
 }: {
   search?: string;
   filter?: string;
+  // Required in practice on /app (every tab has an active type), but kept
+  // optional here so callers that genuinely want the untyped catalog
+  // (there are none today, but nothing in this module should force one)
+  // aren't blocked from omitting it.
+  type?: PromptType;
   offset?: number;
   limit?: number;
 }): Promise<PromptPage> {
   let query = requireSupabase().from("prompts").select(PROMPT_COLUMNS).eq("is_active", true);
+
+  if (type) query = query.eq("type", type);
 
   const trimmed = search?.trim();
   if (trimmed) {
@@ -128,19 +136,23 @@ export async function getPromptsPage({
   return { items: rows.map(toPrompt), hasMore: rows.length === limit };
 }
 
-// Same predicates as getPromptsPage (is_active + optional search/tag), just
-// counted instead of fetched — one indexed count query, no rows pulled.
+// Same predicates as getPromptsPage (is_active + optional type/search/tag),
+// just counted instead of fetched — one indexed count query, no rows pulled.
 export async function getPromptsCount({
   search,
   filter,
+  type,
 }: {
   search?: string;
   filter?: string;
+  type?: PromptType;
 } = {}): Promise<number> {
   let query = requireSupabase()
     .from("prompts")
     .select("id", { count: "exact", head: true })
     .eq("is_active", true);
+
+  if (type) query = query.eq("type", type);
 
   const trimmed = search?.trim();
   if (trimmed) {
@@ -265,12 +277,24 @@ function applySectionScope<Q>(query: Q, scope: SectionScope): Q | null {
   }
 }
 
+// Applied on top of applySectionScope's result so every section query
+// (and its count) is AND-ed with the active tab's type - a section can
+// never mix types across a tab switch. Same generic-cast trick as
+// applySectionScope, for the same reason.
+function applyTypeScope<Q>(query: Q, type: PromptType | undefined): Q {
+  if (!type) return query;
+  const q = query as unknown as SectionFilterable<Q>;
+  return q.eq("type", type);
+}
+
 export async function getSectionPrompts({
   kind,
+  type,
   offset = 0,
   limit = DEFAULT_SECTION_SIZE,
 }: {
   kind: SectionKind;
+  type?: PromptType;
   offset?: number;
   limit?: number;
 }): Promise<PromptPage> {
@@ -279,7 +303,7 @@ export async function getSectionPrompts({
   const scoped = applySectionScope(base, scope);
   if (!scoped) return { items: [], hasMore: false };
 
-  const { data, error } = await scoped
+  const { data, error } = await applyTypeScope(scoped, type)
     .order("created_at", { ascending: false })
     .range(offset, offset + limit - 1);
   if (error) throw error;
@@ -290,13 +314,22 @@ export async function getSectionPrompts({
 
 // Real per-category total (not "loaded so far") — one indexed count
 // query per section, same predicate as getSectionPrompts.
-export async function getSectionCount(kind: SectionKind): Promise<number> {
+export async function getSectionCount(kind: SectionKind, type?: PromptType): Promise<number> {
   const scope = await resolveSectionScope(kind);
   const base = requireSupabase().from("prompts").select("id", { count: "exact", head: true }).eq("is_active", true);
   const scoped = applySectionScope(base, scope);
   if (!scoped) return 0;
 
-  const { count, error } = await scoped;
+  const { count, error } = await applyTypeScope(scoped, type);
   if (error) throw error;
   return count ?? 0;
+}
+
+// One real count per type (Imagem/Vídeo/Texto) - powers the 3 main tab
+// labels ("Imagens (302)", "Vídeos (133)", "Textos e códigos (77)").
+// Same is_active predicate as everything else here, 3 small indexed
+// count queries in parallel, never a row pulled.
+export async function getTypeCounts(): Promise<Record<PromptType, number>> {
+  const counts = await Promise.all(TYPES.map((type) => getPromptsCount({ type })));
+  return Object.fromEntries(TYPES.map((type, i) => [type, counts[i]])) as Record<PromptType, number>;
 }
