@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Prompt } from "@/lib/types";
 import { useFavorites, useRecents } from "@/lib/hooks";
 import {
@@ -104,18 +105,24 @@ export function LibraryClient({
   totalCount,
   defaultImagesMap = {},
   logoUrl,
+  initialCategoryView = null,
 }: {
   initialSections?: Partial<Record<SectionKind, PromptPage>>;
   sectionCounts?: Partial<Record<SectionKind, number>>;
   totalCount?: number;
   defaultImagesMap?: PromptDefaultImagesMap;
   logoUrl?: string | null;
+  // Set by app/app/(protected)/secao/[kind]/page.tsx so "Ver todos" is a
+  // real, shareable URL instead of only client-side state - seeds the
+  // exact same categoryView the button used to set directly on click.
+  initialCategoryView?: CategoryView | null;
 }) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [filter, setFilter] = useState<FilterValue>("Todos");
   const [activePrompt, setActivePrompt] = useState<Prompt | null>(null);
-  const [categoryView, setCategoryView] = useState<CategoryView | null>(null);
+  const [categoryView, setCategoryView] = useState<CategoryView | null>(initialCategoryView);
 
   const { favorites, toggleFavorite } = useFavorites();
   const { recents, addRecent } = useRecents();
@@ -300,13 +307,12 @@ export function LibraryClient({
           <p className="text-xs font-medium text-muted">
             {totalCount != null ? `${totalCount.toLocaleString("pt-BR")} prompts disponíveis` : ""}
           </p>
-          <button
-            type="button"
-            onClick={() => setCategoryView({ kind: "all", title: "Todos os prompts", total: totalCount })}
+          <Link
+            href="/app/secao/todos"
             className="shrink-0 text-xs font-semibold text-accent transition-colors duration-200 hover:underline"
           >
             Ver todos
-          </button>
+          </Link>
         </div>
 
         <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 pb-4 sm:px-6">
@@ -320,7 +326,7 @@ export function LibraryClient({
           <div className="flex flex-col gap-4 px-4 sm:px-6">
             <button
               type="button"
-              onClick={() => setCategoryView(null)}
+              onClick={() => router.push("/app")}
               className="w-fit text-xs font-medium text-muted transition-colors duration-200 hover:text-foreground"
             >
               ← Voltar
@@ -394,7 +400,7 @@ export function LibraryClient({
                 hasMore={sections[kind].hasMore}
                 loadingMore={sections[kind].loading}
                 onLoadMore={sections[kind].loadMore}
-                onViewAll={() => setCategoryView({ kind, title: SECTION_TITLES[kind], total: sectionCounts[kind] })}
+                onViewAll={() => router.push(`/app/secao/${kind}`)}
                 defaultImagesMap={defaultImagesMap}
               />
             ))}
