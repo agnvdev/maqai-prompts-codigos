@@ -1,5 +1,7 @@
 import { getTestAccountsStatus, TEST_ENV_UNAVAILABLE_MESSAGE } from "@/lib/testAccounts";
 import { TestAccountsClient } from "@/components/admin/TestAccountsClient";
+import { runServiceRoleDiagnostics, type DiagnosticCheck } from "@/lib/serviceRoleDiagnostics";
+import { ServiceRoleDiagnosticsPanel } from "@/components/admin/ServiceRoleDiagnosticsPanel";
 
 // The friendly-fallback markup is duplicated here (not imported from
 // TestAccountsClient) on purpose: this branch exists specifically for
@@ -44,6 +46,26 @@ export default async function AdminTestAccountsPage() {
     return <UnavailableFallback />;
   }
 
+  // Same rule as above: computed before any JSX, never inside the JSX
+  // construction itself. runServiceRoleDiagnostics() already never
+  // throws on its own (every one of its 6 checks has its own
+  // try/catch - see lib/serviceRoleDiagnostics.ts), this is just the
+  // same last-line-of-defense as the call above.
+  let diagnostics: DiagnosticCheck[] = [];
+  try {
+    diagnostics = await runServiceRoleDiagnostics();
+  } catch (error) {
+    console.error(
+      "[test-accounts] runServiceRoleDiagnostics threw unexpectedly:",
+      error instanceof Error ? { message: error.message, name: error.name } : String(error)
+    );
+  }
+
   const loadError = status.unavailable ? TEST_ENV_UNAVAILABLE_MESSAGE : null;
-  return <TestAccountsClient initialStatus={status} initialError={loadError} />;
+  return (
+    <div className="flex flex-col gap-6">
+      <ServiceRoleDiagnosticsPanel checks={diagnostics} />
+      <TestAccountsClient initialStatus={status} initialError={loadError} />
+    </div>
+  );
 }
