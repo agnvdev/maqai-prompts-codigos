@@ -13,12 +13,13 @@ export default async function AdminPage() {
     const { data, error } = await supabase
       .from("prompts")
       .select(
-        "id, code, title, description, image_url, prompt_text, segment, type, tools, tags, featured, is_premium, is_tested, is_active, created_at"
+        "id, code, title, description, image_url, prompt_text, segment, type, tools, tags, featured, is_premium, is_tested, is_active, created_at, categories(name)"
       )
       .order("created_at", { ascending: false });
 
     if (error) throw error;
-    prompts = (data ?? []) as AdminPromptRow[];
+    const rows = (data ?? []) as unknown as Array<AdminPromptRow & { categories: { name: string } | null }>;
+    prompts = rows.map(({ categories, ...row }) => ({ ...row, category: categories?.name ?? null }));
   } catch (error) {
     unstable_rethrow(error);
     console.error("Failed to load prompts for admin:", error);

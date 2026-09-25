@@ -11,6 +11,9 @@ export interface AdminPromptRow {
   prompt_text: string | null;
   segment: string | null;
   type: string | null;
+  // Canonical category name (via category_id -> categories.name), same
+  // source toPrompt() uses on the /app side - not tags.
+  category: string | null;
   tools: string[];
   tags: string[];
   featured: boolean;

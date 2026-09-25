@@ -21,7 +21,7 @@ const FILTERS = [
   "Mineração",
   "Imagem",
   "Vídeo",
-  "Códigos",
+  "Textos e Códigos",
   "Combos",
   "Testados",
   "Não testados",
@@ -32,6 +32,9 @@ const FILTERS = [
 ] as const;
 type FilterValue = (typeof FILTERS)[number];
 
+// Imagem/Vídeo/Textos e Códigos -> type; Combos -> category_id (via the
+// resolved category name) - same canonical sources as /app's filters
+// (see lib/supabase/catalog.ts), not tags.
 function matchesFilter(prompt: AdminPromptRow, filter: FilterValue): boolean {
   if (filter === "Todos") return true;
   if (filter === "Máquinas Pesadas" || filter === "Agro" || filter === "Mineração") {
@@ -40,13 +43,14 @@ function matchesFilter(prompt: AdminPromptRow, filter: FilterValue): boolean {
   if (filter === "Imagem" || filter === "Vídeo") {
     return prompt.type === filter;
   }
+  if (filter === "Textos e Códigos") return prompt.type === "Texto";
+  if (filter === "Combos") return prompt.category === "Combos";
   if (filter === "Testados") return prompt.is_tested;
   if (filter === "Não testados") return !prompt.is_tested;
   if (filter === "Com imagem") return !!prompt.image_url;
   if (filter === "Sem imagem") return !prompt.image_url;
   if (filter === "Ativos") return prompt.is_active;
-  if (filter === "Inativos") return !prompt.is_active;
-  return prompt.tags.includes(filter);
+  return !prompt.is_active; // "Inativos" - only value left in the union
 }
 
 function matchesSearch(prompt: AdminPromptRow, query: string): boolean {
