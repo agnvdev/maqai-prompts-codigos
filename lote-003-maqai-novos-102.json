@@ -1,0 +1,1462 @@
+[
+  {
+    "code": "/ess-vid-orbit-360",
+    "category": "Essenciais",
+    "title": "Giro 360° de Apresentação",
+    "description": "Órbita completa ao redor da máquina em ambiente neutro, o vídeo padrão para anúncios online e fichas técnicas.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Smooth 360-degree orbital camera shot circling a [heavy machine] parked on a neutral studio floor, constant eye-level height, even soft lighting with no harsh shadows, subtle reflection on the floor, steady uninterrupted rotation over 8 seconds, clean commercial catalog style, 4k",
+    "featured": true,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-cold-start",
+    "category": "Essenciais",
+    "title": "Sequência de Partida a Frio",
+    "description": "Ignição do motor ao amanhecer, painel se acendendo e primeira fumaça do escapamento — abertura forte para vídeos de operação.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Sora"
+    ],
+    "prompt_text": "Close-up cinematic sequence of a [heavy machine] cold engine start at dawn: key turns, dashboard gauges light up one by one, faint exhaust smoke puffs into cold morning air, engine vibration subtly shakes the frame, low key lighting transitioning to blue hour, 4k, 24fps",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-cab-pov",
+    "category": "Essenciais",
+    "title": "Ponto de Vista da Cabine",
+    "description": "Câmera posicionada como se fosse o operador, mostrando um ciclo de trabalho completo pela janela e pelo painel.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "First-person point-of-view shot from inside the operator cab of a [heavy machine], hands on the controls in frame, windshield showing the work cycle ahead (load/turn/dump), dashboard instruments visible in foreground, natural daylight, slight handheld sway, immersive operational feel, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-antes-depois-lavagem",
+    "category": "Essenciais",
+    "title": "Antes e Depois da Lavagem",
+    "description": "Transição de uma máquina suja de obra para o mesmo equipamento limpo e brilhando, prova visual de cuidado com o patrimônio.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ],
+    "prompt_text": "Split-screen or wipe-transition video of the same [heavy machine]: left/before side covered in mud and dust from a job site, right/after side freshly washed and detailed with paint shining under soft light, smooth transition wipe across the frame, satisfying before-after pacing, 4k",
+    "featured": true,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-timelapse-jornada",
+    "category": "Essenciais",
+    "title": "Timelapse de Jornada Completa",
+    "description": "Um dia inteiro de trabalho comprimido em segundos, do amanhecer ao entardecer, mostrando produtividade real no canteiro.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Sora"
+    ],
+    "prompt_text": "Time-lapse video of a [heavy machine] working continuously on a job site from sunrise to sunset, fast-moving clouds and shifting light overhead, repeated work cycles blurring into fluid motion, fixed wide camera angle, dust and activity around the machine, cinematic time-lapse grade, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-slowmo-hidraulico",
+    "category": "Essenciais",
+    "title": "Slow Motion do Braço Hidráulico",
+    "description": "Close extremo em câmera lenta do movimento do braço/lança, destacando precisão de engenharia e força controlada.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ],
+    "prompt_text": "Extreme slow-motion close-up of a [heavy machine] hydraulic arm/boom extending and articulating, visible hydraulic fluid pressure in the joints, fine dust particles floating in the light beam, macro lens feel, dramatic side lighting, 240fps slow motion look, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-frota-lineup",
+    "category": "Essenciais",
+    "title": "Alinhamento de Frota",
+    "description": "Câmera lateral deslizando ao longo de várias máquinas enfileiradas, transmitindo escala e capacidade operacional da empresa.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Slow lateral tracking shot gliding past a lineup of several [heavy machines] parked side by side in a large yard, consistent height and distance, golden hour lighting casting long shadows, camera glides smoothly left to right revealing fleet scale, 4k",
+    "featured": true,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-ciclo-carregamento",
+    "category": "Essenciais",
+    "title": "Ritmo do Ciclo de Carregamento",
+    "description": "Sequência repetida de balde enchendo e despejando, capturando o ritmo hipnótico e a produtividade da operação.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ],
+    "prompt_text": "Rhythmic sequence of a [heavy machine] bucket filling with material and dumping into a truck bed, repeated three times in a steady loop, consistent camera angle, material falling with visible dust and debris, satisfying mechanical rhythm, natural daylight, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-telemetria",
+    "category": "Essenciais",
+    "title": "Painel de Telemetria em Ação",
+    "description": "Tela de monitoramento com dados em tempo real (horas, combustível, localização) sobreposta à máquina operando ao fundo.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ],
+    "prompt_text": "Video showing a tablet or dashboard screen displaying real-time telemetry data (engine hours, fuel level, GPS location, temperature) in the foreground, with a [heavy machine] actively working slightly out of focus in the background, modern tech-forward color grade, subtle UI motion graphics overlay, 4k",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/ess-vid-macro-detalhes",
+    "category": "Essenciais",
+    "title": "Montagem de Detalhes em Macro",
+    "description": "Sequência de closes macro em solda, esteira, mangueiras e parafusos, comunicando robustez e qualidade de construção.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ],
+    "prompt_text": "Montage of macro close-up shots on a [heavy machine]: reinforced welds, tread pattern on tracks or tires, hydraulic hoses, bolted joints and decals, shallow depth of field, dramatic raking light emphasizing texture and durability, quick cuts between each detail, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-confianca-equipe",
+    "category": "Essenciais",
+    "title": "Momento de Confiança Equipe e Máquina",
+    "description": "Operador e equipe técnica ao lado da máquina em um aperto de mão ou conversa, humanizando a marca por trás do equipamento.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Warm documentary-style shot of a technician and a machine operator shaking hands or talking beside a [heavy machine] on site, genuine expressions, natural daylight, shallow depth of field keeping the machine softly visible behind them, authentic and trustworthy tone, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-transicao-estacoes",
+    "category": "Essenciais",
+    "title": "Transição entre Estações do Ano",
+    "description": "Montagem mostrando a mesma máquina operando em seca, chuva e poeira ao longo do ano, provando resistência em qualquer clima.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Sora"
+    ],
+    "prompt_text": "Seasonal montage of the same [heavy machine] working across different conditions: dry dusty ground, heavy rain and mud, then dusty harvest season, smooth cross-dissolve transitions between each season, consistent camera framing, showcasing durability across weather, 4k",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/ess-vid-checklist-preop",
+    "category": "Essenciais",
+    "title": "Ronda de Inspeção Pré-Operação",
+    "description": "Operador circulando a máquina antes de ligar, verificando pneus, níveis e sinalização — reforça cultura de segurança.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Documentary-style video of an operator walking a full circle around a [heavy machine] before starting work, checking tires, fluid levels, lights and safety decals with a clipboard in hand, calm methodical pace, natural morning light, safety-first tone, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-vid-teaser-vertical",
+    "category": "Essenciais",
+    "title": "Teaser Vertical de Destaques",
+    "description": "Corte rápido em formato vertical reunindo os melhores momentos da máquina em ação, pronto para Stories e Reels.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "CapCut",
+      "Kling"
+    ],
+    "prompt_text": "Fast-paced vertical 9:16 highlight reel of a [heavy machine] in action: quick cuts between power shots, dust, movement and close-ups, punchy rhythm matching an implied upbeat soundtrack, bold but minimal on-screen text callouts, high energy social-media edit, 4k",
+    "featured": true,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-lembrete-manutencao",
+    "category": "Essenciais",
+    "title": "Lembrete de Manutenção ao Cliente",
+    "description": "Mensagem curta e educada avisando o cliente sobre a manutenção preventiva que está próxima do vencimento.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva uma mensagem curta (WhatsApp ou e-mail) avisando um cliente que a manutenção preventiva de [modelo da máquina] está próxima de vencer em [X horas/dias]. Tom cordial e profissional, explique o risco de adiar, inclua uma chamada clara para agendar e um espaço para inserir o telefone/link de agendamento. Máximo 80 palavras.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-sobre-nos",
+    "category": "Essenciais",
+    "title": "Texto Institucional Sobre Nós",
+    "description": "Texto de apresentação da empresa para site ou material comercial, transmitindo confiança e experiência no setor.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um texto institucional 'Sobre nós' (150 a 200 palavras) para uma empresa de [venda/locação/manutenção] de máquinas pesadas para os setores de construção, agro e mineração. Destaque tempo de mercado, compromisso com segurança, suporte técnico e proximidade com o cliente. Tom confiável e direto, sem jargão excessivo, terminando com uma frase de propósito da marca.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-orcamento-servico",
+    "category": "Essenciais",
+    "title": "E-mail de Orçamento de Serviço",
+    "description": "Modelo de e-mail formal para enviar um orçamento de serviço ou manutenção ao cliente, com estrutura clara de itens e prazo.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Redija um e-mail de orçamento de serviço técnico para [tipo de serviço: manutenção/reparo/revisão] de [modelo da máquina]. Estruture com: saudação, resumo do problema relatado, itens do orçamento (mão de obra, peças, deslocamento) com espaço para valores, prazo de execução, validade da proposta e próximos passos para aprovação. Tom profissional e objetivo.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-faq-locacao",
+    "category": "Essenciais",
+    "title": "FAQ de Locação de Equipamentos",
+    "description": "Perguntas e respostas prontas sobre os termos mais comuns de locação, para reduzir dúvidas recorrentes de clientes.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie uma seção de perguntas frequentes (6 perguntas e respostas) sobre locação de máquinas pesadas, cobrindo: prazo mínimo de locação, responsabilidade por manutenção durante o contrato, o que acontece em caso de quebra, política de combustível, entrega/retirada no local, e caução/seguro. Respostas curtas e diretas, linguagem simples, sem juridiquês.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-briefing-seguranca",
+    "category": "Essenciais",
+    "title": "Briefing de Segurança para Operadores",
+    "description": "Roteiro de fala para o responsável de segurança apresentar antes do início de qualquer operação em campo.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva o roteiro de um briefing de segurança de 2 minutos para ser falado antes do início do turno de operação de máquinas pesadas. Inclua: uso obrigatório de EPI, verificação de área ao redor da máquina, sinalização com buzina antes de movimentar, distância mínima de outras pessoas/equipamentos, e o que fazer em caso de emergência. Tom direto e firme, mas não alarmista.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-boas-vindas-operador",
+    "category": "Essenciais",
+    "title": "Boas-Vindas para Novo Operador",
+    "description": "Mensagem de acolhimento para um operador recém-contratado, reforçando cultura de segurança e cuidado com o equipamento.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva uma mensagem de boas-vindas (para ser entregue impressa ou por e-mail) a um operador recém-contratado de máquinas pesadas. Deve transmitir acolhimento, reforçar a importância da segurança e do cuidado com o equipamento sob sua responsabilidade, e indicar a quem recorrer em caso de dúvidas. Tom caloroso e profissional, até 120 palavras.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-pedido-depoimento",
+    "category": "Essenciais",
+    "title": "Pedido de Depoimento ao Cliente",
+    "description": "Mensagem para solicitar um depoimento em vídeo ou texto de um cliente satisfeito, com perguntas guia para facilitar a resposta.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva uma mensagem pedindo a um cliente satisfeito que grave um breve depoimento (vídeo ou áudio de até 1 minuto) sobre a experiência com [produto/serviço]. Inclua 3 perguntas-guia simples para orientar o que ele pode falar (o problema que tinha, como foi resolvido, o que recomendaria a outros). Tom gentil, sem soar como cobrança.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-checklist-devolucao",
+    "category": "Essenciais",
+    "title": "Checklist de Devolução de Equipamento",
+    "description": "Texto descritivo dos passos e itens a conferir na devolução de uma máquina alugada, evitando disputas sobre o estado do equipamento.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Descreva um checklist de devolução de equipamento locado, em formato de lista numerada, cobrindo: nível de combustível, horímetro registrado, avarias visíveis na lataria, funcionamento de itens de segurança, limpeza básica, e assinatura de conferência conjunta entre locador e cliente. Linguagem clara, pronta para virar um formulário impresso.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-explicacao-garantia",
+    "category": "Essenciais",
+    "title": "Explicação de Garantia em Linguagem Simples",
+    "description": "Texto que traduz as condições de garantia técnica para uma linguagem acessível, reduzindo mal-entendidos com o cliente.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Reescreva as condições de garantia de uma máquina pesada (cobertura de peças e mão de obra por [X meses/horas], exclusões comuns como desgaste natural e mau uso) em linguagem simples e amigável, como se estivesse explicando pessoalmente ao cliente. Máximo 150 palavras, sem termos jurídicos complexos.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/ess-txt-bio-redes-sociais",
+    "category": "Essenciais",
+    "title": "Bio para Redes Sociais da Marca",
+    "description": "Biografia curta e objetiva para perfis de Instagram/Facebook da empresa, otimizada para o espaço de caracteres limitado.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva 3 opções de biografia para o perfil de Instagram de uma empresa de máquinas pesadas para construção, agro e mineração. Cada opção com no máximo 150 caracteres, incluindo o que a empresa faz, para quem, e um diferencial (ex: suporte técnico rápido, frota nova, atendimento em todo o estado). Tom direto e confiante.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-diagnostico-hidraulico",
+    "category": "Máquinas",
+    "title": "Guia de Diagnóstico de Falha Hidráulica",
+    "description": "Roteiro passo a passo para o técnico investigar uma perda de pressão ou vazamento no sistema hidráulico antes de abrir a máquina.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um guia passo a passo de diagnóstico para um técnico investigar perda de força ou vazamento no sistema hidráulico de [modelo da máquina], antes de qualquer desmontagem. Organize em etapas numeradas: verificação visual, checagem de nível e qualidade do fluido, inspeção de mangueiras e conexões, teste de pressão, e quando escalar para um especialista. Linguagem técnica mas objetiva.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/maq-txt-cronograma-preventiva",
+    "category": "Máquinas",
+    "title": "Cronograma de Manutenção Preventiva",
+    "description": "Modelo de cronograma organizado por intervalo de horas de uso, cobrindo os principais pontos de revisão do equipamento.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Monte um cronograma de manutenção preventiva para [modelo da máquina], organizado por intervalos de horas de uso (a cada 250h, 500h, 1000h, 2000h), listando os itens a inspecionar ou trocar em cada intervalo (filtros, óleo, correias, pontos de graxa, sistema de arrefecimento). Formato de tabela em texto, pronto para virar planilha.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-comparativo-modelos",
+    "category": "Máquinas",
+    "title": "Comparativo Técnico entre Modelos",
+    "description": "Texto comparando duas máquinas concorrentes em critérios objetivos, para ajudar o cliente a decidir a compra.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um comparativo técnico objetivo entre [modelo A] e [modelo B], cobrindo: potência do motor, capacidade operacional, consumo de combustível, custo de manutenção estimado e melhor aplicação para cada um. Finalize com uma recomendação neutra de 'quando escolher cada modelo'. Formato de tabela seguida de um parágrafo de conclusão.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/maq-txt-roteiro-treinamento-operador",
+    "category": "Máquinas",
+    "title": "Roteiro de Treinamento de Operação",
+    "description": "Roteiro de aula prática para treinar um novo operador nos comandos e cuidados essenciais de uma máquina específica.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore o roteiro de uma aula prática de 30 minutos para treinar um operador iniciante em [modelo da máquina]. Estruture em: apresentação dos comandos principais, sequência de partida segura, movimentos básicos supervisionados, erros comuns de iniciante a evitar, e um mini checklist final de avaliação do instrutor.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-relatorio-quebra",
+    "category": "Máquinas",
+    "title": "Modelo de Relatório de Quebra",
+    "description": "Formulário em texto para o operador registrar uma quebra ou falha assim que ela acontece, facilitando o diagnóstico posterior.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um modelo de relatório de ocorrência de quebra para ser preenchido pelo operador no momento da falha de [modelo da máquina]. Campos: data/hora, horímetro, o que estava fazendo no momento, sintoma observado (som, vazamento, perda de força, luz de alerta), e se a máquina foi parada com segurança. Formato de formulário curto e direto.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-procedimento-troca-peca",
+    "category": "Máquinas",
+    "title": "Procedimento de Troca de Peça",
+    "description": "Texto explicativo do passo a passo seguro para substituir um componente comum, reforçando os cuidados de segurança.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Descreva o procedimento passo a passo para a troca segura de [peça: filtro/correia/mangueira/pastilha] em [modelo da máquina]. Inclua: preparação e bloqueio de segurança (máquina desligada e travada), ferramentas necessárias, sequência de remoção e instalação, e teste final de funcionamento. Linguagem técnica clara, em lista numerada.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-otimizacao-combustivel",
+    "category": "Máquinas",
+    "title": "Dicas de Otimização de Combustível",
+    "description": "Lista prática de hábitos de operação que reduzem o consumo de combustível sem perder produtividade.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Liste 8 dicas práticas e específicas para reduzir o consumo de combustível na operação de [modelo/tipo da máquina], cobrindo hábitos de operação (marcha lenta, aceleração), manutenção (filtros, pneus calibrados) e planejamento de ciclo de trabalho. Cada dica em uma frase curta e acionável, sem enrolação.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-checklist-preoperacao",
+    "category": "Máquinas",
+    "title": "Checklist de Inspeção Pré-Operação",
+    "description": "Lista de verificação diária que o operador deve seguir antes de ligar a máquina, cobrindo os pontos críticos de segurança.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um checklist diário de inspeção pré-operação para [modelo da máquina], organizado em: nível de fluidos (óleo, arrefecimento, hidráulico), estado de pneus/esteiras, funcionamento de luzes e buzina, vazamentos visíveis, e funcionamento dos freios. Formato de lista com caixas de marcação, pronto para impressão em prancheta.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-causas-falha-motor",
+    "category": "Máquinas",
+    "title": "Causas Comuns de Falha no Sistema de Motor",
+    "description": "Texto explicativo listando os motivos mais frequentes de superaquecimento ou perda de potência no motor, com sinais de alerta.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Explique de forma didática as 5 causas mais comuns de superaquecimento ou perda de potência no motor de máquinas pesadas (radiador sujo, baixo nível de arrefecimento, filtro de ar entupido, injeção desregulada, sobrecarga de trabalho). Para cada causa, descreva o sinal de alerta que o operador percebe e a ação recomendada. Linguagem acessível para quem não é mecânico.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/maq-txt-custo-ciclo-vida",
+    "category": "Máquinas",
+    "title": "Análise de Custo de Ciclo de Vida",
+    "description": "Texto explicando como calcular o custo total de posse de uma máquina ao longo dos anos, além do preço de compra.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um texto explicativo sobre como calcular o custo de ciclo de vida (TCO) de [modelo da máquina], considerando: preço de aquisição, combustível estimado, manutenção preventiva, peças de desgaste, valor de revenda esperado e tempo de vida útil. Estruture como um guia simples para o cliente entender por que o preço de compra não conta a história toda.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/agro-txt-plano-colheita",
+    "category": "Agro",
+    "title": "Plano de Colheita",
+    "description": "Roteiro de planejamento para organizar a colheita de uma safra, considerando maquinário, equipe e janela de tempo.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore um plano de colheita para [cultura: soja/milho/cana] em uma área de [X hectares], organizando: maquinário necessário e quantidade, sequência de talhões a colher, janela de tempo estimada considerando clima, e pontos de atenção para evitar perdas na lavoura. Formato de plano em etapas, direto ao ponto.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-checklist-preparo-solo",
+    "category": "Agro",
+    "title": "Checklist de Preparo de Solo",
+    "description": "Lista de verificação das etapas de preparo do solo antes do plantio, evitando esquecimentos que comprometem a safra.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um checklist das etapas de preparo de solo antes do plantio de [cultura], cobrindo: análise de solo, correção de acidez, descompactação, nivelamento e definição do espaçamento de plantio. Formato de lista sequencial com uma frase de explicação em cada item.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-guia-selecao-maquinario",
+    "category": "Agro",
+    "title": "Guia de Seleção de Maquinário por Cultura",
+    "description": "Texto orientando qual tipo de máquina e implemento combina melhor com cada tipo de cultura e tamanho de propriedade.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um guia orientando produtores a escolher o maquinário e implementos ideais para [cultura], considerando o tamanho da propriedade (pequena/média/grande) e o tipo de solo. Aponte os erros mais comuns de dimensionamento (máquina subdimensionada ou superdimensionada) e como evitá-los. Tom consultivo.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-cronograma-irrigacao",
+    "category": "Agro",
+    "title": "Cronograma de Irrigação",
+    "description": "Modelo de cronograma de irrigação por fase da cultura, ajudando o produtor a otimizar o uso de água e equipamento.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Monte um cronograma de irrigação para [cultura], dividido pelas fases da planta (germinação, crescimento vegetativo, floração, maturação), indicando frequência recomendada e sinais visuais de excesso ou falta de água em cada fase. Formato de tabela em texto.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-guia-controle-pragas",
+    "category": "Agro",
+    "title": "Guia de Uso de Equipamento de Controle de Pragas",
+    "description": "Instruções práticas de operação e segurança para pulverização, reduzindo desperdício de insumo e risco ao operador.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um guia prático de uso do pulverizador/equipamento de controle de pragas para [cultura], cobrindo: calibração de bicos, velocidade ideal de deslocamento, condições climáticas adequadas para aplicação (vento, umidade), e EPIs obrigatórios para o operador. Linguagem simples e direta.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-calendario-sazonal-social",
+    "category": "Agro",
+    "title": "Calendário Sazonal para Redes Sociais",
+    "description": "Pauta de conteúdo mensal ligada ao calendário agrícola, para manter as redes sociais da revenda ativas o ano todo.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie uma pauta de conteúdo para redes sociais de uma revenda de máquinas agrícolas, com 12 ideias de post (uma por mês) ligadas ao calendário agrícola da região (preparo de solo, plantio, tratos culturais, colheita, entressafra). Para cada mês, dê o tema e uma linha de legenda sugerida.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/agro-txt-pitch-financiamento",
+    "category": "Agro",
+    "title": "Pitch de Financiamento de Maquinário Agrícola",
+    "description": "Discurso de vendas explicando linhas de crédito e financiamento disponíveis para aquisição de máquinas agrícolas.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um pitch de vendas de 100 palavras explicando as vantagens de financiar [modelo de máquina agrícola] via linhas de crédito rural, destacando prazo, carência alinhada à safra, e retorno esperado em produtividade. Tom consultivo, sem prometer aprovação garantida, terminando com chamada para simulação.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-custo-por-hectare",
+    "category": "Agro",
+    "title": "Explicação de Custo por Hectare",
+    "description": "Texto didático explicando como calcular o custo operacional por hectare ao usar uma determinada máquina.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Explique de forma didática como calcular o custo operacional por hectare de [operação: plantio/pulverização/colheita] usando [modelo de máquina], considerando combustível, mão de obra, depreciação e manutenção rateada por hora trabalhada. Use um exemplo numérico simples para ilustrar o cálculo.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/agro-txt-armazenagem-graos",
+    "category": "Agro",
+    "title": "Boas Práticas de Armazenagem de Grãos",
+    "description": "Lista de cuidados essenciais para armazenar grãos com segurança após a colheita, evitando perdas por umidade ou pragas.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Liste 7 boas práticas de armazenagem de grãos pós-colheita, cobrindo: umidade ideal do grão antes de armazenar, limpeza e desinfecção do silo/armazém, monitoramento de temperatura, e sinais de alerta de deterioração. Cada prática em uma frase objetiva.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-limpeza-pos-colheita",
+    "category": "Agro",
+    "title": "Guia de Limpeza e Armazenamento Pós-Colheita",
+    "description": "Passo a passo para higienizar e guardar corretamente a máquina agrícola ao final da safra, prolongando sua vida útil.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Descreva o passo a passo de limpeza e armazenamento de [modelo de máquina agrícola] ao final da safra, cobrindo: remoção de restos de cultura e sujeira, lubrificação de pontos de graxa antes do armazenamento, proteção contra intempéries, e itens a verificar na próxima temporada. Lista numerada.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-agricultura-precisao",
+    "category": "Agro",
+    "title": "Explicador de Agricultura de Precisão",
+    "description": "Texto introdutório explicando o que é agricultura de precisão e como ela se aplica ao maquinário do dia a dia.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um texto explicativo (200 palavras) sobre o que é agricultura de precisão e como recursos como piloto automático, taxa variável de insumos e monitoramento de colheita se aplicam na prática em [modelo de máquina]. Público: produtor tradicional avaliando modernizar a frota, tom acessível sem exagerar no tecniquês.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/agro-txt-planejamento-clima",
+    "category": "Agro",
+    "title": "Conselhos de Planejamento por Condição Climática",
+    "description": "Orientações práticas para decidir quando operar ou pausar uma operação de campo com base nas condições do tempo.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva orientações práticas para o produtor decidir quando é seguro operar [pulverização/colheita/plantio] com base nas condições climáticas (vento, umidade, previsão de chuva), e quando é melhor pausar para evitar desperdício de insumo ou dano à lavoura. Formato de lista de critérios de decisão.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-treinamento-seguranca-agricola",
+    "category": "Agro",
+    "title": "Roteiro de Treinamento de Segurança Agrícola",
+    "description": "Roteiro de treinamento cobrindo os riscos mais comuns na operação de máquinas agrícolas e como preveni-los.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore o roteiro de um treinamento de segurança de 20 minutos para operadores de máquinas agrícolas, cobrindo: risco de capotamento em terreno inclinado, distância segura de partes móveis (eixo cardã, rolos), uso de EPI em pulverização, e procedimento correto de engate de implementos. Formato de roteiro com tópicos e tempo estimado por bloco.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-pitch-prestacao-servico",
+    "category": "Agro",
+    "title": "Pitch de Prestação de Serviço Agrícola",
+    "description": "Discurso de vendas para oferecer serviço terceirizado de colheita/plantio a produtores que não têm frota própria.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um pitch de vendas para oferecer serviço terceirizado de [colheita/plantio/pulverização] a produtores que não possuem frota própria, destacando economia comparada à compra de máquina, disponibilidade na janela certa da safra, e experiência da equipe operadora. Até 120 palavras, tom consultivo e confiável.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/agro-txt-calendario-manutencao-plantio",
+    "category": "Agro",
+    "title": "Calendário de Manutenção para Época de Plantio",
+    "description": "Cronograma de revisão do maquinário nas semanas que antecedem o plantio, evitando quebras na janela mais crítica da safra.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um cronograma de manutenção para as 4 semanas que antecedem o plantio de [cultura], indicando o que revisar em cada semana (motor e filtros, sistema hidráulico, implementos de plantio, calibração de dosagem de sementes/adubo) para chegar à janela de plantio sem risco de quebra. Formato de tabela semana a semana.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-relatorio-troca-turno",
+    "category": "Mineração",
+    "title": "Modelo de Relatório de Troca de Turno",
+    "description": "Formulário estruturado para o operador que está saindo repassar o estado da máquina e da operação ao próximo turno.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um modelo de relatório de troca de turno para operadores de equipamentos de mineração, com campos para: horímetro, nível de combustível, ocorrências durante o turno, pendências de manutenção, e observações para o próximo operador. Formato de formulário curto, pronto para preenchimento rápido no fim do turno.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-briefing-ceu-aberto",
+    "category": "Mineração",
+    "title": "Briefing de Protocolo de Segurança em Céu Aberto",
+    "description": "Roteiro de briefing diário de segurança para operações em mina a céu aberto, reforçando os riscos específicos do turno.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva o roteiro de um briefing diário de segurança de 5 minutos para equipes de operação em mina a céu aberto, cobrindo: rota de tráfego de caminhões do dia, áreas de risco de queda de talude, distância mínima de áreas de detonação programada, e procedimento de rádio obrigatório antes de manobras. Tom firme e objetivo.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/min-txt-analise-causa-raiz-parada",
+    "category": "Mineração",
+    "title": "Análise de Causa-Raiz de Parada de Equipamento",
+    "description": "Roteiro estruturado para investigar por que um equipamento parou, indo além do sintoma até a causa real do problema.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Estruture uma análise de causa-raiz para a parada não programada de [equipamento de mineração], usando o método dos 5 porquês. Comece pelo sintoma relatado ([descrever sintoma]), guie a investigação até a causa raiz provável, e finalize com uma recomendação de ação corretiva para evitar recorrência.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/min-txt-relatorio-eficiencia-transporte",
+    "category": "Mineração",
+    "title": "Relatório de Eficiência de Transporte de Minério",
+    "description": "Modelo de relatório resumindo indicadores de ciclo de transporte, ajudando a identificar gargalos na operação de frota.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um modelo de relatório semanal de eficiência de transporte de minério, com seções para: número de ciclos completados, tempo médio de ciclo, tempo de espera em fila de carregamento, e observações sobre gargalos identificados na semana. Formato de relatório curto com espaços para preencher os números.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-cronograma-manutencao-frota",
+    "category": "Mineração",
+    "title": "Cronograma de Manutenção de Frota de Mineração",
+    "description": "Cronograma organizando a manutenção preventiva de uma frota de caminhões fora de estrada sem parar a produção toda de uma vez.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Monte um cronograma de manutenção preventiva escalonado para uma frota de [X] caminhões fora de estrada, organizando as janelas de manutenção de forma que nunca mais de [Y] caminhões fiquem parados ao mesmo tempo, preservando a capacidade de produção da mina. Formato de tabela por semana e por equipamento.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/min-txt-procedimento-controle-poeira",
+    "category": "Mineração",
+    "title": "Procedimento de Controle de Poeira",
+    "description": "Instruções operacionais para reduzir a poeira gerada por tráfego e escavação, protegendo saúde da equipe e visibilidade.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Descreva um procedimento operacional de controle de poeira para uma mina a céu aberto, cobrindo: frequência de aspersão de água nas vias de tráfego, uso de aditivos supressores quando aplicável, e condições de vento que exigem suspensão temporária de atividades. Linguagem operacional clara, em lista de ações.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-checklist-inspecao-mina",
+    "category": "Mineração",
+    "title": "Checklist de Inspeção de Equipamento em Mina",
+    "description": "Lista de verificação específica para equipamentos operando em ambiente de mina, com foco nos riscos daquele ambiente.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um checklist de inspeção pré-turno para [equipamento] operando em mina, incluindo pontos específicos do ambiente: sistema de supressão de incêndio, buzina de ré e alarme sonoro, iluminação para operação em área de baixa visibilidade, e integridade de pneus/esteiras frente ao terreno abrasivo. Formato de lista com caixas de marcação.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-liberacao-area-detonacao",
+    "category": "Mineração",
+    "title": "Texto de Liberação de Segurança de Área de Detonação",
+    "description": "Comunicado padrão informando a liberação de uma área após detonação controlada, para retomada segura das atividades.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Redija um comunicado padrão de liberação de área após uma detonação controlada em mina, confirmando: horário da detonação, inspeção pós-detonação concluída sem anomalias, raio liberado para retorno de equipamentos e pessoal, e nome do responsável técnico que autoriza a liberação. Tom formal e objetivo.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-relatorio-diario-producao",
+    "category": "Mineração",
+    "title": "Modelo de Relatório Diário de Produção",
+    "description": "Formulário para consolidar os números de produção do dia (volume movimentado, horas operadas, paradas) em um único resumo.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie um modelo de relatório diário de produção para operação de mina, com campos para: volume total movimentado no dia, horas efetivas de operação por equipamento, tempo total de paradas e motivo principal, e comparação simples com a meta do dia. Formato de relatório resumido de uma página.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/min-txt-gestao-pneus",
+    "category": "Mineração",
+    "title": "Guia de Gestão de Pneus para Caminhões Fora de Estrada",
+    "description": "Texto explicando como monitorar desgaste e pressão dos pneus de grande porte, um dos custos mais altos da operação.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um guia prático de gestão de pneus para caminhões fora de estrada em mineração, cobrindo: rotina de checagem de pressão, sinais visuais de desgaste irregular ligado a terreno ou condução, rodízio recomendado, e o impacto financeiro de negligenciar a manutenção de pneus no custo por tonelada transportada.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/venda-img-antes-depois-revisao",
+    "category": "Vendas",
+    "title": "Antes e Depois da Revisão Geral",
+    "description": "Imagem comparativa mostrando a máquina usada antes e depois da revisão completa, reforçando o valor agregado na venda.",
+    "segment": "Máquinas Pesadas",
+    "type": "Imagem",
+    "tools": [
+      "Midjourney",
+      "Adobe Firefly"
+    ],
+    "prompt_text": "Split comparison photograph of the same used [heavy machine]: left side worn and dusty as-received condition, right side fully revised with new paint, clean engine bay and polished details, clear dividing line down the middle, studio-quality even lighting on both sides, realistic, 8k --ar 16:9",
+    "featured": true,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-img-banner-promocional",
+    "category": "Vendas",
+    "title": "Banner Promocional com Destaque de Preço",
+    "description": "Composição de imagem com a máquina em destaque e espaço reservado para selo de preço/condição de pagamento.",
+    "segment": "Máquinas Pesadas",
+    "type": "Imagem",
+    "tools": [
+      "Midjourney",
+      "Flux"
+    ],
+    "prompt_text": "Promotional banner photograph of a [heavy machine] positioned on the right two-thirds of the frame against a clean gradient background, generous empty negative space on the left third reserved for a price tag/discount badge overlay, dramatic studio lighting, high commercial polish, 8k --ar 16:9",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-img-entrega-cliente",
+    "category": "Vendas",
+    "title": "Entrega ao Cliente",
+    "description": "Momento de aperto de mão entre vendedor e cliente diante da máquina recém-vendida, transmitindo confiança e satisfação.",
+    "segment": "Máquinas Pesadas",
+    "type": "Imagem",
+    "tools": [
+      "Midjourney",
+      "Leonardo AI"
+    ],
+    "prompt_text": "Realistic photograph of a salesperson and a customer shaking hands in front of a freshly delivered [heavy machine], both smiling, machine spotless with a subtle bow/ribbon detail, outdoor dealership lot in soft afternoon light, genuine candid composition, 8k --ar 4:5",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-img-capa-carrossel-specs",
+    "category": "Vendas",
+    "title": "Capa de Carrossel com Especificações",
+    "description": "Imagem de capa pensada para carrossel do Instagram, com a máquina centralizada e espaço para sobrepor as especificações.",
+    "segment": "Máquinas Pesadas",
+    "type": "Imagem",
+    "tools": [
+      "Midjourney",
+      "DALL-E"
+    ],
+    "prompt_text": "Square format photograph of a [heavy machine] centered against a dark graphite gradient background, dramatic rim lighting outlining the silhouette, ample clean space above and below the machine reserved for spec text overlay, premium commercial catalog style, 8k --ar 1:1",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-img-vitrine-seminovos",
+    "category": "Vendas",
+    "title": "Vitrine de Seminovos",
+    "description": "Imagem de várias máquinas seminovas organizadas em pátio de exposição, transmitindo variedade de estoque disponível.",
+    "segment": "Máquinas Pesadas",
+    "type": "Imagem",
+    "tools": [
+      "Midjourney",
+      "Adobe Firefly"
+    ],
+    "prompt_text": "Wide photograph of a used-equipment dealership lot with several different [heavy machines] neatly arranged in rows, clean and organized, clear sky, wide angle showing scale and variety of available stock, realistic commercial real-estate style photography, 8k --ar 16:9",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-vid-depoimento-cliente",
+    "category": "Vendas",
+    "title": "Reencenação de Depoimento de Cliente",
+    "description": "Vídeo estilo depoimento, cliente falando ao lado da máquina sobre a experiência de compra, formato ideal para prova social.",
+    "segment": "Máquinas Pesadas",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Documentary-style testimonial video of a satisfied customer standing beside a [heavy machine] on their job site, speaking directly to camera with natural gestures, machine visible and active in the background, warm natural lighting, authentic and trustworthy tone, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-vid-contagem-urgencia",
+    "category": "Vendas",
+    "title": "Contagem Regressiva de Promoção",
+    "description": "Vídeo curto com contador visual de tempo/estoque sobreposto à máquina, criando senso de urgência para a oferta.",
+    "segment": "Máquinas Pesadas",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ],
+    "prompt_text": "Short promotional video of a [heavy machine] rotating slowly on a studio turntable, with a bold countdown timer or 'limited stock' graphic overlay in the corner, high contrast lighting, punchy commercial pacing, urgent but premium tone, 4k",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/venda-vid-destaque-diferenciais",
+    "category": "Vendas",
+    "title": "Vídeo À Venda com Destaque de Diferenciais",
+    "description": "Percurso pela máquina destacando com zoom os principais diferenciais técnicos que justificam o preço pedido.",
+    "segment": "Máquinas Pesadas",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ],
+    "prompt_text": "Walkaround video of a [heavy machine] for sale, camera pausing and gently zooming on key feature points (cab interior, engine bay, undercarriage condition, attachment) with each pause held for two seconds, clean daylight, feels like a guided feature tour, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-vid-entrega-handover",
+    "category": "Vendas",
+    "title": "Vídeo de Entrega e Handover",
+    "description": "Sequência mostrando a máquina sendo carregada na carreta e entregue no destino final, prova de cumprimento e cuidado logístico.",
+    "segment": "Máquinas Pesadas",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Sequence showing a [heavy machine] being carefully loaded onto a flatbed trailer, secured with straps, then a cut to it arriving and being unloaded at the customer's site, professional and careful handling throughout, natural daylight, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-vid-comparativo-valor",
+    "category": "Vendas",
+    "title": "Comparativo de Valor Usada vs Nova",
+    "description": "Vídeo lado a lado comparando uma máquina seminova e uma nova em operação equivalente, argumentando o custo-benefício.",
+    "segment": "Máquinas Pesadas",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ],
+    "prompt_text": "Split-screen video comparing a used [heavy machine] and a brand new equivalent performing the same work cycle side by side, synchronized movements, subtle on-screen labels 'seminova' and 'nova', neutral daylight on both sides, clear value-comparison framing, 4k",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/venda-txt-followup-whatsapp",
+    "category": "Vendas",
+    "title": "Sequência de Follow-up de Vendas via WhatsApp",
+    "description": "Três mensagens espaçadas no tempo para retomar contato com um lead que esfriou após receber uma proposta.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva uma sequência de 3 mensagens de WhatsApp para reativar um lead que recebeu uma proposta de [modelo da máquina] e parou de responder. Mensagem 1 (2 dias depois): lembrete leve. Mensagem 2 (5 dias depois): oferece uma condição extra ou tira uma dúvida comum. Mensagem 3 (10 dias depois): fechamento educado perguntando se deve encerrar o atendimento. Tom nunca insistente.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-txt-contorno-objecao-preco",
+    "category": "Vendas",
+    "title": "Script de Contorno de Objeção de Preço",
+    "description": "Roteiro de resposta para quando o cliente diz que o preço está acima do orçamento, sem recorrer a desconto imediato.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva um script de resposta para quando um cliente diz que o preço de [modelo da máquina] está acima do orçamento. A resposta deve reconhecer a preocupação sem ficar na defensiva, reforçar o valor (garantia, suporte, custo de manutenção menor) antes de considerar desconto, e terminar com uma pergunta aberta para entender o real limite do cliente. Tom consultivo, não agressivo.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-txt-descricao-leilao",
+    "category": "Vendas",
+    "title": "Descrição de Anúncio para Leilão",
+    "description": "Texto de anúncio otimizado para plataformas de leilão de máquinas, com as informações que compradores mais buscam.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva a descrição de um anúncio de leilão para [modelo da máquina], no formato esperado por plataformas de leilão (ano, horímetro, estado de conservação, histórico de manutenção resumido, itens inclusos, condição de retirada). Objetivo e factual, sem apelo emocional excessivo, terminando com um aviso claro sobre condição 'como está'.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/venda-txt-proposta-trade-in",
+    "category": "Vendas",
+    "title": "Proposta de Troca (Trade-In)",
+    "description": "Texto de proposta explicando como funciona a troca da máquina usada do cliente como parte do pagamento de uma nova.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Redija uma proposta de trade-in explicando ao cliente como funciona a troca de sua máquina usada como parte de pagamento na aquisição de [modelo novo/seminovo]. Cubra: como é feita a avaliação da máquina usada, o que pode reduzir o valor de avaliação, e os próximos passos até fechar negócio. Tom transparente, sem prometer valor antes da vistoria.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-vid-reveal-noturno",
+    "category": "Combos",
+    "title": "Revelação Aérea + Operação Noturna",
+    "description": "Combina a descida de drone com a atmosfera de operação noturna, unindo abertura cinematográfica e prova de trabalho 24h.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Sora"
+    ],
+    "prompt_text": "Two-part cinematic video: first a drone slowly descends toward a [heavy machine] silhouette at dusk, then seamlessly transitions into the same machine now operating at night with headlights cutting through dust, combining an epic reveal with a proof-of-work night sequence, consistent color grade throughout, 4k",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/combo-vid-cabine-timelapse",
+    "category": "Combos",
+    "title": "POV de Cabine + Timelapse",
+    "description": "Une o ponto de vista do operador com um timelapse do mesmo ciclo se repetindo ao longo do dia, mostrando ritmo e consistência.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Kling"
+    ],
+    "prompt_text": "Combined sequence starting with a first-person cab POV of a [heavy machine] performing one work cycle in real time, then transitioning into a time-lapse of the same cycle repeating dozens of times across the day from a fixed external angle, smooth transition between the two perspectives, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-vid-lavagem-golden-hour",
+    "category": "Combos",
+    "title": "Antes/Depois de Lavagem + Golden Hour",
+    "description": "Combina a transformação de limpeza com um fechamento cinematográfico ao entardecer, encerrando com impacto visual.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ],
+    "prompt_text": "Video combining a before/after wash transformation of a [heavy machine] with a closing golden hour hero shot: starts with a wipe transition from dirty to clean, ends with the now-spotless machine posed in warm low-angle sunset light, cohesive premium color grade across both parts, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-vid-frota-chuva",
+    "category": "Combos",
+    "title": "Frota Aérea + Resiliência à Chuva",
+    "description": "Combina uma vista aérea da frota parada com uma cena de uma das máquinas operando sob chuva, unindo escala e durabilidade.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Sora"
+    ],
+    "prompt_text": "Video combining an aerial establishing shot of a full fleet of [heavy machines] parked in a large yard, then cutting to one of them actively working through heavy rain and mud, demonstrating both fleet scale and weather resilience in a single cohesive sequence, 4k",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/combo-vid-slowmo-colorgrade",
+    "category": "Combos",
+    "title": "Slow Motion de Ação + Grade de Cor Cinematográfica",
+    "description": "Une um close em câmera lenta de um movimento de força com uma correção de cor cinematográfica de alto impacto visual.",
+    "segment": "Geral",
+    "type": "Vídeo",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ],
+    "prompt_text": "Slow-motion close-up of a [heavy machine] performing a high-force action (digging, lifting, or pushing through material), heavy dust and debris frozen mid-air, finished with a bold cinematic color grade (deep shadows, warm highlights) for a premium action-trailer feel, 4k",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-reel-depoimento",
+    "category": "Combos",
+    "title": "Roteiro de Reel + Legenda de Depoimento",
+    "description": "Combina o roteiro de um reel estilo depoimento com a legenda pronta para publicar junto no Instagram.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT",
+      "CapCut"
+    ],
+    "prompt_text": "Crie (1) o roteiro de um reel de 30 segundos com um cliente contando em tom natural por que escolheu [produto/serviço], com indicação de 3 cortes de cena, e (2) a legenda pronta para publicar junto, com CTA para orçamento. Entregue as duas partes claramente separadas.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-anuncio-objecoes",
+    "category": "Combos",
+    "title": "Anúncio de Venda + Respostas a Objeções",
+    "description": "Combina o texto do anúncio de venda com respostas prontas para as 3 objeções mais comuns que o vendedor vai ouvir.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) um anúncio de venda persuasivo para [modelo da máquina] com título, 3 bullets de benefícios e CTA, e (2) respostas prontas de 2 frases para as 3 objeções mais comuns (preço alto, horímetro elevado, falta de garantia). Separe claramente o anúncio das respostas.",
+    "featured": true,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-checklist-relatorio-manutencao",
+    "category": "Combos",
+    "title": "Checklist de Manutenção + Relatório de Inspeção",
+    "description": "Une o checklist de itens a verificar com o modelo de relatório para registrar o resultado da inspeção.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie (1) um checklist de manutenção preventiva de [modelo da máquina] com os principais itens a verificar, e (2) um modelo de relatório curto para o técnico registrar o resultado de cada item (ok/atenção/trocado) e uma observação final. Entregue as duas partes em blocos separados.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-treinamento-quiz",
+    "category": "Combos",
+    "title": "Roteiro de Treinamento + Quiz de Fixação",
+    "description": "Combina o conteúdo de um treinamento de operador com um pequeno quiz para verificar o que foi absorvido.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore (1) o roteiro resumido de um treinamento de 15 minutos sobre operação segura de [modelo da máquina], e (2) um quiz de 5 perguntas de múltipla escolha para verificar se o operador absorveu o conteúdo, com o gabarito ao final. Separe treinamento e quiz claramente.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-institucional-linkedin",
+    "category": "Combos",
+    "title": "Script Institucional + Legenda para LinkedIn",
+    "description": "Combina o roteiro de um vídeo institucional curto com a legenda pronta para publicar no LinkedIn da empresa.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT",
+      "CapCut"
+    ],
+    "prompt_text": "Escreva (1) o roteiro de um vídeo institucional de 45 segundos apresentando a empresa e seu diferencial no mercado de máquinas pesadas, e (2) a legenda para publicar o mesmo vídeo no LinkedIn, em tom mais corporativo, com uma pergunta final para gerar comentários. Separe roteiro e legenda.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-cobranca-followup",
+    "category": "Combos",
+    "title": "E-mail de Cobrança + Follow-up de Pagamento",
+    "description": "Combina o primeiro e-mail de cobrança educado com um segundo follow-up mais direto caso não haja resposta.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Redija (1) um primeiro e-mail de cobrança educado sobre uma fatura em atraso de [valor/serviço], e (2) um segundo e-mail de follow-up mais direto para ser enviado 7 dias depois caso não haja resposta, mantendo tom profissional em ambos. Separe os dois e-mails claramente.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-post-carrossel-dicas",
+    "category": "Combos",
+    "title": "Post Educativo + Carrossel de Dicas Técnicas",
+    "description": "Combina a legenda de um post educativo com o roteiro de texto para os slides de um carrossel de dicas técnicas.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT",
+      "Canva"
+    ],
+    "prompt_text": "Crie (1) a legenda de um post educativo sobre [tema técnico: manutenção/consumo/segurança], e (2) o texto de 5 slides de um carrossel para Instagram explicando o tema de forma visual e resumida, um ponto por slide. Separe legenda e slides claramente.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-unboxing-catalogo",
+    "category": "Combos",
+    "title": "Roteiro de Unboxing + Descrição para Catálogo",
+    "description": "Combina o roteiro de um vídeo de chegada/unboxing de máquina nova com a descrição formal para o catálogo de produtos.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) o roteiro de um vídeo de 'chegada' de [modelo da máquina] nova na revenda, mostrando destaques ao ser descarregada, e (2) a descrição formal do mesmo modelo para o catálogo de produtos, com especificações e aplicações recomendadas. Separe roteiro e descrição de catálogo.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-apresentacao-feira-cartao",
+    "category": "Combos",
+    "title": "Discurso de Feira + Texto de Cartão Digital",
+    "description": "Combina uma fala curta de apresentação para estande de feira com o texto de um cartão de visita digital para trocar contato.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) uma fala de apresentação de 30 segundos para ser usada em estande de feira do setor, apresentando a empresa e o principal diferencial, e (2) o texto de um cartão de visita digital (nome, cargo, empresa, uma frase de chamada) para compartilhar com quem visitar o estande. Separe as duas partes.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-anuncio-locacao-termos",
+    "category": "Combos",
+    "title": "Anúncio de Locação + Termos Resumidos",
+    "description": "Combina o anúncio de disponibilidade de locação com um resumo dos termos contratuais principais em linguagem simples.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) um anúncio de disponibilidade de locação de [modelo da máquina] destacando diferenciais e valor por período, e (2) um resumo em linguagem simples dos termos contratuais principais (prazo mínimo, caução, responsabilidade por manutenção). Separe anúncio e resumo de termos.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-podcast-shownotes",
+    "category": "Combos",
+    "title": "Roteiro de Podcast + Shownotes de Manutenção",
+    "description": "Combina a pauta de um episódio de podcast sobre manutenção preventiva com as shownotes resumidas para publicar junto.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie (1) a pauta de um episódio de podcast de 10 minutos sobre a importância da manutenção preventiva em máquinas pesadas, com 4 tópicos a abordar, e (2) as shownotes resumidas em 3 bullets para publicar na descrição do episódio. Separe pauta e shownotes.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-newsletter-destaques",
+    "category": "Combos",
+    "title": "Newsletter Mensal + Resumo de Destaques",
+    "description": "Combina o corpo de uma newsletter mensal com um resumo curto dos destaques para usar como prévia/assunto do e-mail.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) o corpo de uma newsletter mensal para clientes de uma revenda de máquinas pesadas, com seções de novidades de estoque, dica técnica do mês e um case de cliente, e (2) um resumo de 2 linhas dos destaques para usar como texto de prévia/assunto do e-mail. Separe corpo e prévia.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/combo-txt-seguranca-checklist-epi",
+    "category": "Combos",
+    "title": "Roteiro de Vídeo de Segurança + Checklist de EPI",
+    "description": "Combina o roteiro de um vídeo educativo sobre segurança com o checklist de EPIs obrigatórios por função.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore (1) o roteiro de um vídeo educativo de 1 minuto sobre a importância do uso correto de EPI na operação de máquinas pesadas, e (2) um checklist dos EPIs obrigatórios por função (operador, auxiliar de pátio, técnico de manutenção). Separe roteiro e checklist claramente.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-proposta-cronograma",
+    "category": "Combos",
+    "title": "Proposta Comercial + Cronograma de Entrega",
+    "description": "Combina o texto de uma proposta comercial formal com o cronograma estimado de entrega do equipamento/serviço.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Redija (1) uma proposta comercial formal para fornecimento de [equipamento/serviço], com escopo, condições comerciais e validade, e (2) um cronograma estimado de entrega em etapas (confirmação do pedido, preparação, transporte, entrega final). Separe proposta e cronograma.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-atendimento-escalonamento",
+    "category": "Combos",
+    "title": "Script de Atendimento + Escalonamento de Reclamação",
+    "description": "Combina o roteiro padrão de atendimento com o protocolo de escalonamento para reclamações mais sérias.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) um roteiro padrão de atendimento para o primeiro contato de um cliente insatisfeito, com foco em acolhimento e coleta de informações, e (2) o protocolo de escalonamento indicando quando e como encaminhar o caso a um supervisor. Separe roteiro de atendimento e protocolo de escalonamento.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-aniversario-agradecimento",
+    "category": "Combos",
+    "title": "Post de Aniversário da Empresa + Agradecimento aos Clientes",
+    "description": "Combina o post comemorativo de aniversário da empresa com uma mensagem de agradecimento direcionada aos clientes.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) um post comemorativo para redes sociais celebrando o aniversário da empresa, destacando anos de mercado e um marco importante, e (2) uma mensagem de agradecimento separada, mais pessoal, para enviar diretamente aos clientes fiéis. Separe post público e mensagem direta.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-comparativo-tabela",
+    "category": "Combos",
+    "title": "Roteiro de Comparação de Modelos + Tabela de Especificações",
+    "description": "Combina o roteiro de um vídeo comparativo entre modelos com uma tabela de especificações em texto para acompanhar o post.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Crie (1) o roteiro de um vídeo comparando [modelo A] e [modelo B] lado a lado, destacando 3 diferenças principais, e (2) uma tabela de especificações em texto com os mesmos critérios comparados, para acompanhar o post. Separe roteiro e tabela.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-recrutamento-vaga",
+    "category": "Combos",
+    "title": "Script de Recrutamento + Descrição de Vaga",
+    "description": "Combina o roteiro de um vídeo de recrutamento com o texto formal da descrição de vaga para operador.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) o roteiro de um vídeo curto de recrutamento mostrando o dia a dia de um operador de máquinas pesadas na empresa, e (2) a descrição formal da vaga de operador (requisitos, responsabilidades, benefícios) para publicar em plataformas de emprego. Separe roteiro e descrição de vaga.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-manutencao-anual-orcamento",
+    "category": "Combos",
+    "title": "Plano de Manutenção Anual + Orçamento Estimado",
+    "description": "Combina o plano anual de manutenção preventiva com uma estimativa de orçamento para o cliente planejar o ano.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore (1) um plano anual de manutenção preventiva para [modelo da máquina], organizado por trimestre, e (2) uma estimativa de orçamento aproximado para cada trimestre (mão de obra e peças), deixando claro que os valores são estimativas sujeitas a inspeção. Separe plano e orçamento.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/combo-txt-case-sucesso-depoimento",
+    "category": "Combos",
+    "title": "Roteiro de Case de Sucesso + Depoimento Estruturado",
+    "description": "Combina o roteiro de um vídeo de case de sucesso com um roteiro de perguntas para estruturar o depoimento do cliente.",
+    "segment": "Geral",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) o roteiro de um vídeo de case de sucesso mostrando o resultado que um cliente obteve com [produto/serviço], e (2) um roteiro de 4 perguntas para conduzir a entrevista com o cliente e estruturar seu depoimento (situação antes, desafio, solução, resultado). Separe roteiro do vídeo e roteiro de entrevista.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-crosssell-pecas-followup",
+    "category": "Combos",
+    "title": "Anúncio Cruzado de Peças e Serviços + Follow-up",
+    "description": "Combina um anúncio oferecendo peças/serviços complementares a quem já comprou uma máquina com uma mensagem de follow-up.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) um anúncio de cross-sell oferecendo peças e serviços de manutenção a quem já comprou [modelo da máquina], com uma condição especial para clientes existentes, e (2) uma mensagem de follow-up de 3 dias depois caso não haja resposta ao anúncio. Separe anúncio e follow-up.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-seguranca-mineracao-relatorio",
+    "category": "Combos",
+    "title": "Treinamento de Segurança em Mineração + Relatório de Incidente",
+    "description": "Combina o roteiro de um treinamento de segurança específico de mineração com o modelo de relatório usado em caso de incidente.",
+    "segment": "Mineração",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Elabore (1) o roteiro de um treinamento de 15 minutos sobre os riscos específicos de operação em mina a céu aberto, e (2) um modelo de relatório de incidente para ser preenchido caso algo saia do previsto durante a operação, com campos de data, local, descrição e ação tomada. Separe treinamento e relatório.",
+    "featured": false,
+    "is_premium": true
+  },
+  {
+    "code": "/combo-txt-colheita-celebracao",
+    "category": "Combos",
+    "title": "Roteiro de Vídeo de Colheita + Post de Celebração de Safra",
+    "description": "Combina o roteiro de um vídeo mostrando a colheita em andamento com um post de celebração para publicar ao final da safra.",
+    "segment": "Agro",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Escreva (1) o roteiro de um vídeo mostrando a colheita de [cultura] em andamento, com foco na máquina e na equipe trabalhando, e (2) um post de celebração para publicar ao final da safra, agradecendo à equipe e destacando o resultado alcançado. Separe roteiro do vídeo e post de celebração.",
+    "featured": false,
+    "is_premium": false
+  },
+  {
+    "code": "/combo-txt-financiamento-planos",
+    "category": "Combos",
+    "title": "Proposta de Financiamento + Comparação de Planos",
+    "description": "Combina a proposta de financiamento de uma máquina com uma comparação simples entre diferentes planos de pagamento.",
+    "segment": "Máquinas Pesadas",
+    "type": "Texto",
+    "tools": [
+      "ChatGPT"
+    ],
+    "prompt_text": "Redija (1) uma proposta de financiamento para aquisição de [modelo da máquina], explicando entrada, prazo e condições gerais, e (2) uma comparação simples entre 2 ou 3 planos de pagamento diferentes (à vista, financiado curto prazo, financiado longo prazo), destacando o custo total de cada um. Separe proposta e comparação de planos.",
+    "featured": false,
+    "is_premium": true
+  }
+]
