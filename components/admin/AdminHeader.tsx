@@ -8,6 +8,9 @@ import { SignOutButton } from "@/components/admin/SignOutButton";
 const NAV_ITEMS = [
   { href: "/admin", label: "Prompts" },
   { href: "/admin/media", label: "Mídias da LP" },
+  // Temporário - ver app/admin/rewrite-imagem-actions.ts. Remover este
+  // item junto com a página/ação quando o rewrite dos 312 for aplicado.
+  { href: "/admin/rewrite-imagem", label: "Rewrite Imagem" },
   { href: "/admin/settings/payments", label: "Pagamentos" },
   { href: "/admin/settings/test-accounts", label: "Contas de teste" },
 ] as const;
