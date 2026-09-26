@@ -170,25 +170,28 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
   );
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <h1 className="text-lg font-bold text-foreground">Catálogo de prompts</h1>
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setShowImport((v) => !v)}
-            className="rounded-lg border border-border px-4 py-2 text-xs font-bold uppercase tracking-wide text-foreground"
-          >
-            Importar prompts
-          </button>
-          <button
-            onClick={() => setShowGallery((v) => !v)}
-            className="rounded-lg border border-border px-4 py-2 text-xs font-bold uppercase tracking-wide text-foreground"
-          >
-            Galeria de imagens
-          </button>
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="text-xl font-bold tracking-tight text-foreground">Catálogo de prompts</h1>
+
+        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+          <div className="grid grid-cols-2 gap-2 sm:flex">
+            <button
+              onClick={() => setShowImport((v) => !v)}
+              className="rounded-lg border border-border px-3 py-2.5 text-xs font-bold uppercase tracking-wide text-foreground transition-colors duration-200 hover:border-border/80 active:scale-[0.98] sm:px-4"
+            >
+              Importar prompts
+            </button>
+            <button
+              onClick={() => setShowGallery((v) => !v)}
+              className="rounded-lg border border-border px-3 py-2.5 text-xs font-bold uppercase tracking-wide text-foreground transition-colors duration-200 hover:border-border/80 active:scale-[0.98] sm:px-4"
+            >
+              Galeria de imagens
+            </button>
+          </div>
           <button
             onClick={startCreate}
-            className="rounded-lg bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground"
+            className="rounded-lg bg-accent px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-accent-foreground transition-transform duration-200 active:scale-[0.98]"
           >
             Novo prompt
           </button>
@@ -353,7 +356,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
           className={inputClass}
         />
 
-        <div className="no-scrollbar flex gap-2 overflow-x-auto">
+        <div className="no-scrollbar flex snap-x snap-mandatory gap-2 overflow-x-auto">
           {FILTERS.map((f) => {
             const isActive = f === filter;
             return (
@@ -362,10 +365,10 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
                 type="button"
                 onClick={() => setFilter(f)}
                 aria-pressed={isActive}
-                className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`shrink-0 snap-start rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 active:scale-[0.96] ${
                   isActive
                     ? "border-accent bg-accent text-accent-foreground"
-                    : "border-border bg-surface text-muted hover:text-foreground"
+                    : "border-border bg-surface text-muted hover:border-border/80 hover:text-foreground"
                 }`}
               >
                 {f} ({counts.get(f) ?? 0})
@@ -385,10 +388,10 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
         {visiblePrompts.map((prompt) => (
           <div
             key={prompt.id}
-            className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-4 sm:flex-row sm:items-center sm:justify-between"
+            className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface-2">
+            <div className="flex gap-3">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface-2">
                 {prompt.image_url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={prompt.image_url} alt="" className="h-full w-full object-cover" />
@@ -399,10 +402,12 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
                 )}
               </div>
 
-              <div className="flex flex-col gap-1">
-                <div className="flex flex-wrap items-baseline gap-1.5">
-                  <span className="font-mono text-xs text-accent">{prompt.code}</span>
-                  <span className="text-sm font-semibold text-foreground">{prompt.title}</span>
+              <div className="flex min-w-0 flex-col gap-1.5">
+                <div className="flex min-w-0 flex-col gap-0.5">
+                  <span className="font-mono text-[11px] font-semibold text-accent">{prompt.code}</span>
+                  <span className="line-clamp-2 text-sm font-semibold leading-snug text-foreground">
+                    {prompt.title}
+                  </span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
                   <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-medium text-muted">
@@ -425,67 +430,68 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
               {/* Testado / Ativo: each button is both the visible sim/não
                   status and the quick toggle action for it. */}
-              <form action={toggleTestedAction.bind(null, prompt.id, !prompt.is_tested)}>
-                <button
-                  type="submit"
-                  className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
-                    prompt.is_tested ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"
-                  }`}
-                >
-                  {prompt.is_tested ? "Testado" : "Não testado"}
-                </button>
-              </form>
+              <div className="flex items-center gap-1.5">
+                <form action={toggleTestedAction.bind(null, prompt.id, !prompt.is_tested)}>
+                  <button
+                    type="submit"
+                    className={`rounded-full px-2.5 py-1 text-[10px] font-semibold transition-colors duration-200 active:scale-[0.96] ${
+                      prompt.is_tested ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"
+                    }`}
+                  >
+                    {prompt.is_tested ? "Testado" : "Não testado"}
+                  </button>
+                </form>
 
-              <form action={toggleActiveAction.bind(null, prompt.id, !prompt.is_active)}>
-                <button
-                  type="submit"
-                  className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
-                    prompt.is_active ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"
-                  }`}
-                >
-                  {prompt.is_active ? "Ativo" : "Inativo"}
-                </button>
-              </form>
+                <form action={toggleActiveAction.bind(null, prompt.id, !prompt.is_active)}>
+                  <button
+                    type="submit"
+                    className={`rounded-full px-2.5 py-1 text-[10px] font-semibold transition-colors duration-200 active:scale-[0.96] ${
+                      prompt.is_active ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"
+                    }`}
+                  >
+                    {prompt.is_active ? "Ativo" : "Inativo"}
+                  </button>
+                </form>
+              </div>
 
-              <label className="cursor-pointer rounded-lg border border-border px-3 py-1 text-xs font-medium text-foreground">
-                {quickImageUploadingId === prompt.id
-                  ? "Enviando..."
-                  : prompt.image_url
-                    ? "Substituir resultado"
-                    : "Adicionar resultado"}
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  disabled={quickImageUploadingId === prompt.id}
-                  onChange={(e) => handleQuickImageSelect(prompt.id, e)}
-                />
-              </label>
+              <div className="grid grid-cols-3 gap-1.5 sm:flex sm:w-auto sm:gap-2">
+                <label className="flex cursor-pointer items-center justify-center rounded-lg border border-border px-2 py-2 text-center text-xs font-medium text-foreground transition-colors duration-200 hover:border-border/80 active:scale-[0.97] sm:px-3 sm:py-1">
+                  {quickImageUploadingId === prompt.id ? "Enviando..." : "Resultado"}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    disabled={quickImageUploadingId === prompt.id}
+                    onChange={(e) => handleQuickImageSelect(prompt.id, e)}
+                  />
+                </label>
+
+                <button
+                  onClick={() => startEdit(prompt)}
+                  className="rounded-lg border border-border px-2 py-2 text-xs font-medium text-foreground transition-colors duration-200 hover:border-border/80 active:scale-[0.97] sm:px-3 sm:py-1"
+                >
+                  Editar
+                </button>
+
+                <form action={deletePromptAction.bind(null, prompt.id)}>
+                  <button
+                    type="submit"
+                    onClick={(e) => {
+                      if (!confirm(`Excluir "${prompt.title}"?`)) e.preventDefault();
+                    }}
+                    className="w-full rounded-lg border border-border px-2 py-2 text-xs font-medium text-red-400 transition-colors duration-200 hover:border-red-400/40 active:scale-[0.97] sm:px-3 sm:py-1"
+                  >
+                    Excluir
+                  </button>
+                </form>
+              </div>
+
               {quickImageErrorId === prompt.id && (
                 <span className="text-xs text-red-400">Falha ao enviar.</span>
               )}
-
-              <button
-                onClick={() => startEdit(prompt)}
-                className="rounded-lg border border-border px-3 py-1 text-xs font-medium text-foreground"
-              >
-                Editar
-              </button>
-
-              <form action={deletePromptAction.bind(null, prompt.id)}>
-                <button
-                  type="submit"
-                  onClick={(e) => {
-                    if (!confirm(`Excluir "${prompt.title}"?`)) e.preventDefault();
-                  }}
-                  className="rounded-lg border border-border px-3 py-1 text-xs font-medium text-red-400"
-                >
-                  Excluir
-                </button>
-              </form>
             </div>
           </div>
         ))}
