@@ -102,12 +102,13 @@ export default async function AdminMediaPage() {
     // its migration might not be applied yet in some environment - that
     // must never take down the rest of this page.
     const supabase = await createSupabaseServerClient();
-    const { data, error } = await supabase.from("prompts").select("id, code, catalog_number, image_url");
+    const { data, error } = await supabase.from("prompts").select("id, code, title, catalog_number, image_url");
 
     if (error) throw error;
     catalogLookup = (data ?? []).map((row) => ({
       id: row.id,
       code: row.code,
+      title: row.title,
       catalogNumber: row.catalog_number,
       hasImage: !!row.image_url,
     }));
