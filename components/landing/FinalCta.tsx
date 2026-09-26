@@ -1,12 +1,23 @@
 import Image from "next/image";
 import { PricingCard } from "@/components/landing/PricingCard";
 
-export function FinalCta({ imageUrl }: { imageUrl?: string }) {
+export function FinalCta({
+  imageUrl,
+  mobileImageUrl,
+}: {
+  imageUrl?: string;
+  mobileImageUrl?: string;
+}) {
+  // Falls back to the desktop image when no mobile-specific one is set -
+  // see OPER "Regra mobile-first MaqAI".
+  const mobileSrc = mobileImageUrl || imageUrl;
+
   return (
     <section className="relative overflow-hidden">
       {imageUrl ? (
         <>
-          <Image src={imageUrl} alt="" fill sizes="100vw" className="object-cover" />
+          {mobileSrc && <Image src={mobileSrc} alt="" fill sizes="100vw" className="object-cover sm:hidden" />}
+          <Image src={imageUrl} alt="" fill sizes="100vw" className="hidden object-cover sm:block" />
           <div className="pointer-events-none absolute inset-0 bg-background/80" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
         </>

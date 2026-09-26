@@ -96,7 +96,7 @@ export function PromptCard({
         <FavoriteButton
           active={isFavorite}
           onToggle={() => onToggleFavorite(prompt.id)}
-          className="absolute right-2 top-2 h-8 w-8 shadow-card"
+          className="absolute right-2 top-2 h-9 w-9 shadow-card"
         />
       </div>
 

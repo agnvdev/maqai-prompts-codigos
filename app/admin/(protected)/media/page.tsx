@@ -94,7 +94,11 @@ export default async function AdminMediaPage() {
   }
 
   const hero = items.find((item) => item.slot === "hero" && item.identifier === "hero");
+  const heroMobile = items.find((item) => item.slot === "hero" && item.identifier === "hero_mobile");
   const finalCta = items.find((item) => item.slot === "final_cta" && item.identifier === "final_cta");
+  const finalCtaMobile = items.find(
+    (item) => item.slot === "final_cta" && item.identifier === "final_cta_mobile"
+  );
 
   // Order matches the real render order in app/page.tsx: Header (logo),
   // Hero, BeforeAfter, Showcase, Segments, ..., FinalCta, Footer (logo).
@@ -105,15 +109,29 @@ export default async function AdminMediaPage() {
       <ErrorNote message={loadError} />
 
       <MediaSectionCard title="Hero" whereUsed="Topo da página inicial, logo abaixo do cabeçalho.">
-        <div className="max-w-xs">
-          <LpImageUploadSlot
-            slot="hero"
-            identifier="hero"
-            label="Hero"
-            imageUrl={hero?.image_url ?? null}
-            rowId={hero?.id}
-            dimension="1920×1080 (16:9) ou maior."
-          />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="max-w-xs">
+            <LpImageUploadSlot
+              slot="hero"
+              identifier="hero_mobile"
+              label="Mobile"
+              imageUrl={heroMobile?.image_url ?? null}
+              rowId={heroMobile?.id}
+              whereUsed="Usada em telas até 640px. Sem esta imagem, a versão Desktop é usada no lugar."
+              dimension="1080×1920 (9:16)."
+            />
+          </div>
+          <div className="max-w-xs">
+            <LpImageUploadSlot
+              slot="hero"
+              identifier="hero"
+              label="Desktop"
+              imageUrl={hero?.image_url ?? null}
+              rowId={hero?.id}
+              whereUsed="Usada em telas a partir de 640px."
+              dimension="1920×1080 (16:9) ou maior."
+            />
+          </div>
         </div>
       </MediaSectionCard>
 
@@ -144,15 +162,29 @@ export default async function AdminMediaPage() {
         title="CTA final"
         whereUsed="Fundo da última seção da página inicial, antes do rodapé."
       >
-        <div className="max-w-xs">
-          <LpImageUploadSlot
-            slot="final_cta"
-            identifier="final_cta"
-            label="CTA final"
-            imageUrl={finalCta?.image_url ?? null}
-            rowId={finalCta?.id}
-            dimension="1920×1080 (16:9) ou maior."
-          />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="max-w-xs">
+            <LpImageUploadSlot
+              slot="final_cta"
+              identifier="final_cta_mobile"
+              label="Mobile"
+              imageUrl={finalCtaMobile?.image_url ?? null}
+              rowId={finalCtaMobile?.id}
+              whereUsed="Usada em telas até 640px. Sem esta imagem, a versão Desktop é usada no lugar."
+              dimension="1080×1920 (9:16)."
+            />
+          </div>
+          <div className="max-w-xs">
+            <LpImageUploadSlot
+              slot="final_cta"
+              identifier="final_cta"
+              label="Desktop"
+              imageUrl={finalCta?.image_url ?? null}
+              rowId={finalCta?.id}
+              whereUsed="Usada em telas a partir de 640px."
+              dimension="1920×1080 (16:9) ou maior."
+            />
+          </div>
         </div>
       </MediaSectionCard>
 

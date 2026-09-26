@@ -57,14 +57,14 @@ export default async function Home() {
     <>
       <Header logoUrl={logoMedia.Logo} />
       <main className="flex flex-1 flex-col">
-        <Hero imageUrl={heroMedia.hero} />
+        <Hero imageUrl={heroMedia.hero} mobileImageUrl={heroMedia.hero_mobile} />
         <BeforeAfter pairs={beforeAfterPairs} />
         <Showcase items={showcaseItems} />
         <Segments imageOverrides={segmentsMedia} />
         <Benefits />
         <HowItWorks />
         <Positioning />
-        <FinalCta imageUrl={finalCtaMedia.final_cta} />
+        <FinalCta imageUrl={finalCtaMedia.final_cta} mobileImageUrl={finalCtaMedia.final_cta_mobile} />
       </main>
       <Footer logoUrl={logoMedia.Logo} />
     </>

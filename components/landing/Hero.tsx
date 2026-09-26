@@ -2,16 +2,36 @@ import Image from "next/image";
 import { HERO_IMAGE } from "@/lib/images";
 import { CtaButton } from "@/components/landing/CtaButton";
 
-export function Hero({ imageUrl }: { imageUrl?: string }) {
+export function Hero({
+  imageUrl,
+  mobileImageUrl,
+}: {
+  imageUrl?: string;
+  mobileImageUrl?: string;
+}) {
+  const desktopSrc = imageUrl || HERO_IMAGE;
+  // Falls back to the desktop image when no mobile-specific one is set -
+  // see OPER "Regra mobile-first MaqAI" (mobile art-direction with a
+  // desktop fallback, not a hard requirement to upload both).
+  const mobileSrc = mobileImageUrl || desktopSrc;
+
   return (
     <section className="relative overflow-hidden border-b border-border">
       <Image
-        src={imageUrl || HERO_IMAGE}
+        src={mobileSrc}
         alt="Máquina pesada em operação em cenário industrial"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover sm:hidden"
+      />
+      <Image
+        src={desktopSrc}
+        alt="Máquina pesada em operação em cenário industrial"
+        fill
+        priority
+        sizes="100vw"
+        className="hidden object-cover sm:block"
       />
       <div className="pointer-events-none absolute inset-0 bg-background/70" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />

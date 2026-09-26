@@ -4,7 +4,7 @@ import type { Plan } from "@/lib/plans";
 export function PlanCard({ plan, highlighted = false }: { plan: Plan; highlighted?: boolean }) {
   return (
     <div
-      className={`relative flex w-full flex-col items-center gap-4 rounded-2xl border p-8 text-center shadow-card ${
+      className={`relative flex w-full flex-col items-center gap-4 rounded-2xl border p-6 text-center shadow-card sm:p-8 ${
         highlighted ? "border-accent bg-surface" : "border-border bg-surface/60"
       }`}
     >
