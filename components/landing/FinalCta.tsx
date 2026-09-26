@@ -1,10 +1,13 @@
+import { getImageProps } from "next/image";
 import { PricingCard } from "@/components/landing/PricingCard";
 
-// Native <picture>/<source> instead of next/image - see the same
-// comment in Hero.tsx: two next/image elements toggled by CSS still
-// both get fetched, <picture> lets the browser request exactly one
-// variant, and its native "no <source> matches -> use <img>" behavior
-// is the mobile-missing-falls-back-to-desktop rule with no JS.
+// Native <picture>/<source> instead of <Image> - see the same comment
+// in Hero.tsx: two next/image elements toggled by CSS still both get
+// fetched, <picture> lets the browser request exactly one variant, and
+// its native "no <source> matches -> use <img>" behavior is the
+// mobile-missing-falls-back-to-desktop rule with no JS. getImageProps
+// still runs both srcs through Next's real optimizer/loader for a real
+// responsive srcSet - only the <picture> rendering is manual.
 export function FinalCta({
   imageUrl,
   mobileImageUrl,
@@ -12,18 +15,24 @@ export function FinalCta({
   imageUrl?: string;
   mobileImageUrl?: string;
 }) {
+  const common = {
+    alt: "",
+    fill: true as const,
+    sizes: "100vw",
+    loading: "lazy" as const,
+    style: { objectFit: "cover" as const },
+  };
+
+  const desktop = imageUrl ? getImageProps({ ...common, src: imageUrl }) : null;
+  const mobile = mobileImageUrl ? getImageProps({ ...common, src: mobileImageUrl }) : null;
+
   return (
     <section className="relative overflow-hidden">
-      {imageUrl ? (
+      {desktop ? (
         <>
           <picture className="contents">
-            {mobileImageUrl && <source media="(max-width: 639px)" srcSet={mobileImageUrl} />}
-            <img
-              src={imageUrl}
-              alt=""
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+            {mobile && <source media="(max-width: 639px)" srcSet={mobile.props.srcSet} sizes={mobile.props.sizes} />}
+            <img {...desktop.props} alt="" />
           </picture>
           <div className="pointer-events-none absolute inset-0 bg-background/80" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
