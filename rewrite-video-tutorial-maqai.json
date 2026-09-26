@@ -1,0 +1,2976 @@
+[
+  {
+    "catalog_number": 18,
+    "code": "/maqvid029",
+    "tutorial_goal": "Criar um vídeo curto mostrando vibroacabadora realizando \"encerramento de turno\" em pedreira de rocha britada, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de vibroacabadora no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "vibroacabadora realizando \"encerramento de turno\" de forma fisicamente coerente em pedreira de rocha britada, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 28,
+    "code": "/maqvid024",
+    "tutorial_goal": "Criar um vídeo curto mostrando manipulador telescópico realizando \"marcha lenta\" em área industrial portuária, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de manipulador telescópico no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "manipulador telescópico realizando \"marcha lenta\" de forma fisicamente coerente em área industrial portuária, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 30,
+    "code": "/maqvid006",
+    "tutorial_goal": "Criar um vídeo curto mostrando recicladora de pavimento realizando \"curva ampla\" em estoque de agregados, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de recicladora de pavimento no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "recicladora de pavimento realizando \"curva ampla\" de forma fisicamente coerente em estoque de agregados, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 31,
+    "code": "/essvid02",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"curvatura da caçamba\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"curvatura da caçamba\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para curvatura da caçamba com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 35,
+    "code": "/maqvid012",
+    "tutorial_goal": "Criar um vídeo curto mostrando motoniveladora realizando \"elevação de implemento\" em frente seca com poeira controlada, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de motoniveladora no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "motoniveladora realizando \"elevação de implemento\" de forma fisicamente coerente em frente seca com poeira controlada, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 36,
+    "code": "/maqvid025",
+    "tutorial_goal": "Criar um vídeo curto mostrando miniescavadeira realizando \"movimento do braço\" em pátio industrial de manutenção, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de miniescavadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "miniescavadeira realizando \"movimento do braço\" de forma fisicamente coerente em pátio industrial de manutenção, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 38,
+    "code": "/maqvid021",
+    "tutorial_goal": "Criar um vídeo curto mostrando pá-carregadeira realizando \"microórbita com máquina parada\" em pátio de concreto no blue hour, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de pá-carregadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "pá-carregadeira realizando \"microórbita com máquina parada\" de forma fisicamente coerente em pátio de concreto no blue hour, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 43,
+    "code": "/maqvid007",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira de rodas realizando \"partida e saída\" em solo argiloso pós-chuva, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira de rodas no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira de rodas realizando \"partida e saída\" de forma fisicamente coerente em solo argiloso pós-chuva, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 47,
+    "code": "/essvid09",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"acendimento de luzes\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"acendimento de luzes\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para acendimento de luzes com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 51,
+    "code": "/essvid05",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"loop de poeira ambiente\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"loop de poeira ambiente\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para loop de poeira ambiente com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 56,
+    "code": "/maqvid008",
+    "tutorial_goal": "Criar um vídeo curto mostrando guindaste móvel realizando \"travessia de trecho úmido\" em demolição controlada de baixa altura, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de guindaste móvel no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "guindaste móvel realizando \"travessia de trecho úmido\" de forma fisicamente coerente em demolição controlada de baixa altura, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 66,
+    "code": "/essvid08",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"órbita curta\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"órbita curta\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para órbita curta com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 78,
+    "code": "/essvid01",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"terra caindo do balde\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"terra caindo do balde\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para terra caindo do balde com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 80,
+    "code": "/maqvid004",
+    "tutorial_goal": "Criar um vídeo curto mostrando manipulador de materiais realizando \"nivelamento curto\" em área industrial portuária, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de manipulador de materiais no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "manipulador de materiais realizando \"nivelamento curto\" de forma fisicamente coerente em área industrial portuária, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 81,
+    "code": "/maqvid022",
+    "tutorial_goal": "Criar um vídeo curto mostrando fresadora de asfalto realizando \"push-in com máquina parada\" em acesso estreito de construção, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de fresadora de asfalto no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "fresadora de asfalto realizando \"push-in com máquina parada\" de forma fisicamente coerente em acesso estreito de construção, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 83,
+    "code": "/essvid10",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"partida em marcha lenta\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"partida em marcha lenta\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para partida em marcha lenta com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 95,
+    "code": "/maqvid011",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira de demolição realizando \"giro parcial\" em via de serviço após o turno, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira de demolição no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira de demolição realizando \"giro parcial\" de forma fisicamente coerente em via de serviço após o turno, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 104,
+    "code": "/maqvid017",
+    "tutorial_goal": "Criar um vídeo curto mostrando caminhão fora de estrada realizando \"reposicionamento\" em obra rodoviária rural, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão fora de estrada no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão fora de estrada realizando \"reposicionamento\" de forma fisicamente coerente em obra rodoviária rural, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 105,
+    "code": "/maqvid001",
+    "tutorial_goal": "Criar um vídeo curto mostrando guindaste de esteiras realizando \"escavação rasa\" em pátio de concreto no blue hour, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de guindaste de esteiras no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "guindaste de esteiras realizando \"escavação rasa\" de forma fisicamente coerente em pátio de concreto no blue hour, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 108,
+    "code": "/essvid04",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"microciclo de carregamento\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"microciclo de carregamento\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para microciclo de carregamento com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 110,
+    "code": "/maqvid010",
+    "tutorial_goal": "Criar um vídeo curto mostrando caminhão articulado realizando \"aproximação e parada\" em obra de drenagem urbana, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão articulado no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão articulado realizando \"aproximação e parada\" de forma fisicamente coerente em obra de drenagem urbana, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 115,
+    "code": "/maqvid016",
+    "tutorial_goal": "Criar um vídeo curto mostrando triturador florestal realizando \"travessia de cascalho\" em estrada de serra em construção, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de triturador florestal no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "triturador florestal realizando \"travessia de cascalho\" de forma fisicamente coerente em estrada de serra em construção, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 116,
+    "code": "/maqvid023",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator de dutos realizando \"acendimento de luzes\" em canteiro sob garoa leve, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator de dutos no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator de dutos realizando \"acendimento de luzes\" de forma fisicamente coerente em canteiro sob garoa leve, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 121,
+    "code": "/maqvid019",
+    "tutorial_goal": "Criar um vídeo curto mostrando compactador de solo realizando \"operação pós-chuva\" em corredor de dutos, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de compactador de solo no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "compactador de solo realizando \"operação pós-chuva\" de forma fisicamente coerente em corredor de dutos, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 133,
+    "code": "/maqvid026",
+    "tutorial_goal": "Criar um vídeo curto mostrando rolo tandem realizando \"coleta de pilha baixa\" em estoque de agregados, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de rolo tandem no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "rolo tandem realizando \"coleta de pilha baixa\" de forma fisicamente coerente em estoque de agregados, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 134,
+    "code": "/essvid03",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"avanço lento de esteiras\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"avanço lento de esteiras\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para avanço lento de esteiras com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 137,
+    "code": "/maqvid018",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira long reach realizando \"operação noturna\" em obra urbana noturna, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira long reach no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira long reach realizando \"operação noturna\" de forma fisicamente coerente em obra urbana noturna, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 143,
+    "code": "/essvid07",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"push-in cinematográfico\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"push-in cinematográfico\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para push-in cinematográfico com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 145,
+    "code": "/maqvid005",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator de esteiras realizando \"ré em via de serviço\" em pátio industrial de manutenção, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator de esteiras no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator de esteiras realizando \"ré em via de serviço\" de forma fisicamente coerente em pátio industrial de manutenção, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 157,
+    "code": "/maqvid002",
+    "tutorial_goal": "Criar um vídeo curto mostrando minicarregadeira de esteiras realizando \"avanço em solo compactado\" em acesso estreito de construção, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de minicarregadeira de esteiras no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "minicarregadeira de esteiras realizando \"avanço em solo compactado\" de forma fisicamente coerente em acesso estreito de construção, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 172,
+    "code": "/maqvid028",
+    "tutorial_goal": "Criar um vídeo curto mostrando minicarregadeira realizando \"passagem por poça rasa\" em demolição controlada de baixa altura, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de minicarregadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "minicarregadeira realizando \"passagem por poça rasa\" de forma fisicamente coerente em demolição controlada de baixa altura, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 180,
+    "code": "/maqvid014",
+    "tutorial_goal": "Criar um vídeo curto mostrando retroescavadeira realizando \"subida leve\" em talude com contraluz matinal, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de retroescavadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "retroescavadeira realizando \"subida leve\" de forma fisicamente coerente em talude com contraluz matinal, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 181,
+    "code": "/maqvid030",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira de esteiras realizando \"revelação de escala\" em obra de drenagem urbana, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira de esteiras no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 9:16 vertical, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 9:16 vertical. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira de esteiras realizando \"revelação de escala\" de forma fisicamente coerente em obra de drenagem urbana, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 186,
+    "code": "/maqvid027",
+    "tutorial_goal": "Criar um vídeo curto mostrando equipamento de fundação realizando \"entrada em poeira leve\" em solo argiloso pós-chuva, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de equipamento de fundação no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "equipamento de fundação realizando \"entrada em poeira leve\" de forma fisicamente coerente em solo argiloso pós-chuva, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 188,
+    "code": "/maqvid003",
+    "tutorial_goal": "Criar um vídeo curto mostrando rolo pneumático realizando \"carregamento de caminhão\" em canteiro sob garoa leve, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de rolo pneumático no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "rolo pneumático realizando \"carregamento de caminhão\" de forma fisicamente coerente em canteiro sob garoa leve, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 196,
+    "code": "/essvid06",
+    "tutorial_goal": "Criar um vídeo curto com o efeito \"loop de chuva\" na máquina, com continuidade física e visual realista.",
+    "tutorial_steps": [
+      "Envie uma foto real da sua máquina, no ângulo em que o efeito deve aparecer.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: só o elemento do efeito (\"loop de chuva\") deve se mover; o resto da cena permanece estável."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "Prompt essencial de vídeo para loop de chuva com continuidade e física realistas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 198,
+    "code": "/maqvid013",
+    "tutorial_goal": "Criar um vídeo curto mostrando valetadeira realizando \"acabamento de borda\" em fundação profunda, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de valetadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "valetadeira realizando \"acabamento de borda\" de forma fisicamente coerente em fundação profunda, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 206,
+    "code": "/maqvid015",
+    "tutorial_goal": "Criar um vídeo curto mostrando sideboom para dutos realizando \"descida controlada\" em pátio de locadora, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de sideboom para dutos no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "sideboom para dutos realizando \"descida controlada\" de forma fisicamente coerente em pátio de locadora, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 210,
+    "code": "/maqvid009",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira realizando \"despejo em pilha\" em pedreira de rocha britada, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira realizando \"despejo em pilha\" de forma fisicamente coerente em pedreira de rocha britada, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 211,
+    "code": "/maqvid020",
+    "tutorial_goal": "Criar um vídeo curto mostrando perfuratriz realizando \"passagem lateral\" em terraplenagem ao amanhecer, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de perfuratriz no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "perfuratriz realizando \"passagem lateral\" de forma fisicamente coerente em terraplenagem ao amanhecer, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 216,
+    "code": "/agvid017",
+    "tutorial_goal": "Criar um vídeo curto mostrando colhedora de batata realizando \"entrada no talhão\" em pós-chuva com solo úmido, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de colhedora de batata no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "colhedora de batata realizando \"entrada no talhão\" de forma fisicamente coerente em pós-chuva com solo úmido, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 220,
+    "code": "/minvid021",
+    "tutorial_goal": "Criar um vídeo curto mostrando carregadeira LHD subterrânea realizando \"passagem lateral\" em rampa subterrânea, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de carregadeira LHD subterrânea no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "carregadeira LHD subterrânea realizando \"passagem lateral\" de forma fisicamente coerente em rampa subterrânea, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 228,
+    "code": "/agvid009",
+    "tutorial_goal": "Criar um vídeo curto mostrando colheitadeira de grãos realizando \"trânsito em estrada interna\" em vista aérea das linhas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de colheitadeira de grãos no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "colheitadeira de grãos realizando \"trânsito em estrada interna\" de forma fisicamente coerente em vista aérea das linhas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 230,
+    "code": "/minvid007",
+    "tutorial_goal": "Criar um vídeo curto mostrando pá-carregadeira de mineração realizando \"operação noturna\" em galeria subterrânea suportada, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de pá-carregadeira de mineração no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "pá-carregadeira de mineração realizando \"operação noturna\" de forma fisicamente coerente em galeria subterrânea suportada, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 233,
+    "code": "/minvid009",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira hidráulica de mineração realizando \"descida controlada\" em turno noturno iluminado, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira hidráulica de mineração no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira hidráulica de mineração realizando \"descida controlada\" de forma fisicamente coerente em turno noturno iluminado, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 238,
+    "code": "/minvid003",
+    "tutorial_goal": "Criar um vídeo curto mostrando minerador de superfície realizando \"perfuração curta\" em bancada ao amanhecer, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de minerador de superfície no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "minerador de superfície realizando \"perfuração curta\" de forma fisicamente coerente em bancada ao amanhecer, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 239,
+    "code": "/agvid013",
+    "tutorial_goal": "Criar um vídeo curto mostrando distribuidor de fertilizantes realizando \"revelação por drone\" em solo e implemento em destaque, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de distribuidor de fertilizantes no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "distribuidor de fertilizantes realizando \"revelação por drone\" de forma fisicamente coerente em solo e implemento em destaque, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 243,
+    "code": "/agvid018",
+    "tutorial_goal": "Criar um vídeo curto mostrando pulverizador autopropelido realizando \"saída do talhão\" em pátio de máquinas agrícolas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de pulverizador autopropelido no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "pulverizador autopropelido realizando \"saída do talhão\" de forma fisicamente coerente em pátio de máquinas agrícolas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 246,
+    "code": "/minvid008",
+    "tutorial_goal": "Criar um vídeo curto mostrando continuous miner realizando \"revelação de bancada\" em pátio de serviço, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de continuous miner no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "continuous miner realizando \"revelação de bancada\" de forma fisicamente coerente em pátio de serviço, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 248,
+    "code": "/agvid022",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator realizando \"carga de fardos\" em área de armazenagem de grãos, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator realizando \"carga de fardos\" de forma fisicamente coerente em área de armazenagem de grãos, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 249,
+    "code": "/agvid007",
+    "tutorial_goal": "Criar um vídeo curto mostrando colhedora de cana realizando \"vento na cultura\" em área de armazenagem de grãos, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de colhedora de cana no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "colhedora de cana realizando \"vento na cultura\" de forma fisicamente coerente em área de armazenagem de grãos, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 263,
+    "code": "/minvid015",
+    "tutorial_goal": "Criar um vídeo curto mostrando equipamento de saneamento de teto realizando \"microórbita na oficina\" em mina a céu aberto com bancadas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de equipamento de saneamento de teto no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "equipamento de saneamento de teto realizando \"microórbita na oficina\" de forma fisicamente coerente em mina a céu aberto com bancadas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 270,
+    "code": "/minvid024",
+    "tutorial_goal": "Criar um vídeo curto mostrando caminhão-pipa de mina realizando \"dolly de escala\" em turno noturno iluminado, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão-pipa de mina no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão-pipa de mina realizando \"dolly de escala\" de forma fisicamente coerente em turno noturno iluminado, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 271,
+    "code": "/agvid014",
+    "tutorial_goal": "Criar um vídeo curto mostrando semeadora realizando \"follow lateral\" em estrada interna da fazenda, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de semeadora no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "semeadora realizando \"follow lateral\" de forma fisicamente coerente em estrada interna da fazenda, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 273,
+    "code": "/agvid008",
+    "tutorial_goal": "Criar um vídeo curto mostrando colheitadeira de arroz realizando \"irrigação em trecho curto\" em colheita em plena safra, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de colheitadeira de arroz no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "colheitadeira de arroz realizando \"irrigação em trecho curto\" de forma fisicamente coerente em colheita em plena safra, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 276,
+    "code": "/agvid001",
+    "tutorial_goal": "Criar um vídeo curto mostrando enleirador realizando \"passada reta no talhão\" em talhão seco com poeira leve, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de enleirador no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "enleirador realizando \"passada reta no talhão\" de forma fisicamente coerente em talhão seco com poeira leve, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 280,
+    "code": "/agvid023",
+    "tutorial_goal": "Criar um vídeo curto mostrando plantadeira realizando \"aproximação da carreta\" em colheita em plena safra, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de plantadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "plantadeira realizando \"aproximação da carreta\" de forma fisicamente coerente em colheita em plena safra, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 284,
+    "code": "/agvid006",
+    "tutorial_goal": "Criar um vídeo curto mostrando colhedora de café realizando \"operação noturna\" em safra dourada no fim da tarde, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de colhedora de café no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "colhedora de café realizando \"operação noturna\" de forma fisicamente coerente em safra dourada no fim da tarde, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 287,
+    "code": "/agvid003",
+    "tutorial_goal": "Criar um vídeo curto mostrando plantadeira realizando \"descarga sincronizada\" em pátio de máquinas agrícolas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de plantadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "plantadeira realizando \"descarga sincronizada\" de forma fisicamente coerente em pátio de máquinas agrícolas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 291,
+    "code": "/minvid002",
+    "tutorial_goal": "Criar um vídeo curto mostrando britador móvel realizando \"carregamento de produção\" em área de carregamento com bermas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de britador móvel no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "britador móvel realizando \"carregamento de produção\" de forma fisicamente coerente em área de carregamento com bermas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 294,
+    "code": "/minvid022",
+    "tutorial_goal": "Criar um vídeo curto mostrando britador móvel realizando \"aproximação ao carregamento\" em galeria subterrânea suportada, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de britador móvel no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "britador móvel realizando \"aproximação ao carregamento\" de forma fisicamente coerente em galeria subterrânea suportada, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 308,
+    "code": "/agvid019",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator fruteiro realizando \"microórbita no pátio\" em plantio em linhas definidas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator fruteiro no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator fruteiro realizando \"microórbita no pátio\" de forma fisicamente coerente em plantio em linhas definidas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 315,
+    "code": "/agvid011",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator realizando \"implemento em trabalho\" em campo com relevo suave, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator realizando \"implemento em trabalho\" de forma fisicamente coerente em campo com relevo suave, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 321,
+    "code": "/minvid001",
+    "tutorial_goal": "Criar um vídeo curto mostrando carregadeira LHD subterrânea realizando \"subida de rampa\" em via de mina após chuva, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de carregadeira LHD subterrânea no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "carregadeira LHD subterrânea realizando \"subida de rampa\" de forma fisicamente coerente em via de mina após chuva, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 322,
+    "code": "/agvid020",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator agrícola de alta potência realizando \"loop de poeira de safra\" em blue hour rural, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator agrícola de alta potência no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator agrícola de alta potência realizando \"loop de poeira de safra\" de forma fisicamente coerente em blue hour rural, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 323,
+    "code": "/minvid006",
+    "tutorial_goal": "Criar um vídeo curto mostrando equipamento de suporte de teto realizando \"alimentação de britagem\" em rampa subterrânea, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de equipamento de suporte de teto no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "equipamento de suporte de teto realizando \"alimentação de britagem\" de forma fisicamente coerente em rampa subterrânea, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 326,
+    "code": "/agvid004",
+    "tutorial_goal": "Criar um vídeo curto mostrando robô agrícola autônomo realizando \"pulverização estável\" em plantio em linhas definidas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de robô agrícola autônomo no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "robô agrícola autônomo realizando \"pulverização estável\" de forma fisicamente coerente em plantio em linhas definidas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 329,
+    "code": "/minvid023",
+    "tutorial_goal": "Criar um vídeo curto mostrando minerador de superfície realizando \"saída de oficina\" em pátio de serviço, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de minerador de superfície no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "minerador de superfície realizando \"saída de oficina\" de forma fisicamente coerente em pátio de serviço, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 345,
+    "code": "/minvid005",
+    "tutorial_goal": "Criar um vídeo curto mostrando motoniveladora em estrada de mina realizando \"deslocamento subterrâneo\" em área organizada de britagem, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de motoniveladora em estrada de mina no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "motoniveladora em estrada de mina realizando \"deslocamento subterrâneo\" de forma fisicamente coerente em área organizada de britagem, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 351,
+    "code": "/minvid014",
+    "tutorial_goal": "Criar um vídeo curto mostrando perfuratriz rotativa de bancada realizando \"correia em fluxo\" em oficina de manutenção pesada, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de perfuratriz rotativa de bancada no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "perfuratriz rotativa de bancada realizando \"correia em fluxo\" de forma fisicamente coerente em oficina de manutenção pesada, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 352,
+    "code": "/minvid020",
+    "tutorial_goal": "Criar um vídeo curto mostrando caminhão fora de estrada de mineração realizando \"time-lapse de nuvens\" em área organizada de britagem, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão fora de estrada de mineração no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão fora de estrada de mineração realizando \"time-lapse de nuvens\" de forma fisicamente coerente em área organizada de britagem, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 353,
+    "code": "/agvid015",
+    "tutorial_goal": "Criar um vídeo curto mostrando pivô central de irrigação realizando \"time-lapse de nuvens\" em lavoura ao amanhecer, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de pivô central de irrigação no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "pivô central de irrigação realizando \"time-lapse de nuvens\" de forma fisicamente coerente em lavoura ao amanhecer, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 354,
+    "code": "/agvid010",
+    "tutorial_goal": "Criar um vídeo curto mostrando enfardadeira realizando \"partida matinal\" em cabeceira de talhão, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de enfardadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "enfardadeira realizando \"partida matinal\" de forma fisicamente coerente em cabeceira de talhão, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 358,
+    "code": "/minvid010",
+    "tutorial_goal": "Criar um vídeo curto mostrando caminhão subterrâneo realizando \"curva em cruzamento\" em pilha ROM, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão subterrâneo no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão subterrâneo realizando \"curva em cruzamento\" de forma fisicamente coerente em pilha ROM, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 360,
+    "code": "/minvid018",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira elétrica a cabo realizando \"loop de poeira distante\" em bancada ao amanhecer, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira elétrica a cabo no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira elétrica a cabo realizando \"loop de poeira distante\" de forma fisicamente coerente em bancada ao amanhecer, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 362,
+    "code": "/agvid005",
+    "tutorial_goal": "Criar um vídeo curto mostrando forrageira autopropelida realizando \"manobra de cabeceira\" em blue hour rural, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de forrageira autopropelida no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "forrageira autopropelida realizando \"manobra de cabeceira\" de forma fisicamente coerente em blue hour rural, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 364,
+    "code": "/minvid012",
+    "tutorial_goal": "Criar um vídeo curto mostrando escavadeira realizando \"saída do ponto de carga\" em mirante operacional de escala, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira realizando \"saída do ponto de carga\" de forma fisicamente coerente em mirante operacional de escala, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 365,
+    "code": "/minvid004",
+    "tutorial_goal": "Criar um vídeo curto mostrando caminhão-pipa de mina realizando \"controle de poeira\" em corredor de correias, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão-pipa de mina no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão-pipa de mina realizando \"controle de poeira\" de forma fisicamente coerente em corredor de correias, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 369,
+    "code": "/agvid025",
+    "tutorial_goal": "Criar um vídeo curto mostrando forrageira autopropelida realizando \"revelação de linhas\" em cabeceira de talhão, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de forrageira autopropelida no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 9:16 vertical, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 9:16 vertical. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "forrageira autopropelida realizando \"revelação de linhas\" de forma fisicamente coerente em cabeceira de talhão, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 375,
+    "code": "/minvid025",
+    "tutorial_goal": "Criar um vídeo curto mostrando motoniveladora em estrada de mina realizando \"chuva leve parado\" em pilha ROM, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de motoniveladora em estrada de mina no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "motoniveladora em estrada de mina realizando \"chuva leve parado\" de forma fisicamente coerente em pilha ROM, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 382,
+    "code": "/minvid011",
+    "tutorial_goal": "Criar um vídeo curto mostrando empilhadeira-recuperadora realizando \"parada em espera\" em frente de minério fragmentado, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de empilhadeira-recuperadora no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "empilhadeira-recuperadora realizando \"parada em espera\" de forma fisicamente coerente em frente de minério fragmentado, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 383,
+    "code": "/minvid016",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator de esteiras na mina realizando \"partida subterrânea\" em via de mina após chuva, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator de esteiras na mina no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator de esteiras na mina realizando \"partida subterrânea\" de forma fisicamente coerente em via de mina após chuva, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 385,
+    "code": "/minvid017",
+    "tutorial_goal": "Criar um vídeo curto mostrando shearer de longwall realizando \"reposicionamento curto\" em área de carregamento com bermas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de shearer de longwall no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "shearer de longwall realizando \"reposicionamento curto\" de forma fisicamente coerente em área de carregamento com bermas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 388,
+    "code": "/agvid024",
+    "tutorial_goal": "Criar um vídeo curto mostrando robô agrícola autônomo realizando \"chuva leve com máquina parada\" em vista aérea das linhas, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de robô agrícola autônomo no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "robô agrícola autônomo realizando \"chuva leve com máquina parada\" de forma fisicamente coerente em vista aérea das linhas, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 389,
+    "code": "/agvid016",
+    "tutorial_goal": "Criar um vídeo curto mostrando colhedora de algodão realizando \"descida suave\" em talhão seco com poeira leve, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de colhedora de algodão no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "colhedora de algodão realizando \"descida suave\" de forma fisicamente coerente em talhão seco com poeira leve, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 394,
+    "code": "/agvid021",
+    "tutorial_goal": "Criar um vídeo curto mostrando enleirador realizando \"passagem ao pôr do sol\" em safra dourada no fim da tarde, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de enleirador no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "enleirador realizando \"passagem ao pôr do sol\" de forma fisicamente coerente em safra dourada no fim da tarde, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 399,
+    "code": "/minvid019",
+    "tutorial_goal": "Criar um vídeo curto mostrando raise borer realizando \"acendimento de luzes\" em corredor de correias, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de raise borer no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "raise borer realizando \"acendimento de luzes\" de forma fisicamente coerente em corredor de correias, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 400,
+    "code": "/agvid012",
+    "tutorial_goal": "Criar um vídeo curto mostrando carreta graneleira realizando \"travessia de solo úmido\" em frente de chuva distante, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de carreta graneleira no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "carreta graneleira realizando \"travessia de solo úmido\" de forma fisicamente coerente em frente de chuva distante, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 406,
+    "code": "/minvid013",
+    "tutorial_goal": "Criar um vídeo curto mostrando estação de transferência de correia realizando \"travessia de trecho úmido\" em estrada principal de transporte, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de estação de transferência de correia no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "estação de transferência de correia realizando \"travessia de trecho úmido\" de forma fisicamente coerente em estrada principal de transporte, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 412,
+    "code": "/agvid002",
+    "tutorial_goal": "Criar um vídeo curto mostrando trator realizando \"fluxo curto de colheita\" em pós-chuva com solo úmido, com continuidade mecânica e física realista.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator no mesmo ângulo do resultado desejado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, câmera fixa.",
+      "Gere e revise: identidade da máquina, solo, sombras e fundo devem permanecer estáveis do início ao fim, sem morphing ou teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Câmera fixa, sem teleporte. Sem textos sobrepostos.",
+    "tutorial_result": "trator realizando \"fluxo curto de colheita\" de forma fisicamente coerente em pós-chuva com solo úmido, mantendo identidade do equipamento, sombras e fundo estáveis, sem morphing nem cortes bruscos.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 413,
+    "code": "/vendavid017",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando favorito salvo, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando favorito salvo em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 415,
+    "code": "/vendavid008",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando preview mobile, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando preview mobile em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 422,
+    "code": "/vendavid014",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando Reel comercial rápido, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando Reel comercial rápido em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 430,
+    "code": "/combovid014",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Mineração Imagem principal\" e \"Loop de luz\" em britador móvel, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de britador móvel.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Mineração Imagem principal\" e \"Loop de luz\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "britador móvel combinando \"Mineração Imagem principal\" com \"Loop de luz\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 431,
+    "code": "/vendavid003",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando demonstração em três passos, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando demonstração em três passos em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 437,
+    "code": "/combovid009",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Mineração\" e \"Blue Hour Dust\" em pá-carregadeira de mineração, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de pá-carregadeira de mineração.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Mineração\" e \"Blue Hour Dust\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "pá-carregadeira de mineração combinando \"Mineração\" com \"Blue Hour Dust\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 438,
+    "code": "/vendavid009",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando carrossel de resultados, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando carrossel de resultados em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 440,
+    "code": "/combovid015",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Operator Visão do operador\" e \"Night Shift\" em sideboom para dutos, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de sideboom para dutos.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Operator Visão do operador\" e \"Night Shift\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "sideboom para dutos combinando \"Operator Visão do operador\" com \"Night Shift\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 441,
+    "code": "/combovid002",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Força na lama\" e \"Câmera lenta\" em guindaste móvel, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de guindaste móvel.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Força na lama\" e \"Câmera lenta\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "guindaste móvel combinando \"Força na lama\" com \"Câmera lenta\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 442,
+    "code": "/vendavid012",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando transição antes e depois, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando transição antes e depois em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 444,
+    "code": "/vendavid013",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando demonstração em três passos, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando demonstração em três passos em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 447,
+    "code": "/vendavid019",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando carrossel de resultados, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando carrossel de resultados em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 451,
+    "code": "/vendavid020",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando encerramento visual, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando encerramento visual em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 453,
+    "code": "/vendavid011",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando scroll da biblioteca, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando scroll da biblioteca em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 454,
+    "code": "/combovid006",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Obra viária\" e \"Time-lapse\" em manipulador telescópico, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de manipulador telescópico.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Obra viária\" e \"Time-lapse\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "manipulador telescópico combinando \"Obra viária\" com \"Time-lapse\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 458,
+    "code": "/combovid007",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Colheita\" e \"Acompanhamento por drone\" em enleirador, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de enleirador.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Colheita\" e \"Acompanhamento por drone\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "enleirador combinando \"Colheita\" com \"Acompanhamento por drone\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 460,
+    "code": "/combovid020",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Desmontagem visual\" e \"Montagem em movimento\" em perfuratriz, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de perfuratriz.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Desmontagem visual\" e \"Montagem em movimento\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "perfuratriz combinando \"Desmontagem visual\" com \"Montagem em movimento\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 461,
+    "code": "/combovid018",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Agro\" e \"Manobra de cabeceira\" em semeadora, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de semeadora.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Agro\" e \"Manobra de cabeceira\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "semeadora combinando \"Agro\" com \"Manobra de cabeceira\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 463,
+    "code": "/vendavid001",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando scroll da biblioteca, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando scroll da biblioteca em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 464,
+    "code": "/combovid008",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Colheita\" e \"Operação noturna\" em robô agrícola autônomo, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de robô agrícola autônomo.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Colheita\" e \"Operação noturna\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "robô agrícola autônomo combinando \"Colheita\" com \"Operação noturna\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 470,
+    "code": "/combovid003",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Vista de drone\" e \"Time-lapse\" em equipamento de fundação, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de equipamento de fundação.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Vista de drone\" e \"Time-lapse\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "equipamento de fundação combinando \"Vista de drone\" com \"Time-lapse\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 474,
+    "code": "/combovid005",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Raio X técnico\" e \"Movimento hidráulico\" em trator de esteiras, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator de esteiras.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Raio X técnico\" e \"Movimento hidráulico\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "trator de esteiras combinando \"Raio X técnico\" com \"Movimento hidráulico\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 478,
+    "code": "/vendavid002",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando transição antes e depois, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando transição antes e depois em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 479,
+    "code": "/combovid019",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Escala de mineração\" e \"Afastamento de câmera\" em shearer de longwall, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de shearer de longwall.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Escala de mineração\" e \"Afastamento de câmera\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "shearer de longwall combinando \"Escala de mineração\" com \"Afastamento de câmera\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 481,
+    "code": "/combovid001",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Revelação orbital\" e \"Blue Hour\" em compactador de solo, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de compactador de solo.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Revelação orbital\" e \"Blue Hour\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "compactador de solo combinando \"Revelação orbital\" com \"Blue Hour\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 485,
+    "code": "/combovid017",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Movimento das esteiras\" e \"Poeira sutil\" em trator de dutos, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator de dutos.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Movimento das esteiras\" e \"Poeira sutil\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "trator de dutos combinando \"Movimento das esteiras\" com \"Poeira sutil\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 488,
+    "code": "/vendavid004",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando Reel comercial rápido, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando Reel comercial rápido em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 489,
+    "code": "/vendavid007",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando favorito salvo, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando favorito salvo em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 490,
+    "code": "/combovid016",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Chuva\" e \"Partida do motor\" em manipulador de materiais, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de manipulador de materiais.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Chuva\" e \"Partida do motor\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "manipulador de materiais combinando \"Chuva\" com \"Partida do motor\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 492,
+    "code": "/vendavid006",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando busca por segmento, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando busca por segmento em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 493,
+    "code": "/vendavid005",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando combo em ação, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando combo em ação em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 497,
+    "code": "/vendavid016",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando busca por segmento, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando busca por segmento em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 501,
+    "code": "/vendavid010",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando encerramento visual, em ritmo limpo e comercial, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando encerramento visual em ritmo limpo e comercial, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 502,
+    "code": "/combovid013",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Agro Imagem principal\" e \"Loop da cultura\" em trator fruteiro, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de trator fruteiro.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Agro Imagem principal\" e \"Loop da cultura\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "trator fruteiro combinando \"Agro Imagem principal\" com \"Loop da cultura\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 503,
+    "code": "/vendavid018",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando preview mobile, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando preview mobile em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 505,
+    "code": "/combovid010",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Conveyor\" e \"Industrial noturno\" em caminhão subterrâneo, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de caminhão subterrâneo.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Conveyor\" e \"Industrial noturno\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "caminhão subterrâneo combinando \"Conveyor\" com \"Industrial noturno\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 506,
+    "code": "/vendavid015",
+    "tutorial_goal": "Criar um vídeo comercial vertical do MaqAI mostrando combo em ação, em ritmo cinematográfico, sem inventar preço ou depoimento.",
+    "tutorial_steps": [
+      "Grave ou monte as telas/cards do MaqAI e a foto real da máquina que aparecerá no resultado.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de geração de vídeo (Runway ou Sora).",
+      "Configure duração de 9s, formato 9:16 vertical.",
+      "Gere e revise: nenhum preço, claim ou texto de UI deve ficar legível; identidade da máquina e das telas deve permanecer estável."
+    ],
+    "tutorial_settings": "Duração: 9s. Formato: 9:16 vertical. Sem preço, claim ou texto de UI legível.",
+    "tutorial_result": "Vídeo vertical do MaqAI mostrando combo em ação em ritmo cinematográfico, com telas e máquina estáveis e nenhuma informação de preço/claim inventada.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 507,
+    "code": "/combovid004",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Fotografia\" e \"Planta técnica Transição\" em triturador florestal, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de triturador florestal.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Fotografia\" e \"Planta técnica Transição\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "triturador florestal combinando \"Fotografia\" com \"Planta técnica Transição\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 508,
+    "code": "/combovid011",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Mineração\" e \"Chuva Orbit\" em estação de transferência de correia, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de estação de transferência de correia.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Mineração\" e \"Chuva Orbit\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "estação de transferência de correia combinando \"Mineração\" com \"Chuva Orbit\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 509,
+    "code": "/combovid012",
+    "tutorial_goal": "Criar um vídeo curto combinando as técnicas \"Machine Imagem principal\" e \"Loop ambiente\" em escavadeira long reach, unindo os dois efeitos numa sequência coerente.",
+    "tutorial_steps": [
+      "Envie uma foto real de escavadeira long reach.",
+      "Cole o prompt de vídeo abaixo, que já combina as duas técnicas, em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: as duas técnicas (\"Machine Imagem principal\" e \"Loop ambiente\") devem aparecer de forma coerente, sem quebrar identidade, física ou continuidade da máquina."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "escavadeira long reach combinando \"Machine Imagem principal\" com \"Loop ambiente\" de forma visualmente coerente, mantendo identidade, física e continuidade do início ao fim.",
+    "tools": [
+      "Runway",
+      "Sora",
+      "Pika Labs",
+      "Kling",
+      "Gemini"
+    ]
+  },
+  {
+    "catalog_number": 514,
+    "code": "/venda-vid-comparativo-valor",
+    "tutorial_goal": "Criar um vídeo split-screen comparando uma máquina seminova e uma nova em operação equivalente, para argumentar custo-benefício.",
+    "tutorial_steps": [
+      "Envie fotos reais das duas máquinas (a seminova à venda e uma nova equivalente).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou CapCut).",
+      "Configure duração de 8s, formato 16:9, split-screen sincronizado.",
+      "Gere e revise: os rótulos 'seminova'/'nova' devem estar corretos e os dois lados sincronizados."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Vídeo lado a lado comparando uma máquina seminova e uma nova em operação equivalente, argumentando o custo-benefício, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ]
+  },
+  {
+    "catalog_number": 520,
+    "code": "/ess-vid-orbit-360",
+    "tutorial_goal": "Criar um giro de 360° ao redor da máquina, em ambiente neutro, para anúncios e fichas técnicas.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina em ambiente neutro (fundo liso, chão claro).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9, câmera na altura dos olhos.",
+      "Gere e revise: a órbita deve ser suave e contínua, sem sombras duras nem interrupções no giro."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Órbita completa ao redor da máquina em ambiente neutro, o vídeo padrão para anúncios online e fichas técnicas, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 522,
+    "code": "/ess-vid-telemetria",
+    "tutorial_goal": "Criar um vídeo mostrando um painel/tablet com dados de telemetria em tempo real sobreposto à máquina operando ao fundo.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina operando e, se tiver, uma captura da tela de telemetria.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou CapCut).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: os dados na tela (horas, combustível, GPS) devem ficar legíveis e a máquina permanecer nítida ao fundo."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Tela de monitoramento com dados em tempo real (horas, combustível, localização) sobreposta à máquina operando ao fundo, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ]
+  },
+  {
+    "catalog_number": 525,
+    "code": "/ess-vid-slowmo-hidraulico",
+    "tutorial_goal": "Criar um close extremo em câmera lenta do braço/lança hidráulico, destacando precisão de engenharia.",
+    "tutorial_steps": [
+      "Envie uma foto real do braço/lança hidráulico da máquina, o mais próximo possível.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Pika Labs).",
+      "Configure duração de 8s, formato 16:9, efeito slow motion.",
+      "Gere e revise: o movimento hidráulico deve parecer suave e realista, sem morphing nas juntas."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Close extremo em câmera lenta do movimento do braço/lança, destacando precisão de engenharia e força controlada, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ]
+  },
+  {
+    "catalog_number": 528,
+    "code": "/ess-vid-transicao-estacoes",
+    "tutorial_goal": "Criar uma montagem mostrando a mesma máquina operando em seca, chuva e poeira, provando resistência em qualquer clima.",
+    "tutorial_steps": [
+      "Envie uma ou mais fotos reais da máquina (idealmente o mesmo ângulo em contextos diferentes).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: a identidade da máquina deve se manter idêntica em todas as condições climáticas mostradas."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Montagem mostrando a mesma máquina operando em seca, chuva e poeira ao longo do ano, provando resistência em qualquer clima, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora"
+    ]
+  },
+  {
+    "catalog_number": 529,
+    "code": "/ess-vid-ciclo-carregamento",
+    "tutorial_goal": "Criar uma sequência repetida de balde enchendo e despejando, capturando o ritmo da operação.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina com o balde visível.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Pika Labs).",
+      "Configure duração de 8s, formato 16:9, movimento em loop.",
+      "Gere e revise: o ciclo de encher/despejar deve parecer repetitivo e fisicamente consistente, sem saltos."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Sequência repetida de balde enchendo e despejando, capturando o ritmo hipnótico e a produtividade da operação, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ]
+  },
+  {
+    "catalog_number": 538,
+    "code": "/ess-vid-cold-start",
+    "tutorial_goal": "Criar uma sequência de partida a frio ao amanhecer: ignição, painel acendendo e primeira fumaça do escapamento.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina parada, de frente ou 3/4, ao amanhecer ou em luz fraca.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: luzes do painel e fumaça devem surgir de forma gradual e realista, sem teleporte de câmera."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Ignição do motor ao amanhecer, painel se acendendo e primeira fumaça do escapamento — abertura forte para vídeos de operação, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora"
+    ]
+  },
+  {
+    "catalog_number": 539,
+    "code": "/ess-vid-teaser-vertical",
+    "tutorial_goal": "Criar um teaser vertical rápido reunindo os melhores momentos da máquina em ação, pronto para Stories/Reels.",
+    "tutorial_steps": [
+      "Envie uma ou mais fotos reais da máquina em ação.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (CapCut ou Kling).",
+      "Configure duração de 8s, formato 9:16 vertical, cortes rápidos.",
+      "Gere e revise: os cortes devem ser dinâmicos mas a identidade da máquina não pode variar entre eles."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 9:16 vertical. Sem textos sobrepostos.",
+    "tutorial_result": "Corte rápido em formato vertical reunindo os melhores momentos da máquina em ação, pronto para Stories e Reels, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "CapCut",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 541,
+    "code": "/venda-vid-destaque-diferenciais",
+    "tutorial_goal": "Criar um vídeo de passeio pela máquina à venda, com zoom nos principais diferenciais técnicos que justificam o preço.",
+    "tutorial_steps": [
+      "Envie fotos reais da máquina à venda (cabine, motor, esteira/pneus, implemento).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Pika Labs).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: cada zoom deve parar em um diferencial real da máquina, sem inventar peças ou condição."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Percurso pela máquina destacando com zoom os principais diferenciais técnicos que justificam o preço pedido, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ]
+  },
+  {
+    "catalog_number": 547,
+    "code": "/combo-vid-reveal-noturno",
+    "tutorial_goal": "Criar um vídeo em duas partes: descida de drone revelando a máquina ao anoitecer, seguida da mesma máquina operando de noite.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina (de preferência já em ambiente ao anoitecer/noturno).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: a transição entre a revelação aérea e a operação noturna deve manter a mesma máquina e grade de cor."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Combina a descida de drone com a atmosfera de operação noturna, unindo abertura cinematográfica e prova de trabalho 24h, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora"
+    ]
+  },
+  {
+    "catalog_number": 550,
+    "code": "/ess-vid-antes-depois-lavagem",
+    "tutorial_goal": "Criar uma transição mostrando a máquina suja de obra e, em seguida, limpa e brilhando.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina no estado sujo (ou no estado limpo, o outro lado é gerado).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou CapCut).",
+      "Configure duração de 8s, formato 16:9, transição suave entre os dois estados.",
+      "Gere e revise: a máquina deve continuar sendo a mesma (identidade, proporções) nos dois estados."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Transição de uma máquina suja de obra para o mesmo equipamento limpo e brilhando, prova visual de cuidado com o patrimônio, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ]
+  },
+  {
+    "catalog_number": 553,
+    "code": "/combo-vid-lavagem-golden-hour",
+    "tutorial_goal": "Criar um vídeo combinando a transformação antes/depois de lavagem com um fechamento cinematográfico ao entardecer.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina suja (o estado limpo é gerado na sequência).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou CapCut).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: a wipe transition da sujeira para limpo deve ser suave, terminando na pose final ao entardecer."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Combina a transformação de limpeza com um fechamento cinematográfico ao entardecer, encerrando com impacto visual, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ]
+  },
+  {
+    "catalog_number": 560,
+    "code": "/venda-vid-contagem-urgencia",
+    "tutorial_goal": "Criar um vídeo curto com um contador visual de tempo/estoque sobreposto à máquina, criando senso de urgência para a oferta.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina em oferta.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou CapCut).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: o contador deve ficar legível, sem cobrir a máquina, e nenhum preço deve ser inventado no vídeo."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Vídeo curto com contador visual de tempo/estoque sobreposto à máquina, criando senso de urgência para a oferta, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "CapCut"
+    ]
+  },
+  {
+    "catalog_number": 563,
+    "code": "/venda-vid-entrega-handover",
+    "tutorial_goal": "Criar um vídeo mostrando a máquina sendo carregada na carreta e entregue no destino final, como prova de cumprimento.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina e, se tiver, da carreta/local de entrega.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: a máquina deve manter identidade do carregamento até a entrega, sem trocar de modelo entre as cenas."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Sequência mostrando a máquina sendo carregada na carreta e entregue no destino final, prova de cumprimento e cuidado logístico, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 573,
+    "code": "/venda-vid-depoimento-cliente",
+    "tutorial_goal": "Criar um vídeo estilo depoimento, com o cliente falando ao lado da máquina sobre a experiência de compra.",
+    "tutorial_steps": [
+      "Envie uma foto real do cliente ao lado da máquina comprada.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: expressões e enquadramento devem parecer naturais, sem depoimento ou claim inventado no áudio/texto."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Vídeo estilo depoimento, cliente falando ao lado da máquina sobre a experiência de compra, formato ideal para prova social, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 574,
+    "code": "/combo-vid-cabine-timelapse",
+    "tutorial_goal": "Criar um vídeo unindo o ponto de vista do operador com um timelapse do mesmo ciclo se repetindo ao longo do dia.",
+    "tutorial_steps": [
+      "Envie uma foto real do interior da cabine e, se tiver, do canteiro visto pela janela.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: o ciclo do timelapse deve parecer o mesmo movimento se repetindo, sem a cabine mudar de layout."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Une o ponto de vista do operador com um timelapse do mesmo ciclo se repetindo ao longo do dia, mostrando ritmo e consistência, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 584,
+    "code": "/ess-vid-timelapse-jornada",
+    "tutorial_goal": "Criar um timelapse comprimindo um dia inteiro de trabalho, do amanhecer ao entardecer.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina no canteiro onde a jornada acontece.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9, timelapse.",
+      "Gere e revise: a luz deve evoluir de forma crível do amanhecer ao entardecer, sem a máquina sumir ou mudar de lugar."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Um dia inteiro de trabalho comprimido em segundos, do amanhecer ao entardecer, mostrando produtividade real no canteiro, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora"
+    ]
+  },
+  {
+    "catalog_number": 595,
+    "code": "/ess-vid-cab-pov",
+    "tutorial_goal": "Criar um vídeo em ponto de vista do operador, mostrando um ciclo de trabalho completo pela janela e pelo painel.",
+    "tutorial_steps": [
+      "Envie uma foto real do interior da cabine (painel, janela, joystick) da máquina.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9, câmera em primeira pessoa.",
+      "Gere e revise: reflexos no vidro e bordas do joystick devem parecer plausíveis, sem distorcer a cabine."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Câmera posicionada como se fosse o operador, mostrando um ciclo de trabalho completo pela janela e pelo painel, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 597,
+    "code": "/ess-vid-checklist-preop",
+    "tutorial_goal": "Criar uma ronda de inspeção pré-operação: operador circulando a máquina, verificando pneus, níveis e sinalização.",
+    "tutorial_steps": [
+      "Envie uma foto real da máquina parada, vista lateral ou 3/4, com espaço ao redor para o operador circular.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: a máquina fica parada e intacta; apenas o operador se move ao redor dela."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Operador circulando a máquina antes de ligar, verificando pneus, níveis e sinalização — reforça cultura de segurança, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  },
+  {
+    "catalog_number": 598,
+    "code": "/ess-vid-macro-detalhes",
+    "tutorial_goal": "Criar uma montagem de closes macro em solda, esteira, mangueiras e parafusos, comunicando robustez.",
+    "tutorial_steps": [
+      "Envie uma ou mais fotos reais bem próximas de partes da máquina (esteira, mangueiras, soldas).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Pika Labs).",
+      "Configure duração de 8s, formato 16:9, lente macro.",
+      "Gere e revise: os detalhes devem continuar reconhecíveis como parte da mesma máquina, sem inventar peças."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Sequência de closes macro em solda, esteira, mangueiras e parafusos, comunicando robustez e qualidade de construção, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Pika Labs"
+    ]
+  },
+  {
+    "catalog_number": 611,
+    "code": "/combo-vid-frota-chuva",
+    "tutorial_goal": "Criar um vídeo combinando uma vista aérea da frota parada com uma cena de uma das máquinas operando sob chuva.",
+    "tutorial_steps": [
+      "Envie fotos reais da frota parada e de uma máquina em operação (mesmo ângulo se possível).",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Sora).",
+      "Configure duração de 8s, formato 16:9.",
+      "Gere e revise: a escala da frota e a resiliência à chuva devem ficar claras, sem trocar a identidade das máquinas."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Combina uma vista aérea da frota parada com uma cena de uma das máquinas operando sob chuva, unindo escala e durabilidade, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Sora"
+    ]
+  },
+  {
+    "catalog_number": 613,
+    "code": "/ess-vid-frota-lineup",
+    "tutorial_goal": "Criar um vídeo com a câmera deslizando lateralmente ao longo de várias máquinas da frota enfileiradas.",
+    "tutorial_steps": [
+      "Envie fotos reais das máquinas da frota, todas no mesmo ângulo/altura de câmera.",
+      "Cole o prompt de vídeo abaixo em uma ferramenta de imagem-para-vídeo (Runway ou Kling).",
+      "Configure duração de 8s, formato 16:9, movimento lateral constante.",
+      "Gere e revise: cada máquina deve manter sua própria identidade, sem se misturar ou duplicar durante o deslize."
+    ],
+    "tutorial_settings": "Duração: 8s. Formato: 16:9. Sem textos sobrepostos.",
+    "tutorial_result": "Câmera lateral deslizando ao longo de várias máquinas enfileiradas, transmitindo escala e capacidade operacional da empresa, sem cortes bruscos, morphing ou teleporte de câmera.",
+    "tools": [
+      "Runway",
+      "Kling"
+    ]
+  }
+]

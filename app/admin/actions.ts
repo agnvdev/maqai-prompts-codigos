@@ -12,6 +12,27 @@ function parseList(value: FormDataEntryValue | null): string[] {
     .filter(Boolean);
 }
 
+// Vídeo-only structured tutorial (see lib/types.ts PromptTutorialData) -
+// null for every other type, and for Vídeo prompts with nothing filled in
+// yet. Steps are one per line in the admin textarea, filtered so blank
+// lines from editing don't turn into empty steps.
+function parseTutorialData(formData: FormData, type: string) {
+  if (type !== "Vídeo") return null;
+
+  const goal = formData.get("tutorial_goal")?.toString().trim() ?? "";
+  const steps = (formData.get("tutorial_steps")?.toString() ?? "")
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const settings = formData.get("tutorial_settings")?.toString().trim() ?? "";
+  const result = formData.get("tutorial_result")?.toString().trim() ?? "";
+  const url = formData.get("tutorial_url")?.toString().trim() || null;
+
+  if (!goal && steps.length === 0 && !settings && !result && !url) return null;
+
+  return { goal, steps, settings, result, url };
+}
+
 function refreshCatalog() {
   revalidatePath("/admin");
   revalidatePath("/app");
@@ -29,6 +50,8 @@ export async function savePromptAction(formData: FormData) {
     throw new Error("Código e título são obrigatórios.");
   }
 
+  const type = formData.get("type")?.toString() || null;
+
   const payload = {
     code,
     title,
@@ -36,7 +59,8 @@ export async function savePromptAction(formData: FormData) {
     prompt_text: formData.get("prompt_text")?.toString().trim() || null,
     image_url: formData.get("image_url")?.toString().trim() || null,
     segment: formData.get("segment")?.toString() || null,
-    type: formData.get("type")?.toString() || null,
+    type,
+    tutorial_data: parseTutorialData(formData, type ?? ""),
     tools: parseList(formData.get("tools")),
     tags: parseList(formData.get("tags")),
     featured: formData.get("featured") === "on",

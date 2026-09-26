@@ -19,12 +19,13 @@ export default async function AdminPage() {
 
     if (error) throw error;
     const rows = (data ?? []) as unknown as Array<
-      Omit<AdminPromptRow, "catalog_number"> & { categories: { name: string } | null }
+      Omit<AdminPromptRow, "catalog_number" | "tutorial_data"> & { categories: { name: string } | null }
     >;
     prompts = rows.map(({ categories, ...row }) => ({
       ...row,
       category: categories?.name ?? null,
       catalog_number: null,
+      tutorial_data: null,
     }));
   } catch (error) {
     unstable_rethrow(error);
@@ -47,6 +48,26 @@ export default async function AdminPage() {
   } catch (error) {
     unstable_rethrow(error);
     console.error("Failed to load catalog numbers for admin:", error);
+  }
+
+  try {
+    // Independent fetch/try-catch on purpose, same reasoning as
+    // catalog_number above: tutorial_data is a newer column (see
+    // supabase/migrations/20260926110000_prompts_tutorial_data.sql). If
+    // that migration isn't applied yet in some environment, the prompt
+    // list must keep working - the Vídeo edit form just won't prefill
+    // tutorial fields until then.
+    const supabase = await createSupabaseServerClient();
+    const { data, error } = await supabase.from("prompts").select("id, tutorial_data");
+    if (error) throw error;
+
+    const tutorialById = new Map(
+      (data ?? []).map((row) => [row.id, row.tutorial_data as AdminPromptRow["tutorial_data"]])
+    );
+    prompts = prompts.map((p) => ({ ...p, tutorial_data: tutorialById.get(p.id) ?? null }));
+  } catch (error) {
+    unstable_rethrow(error);
+    console.error("Failed to load tutorial data for admin:", error);
   }
 
   return (

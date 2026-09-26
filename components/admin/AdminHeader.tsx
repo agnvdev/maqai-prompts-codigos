@@ -11,6 +11,10 @@ const NAV_ITEMS = [
   // Temporário - ver app/admin/rewrite-imagem-actions.ts. Remover este
   // item junto com a página/ação quando o rewrite dos 312 for aplicado.
   { href: "/admin/rewrite-imagem", label: "Rewrite Imagem" },
+  // Temporário - ver app/admin/tutorial-video-actions.ts. Remover este
+  // item junto com a página/ação quando os tutoriais dos 152 vídeos
+  // forem aplicados.
+  { href: "/admin/apply-video-tutorial", label: "Tutorial Vídeo" },
   { href: "/admin/settings/payments", label: "Pagamentos" },
   { href: "/admin/settings/test-accounts", label: "Contas de teste" },
 ] as const;

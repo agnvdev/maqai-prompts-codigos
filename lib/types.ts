@@ -5,6 +5,18 @@ export type PromptSegment = Segment;
 export type PromptType = Type;
 export type FilterTag = Tag;
 
+// Structured tutorial content, type=Vídeo only (see
+// supabase/migrations/20260926110000_prompts_tutorial_data.sql). null for
+// every Imagem/Texto prompt, and for Vídeo prompts that haven't been
+// filled in yet.
+export interface PromptTutorialData {
+  goal: string;
+  steps: string[];
+  settings: string;
+  result: string;
+  url: string | null;
+}
+
 export interface Prompt {
   id: string;
   code: string;
@@ -21,4 +33,5 @@ export interface Prompt {
   is_premium: boolean;
   is_tested: boolean;
   created_at: string;
+  tutorialData: PromptTutorialData | null;
 }

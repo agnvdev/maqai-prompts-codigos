@@ -97,6 +97,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
   const [formImageUrl, setFormImageUrl] = useState("");
   const [uploadingImage, setUploadingImage] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const [formType, setFormType] = useState<string>("Imagem");
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<FilterValue>("Todos");
@@ -129,6 +130,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
     setEditing(null);
     setFormImageUrl("");
     setUploadError(null);
+    setFormType("Imagem");
     setShowForm(true);
   }
 
@@ -136,6 +138,7 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
     setEditing(prompt);
     setFormImageUrl(prompt.image_url ?? "");
     setUploadError(null);
+    setFormType(prompt.type ?? "Imagem");
     setShowForm(true);
   }
 
@@ -303,7 +306,12 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
               </select>
             </Field>
             <Field label="Tipo">
-              <select name="type" defaultValue={editing?.type ?? "Imagem"} className={inputClass}>
+              <select
+                name="type"
+                value={formType}
+                onChange={(e) => setFormType(e.target.value)}
+                className={inputClass}
+              >
                 {TYPES.map((t) => (
                   <option key={t} value={t}>
                     {t}
@@ -321,6 +329,63 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
               <input name="tags" defaultValue={editing?.tags.join(", ")} className={inputClass} />
             </Field>
           </div>
+
+          {/* Vídeo only: structured tutorial content, separate from
+              prompt_text (which stays the copyable generation command).
+              Not shown for Imagem/Texto - see lib/types.ts PromptTutorialData. */}
+          {formType === "Vídeo" && (
+            <div className="flex flex-col gap-3 rounded-xl border border-border bg-surface-2/40 p-3">
+              <span className="text-xs font-bold uppercase tracking-wide text-muted">
+                Tutorial (exibido no /app para prompts de Vídeo)
+              </span>
+
+              <Field label="Objetivo (o que o usuário vai criar)">
+                <textarea
+                  name="tutorial_goal"
+                  defaultValue={editing?.tutorial_data?.goal ?? ""}
+                  rows={2}
+                  className={inputClass}
+                />
+              </Field>
+
+              <Field label="Passos (um por linha)">
+                <textarea
+                  name="tutorial_steps"
+                  defaultValue={editing?.tutorial_data?.steps?.join("\n") ?? ""}
+                  rows={4}
+                  className={inputClass}
+                />
+              </Field>
+
+              <Field label="Configuração (duração/formato etc.)">
+                <textarea
+                  name="tutorial_settings"
+                  defaultValue={editing?.tutorial_data?.settings ?? ""}
+                  rows={2}
+                  className={inputClass}
+                />
+              </Field>
+
+              <Field label="Resultado esperado">
+                <textarea
+                  name="tutorial_result"
+                  defaultValue={editing?.tutorial_data?.result ?? ""}
+                  rows={2}
+                  className={inputClass}
+                />
+              </Field>
+
+              <Field label="URL do tutorial completo (opcional)">
+                <input
+                  name="tutorial_url"
+                  type="url"
+                  defaultValue={editing?.tutorial_data?.url ?? ""}
+                  placeholder="https://..."
+                  className={inputClass}
+                />
+              </Field>
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-4 pt-1">
             <Checkbox name="featured" label="Destaque" defaultChecked={editing?.featured} />

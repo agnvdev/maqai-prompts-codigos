@@ -1,5 +1,12 @@
 import { supabase } from "@/lib/supabase/client";
-import type { FilterTag, Prompt, PromptCategory, PromptSegment, PromptType } from "@/lib/types";
+import type {
+  FilterTag,
+  Prompt,
+  PromptCategory,
+  PromptSegment,
+  PromptTutorialData,
+  PromptType,
+} from "@/lib/types";
 import { DEFAULT_CATEGORY, DEFAULT_SEGMENT, DEFAULT_TYPE, TYPES } from "@/lib/taxonomy";
 
 export interface AdminPromptRow {
@@ -27,6 +34,11 @@ export interface AdminPromptRow {
   is_tested: boolean;
   is_active: boolean;
   created_at: string;
+  // type=Vídeo only - see supabase/migrations/20260926110000_prompts_tutorial_data.sql.
+  // Nullable/fetched independently like catalog_number (see
+  // app/admin/(protected)/page.tsx) so this column being new never blocks
+  // the rest of the admin list from loading.
+  tutorial_data: PromptTutorialData | null;
 }
 
 export interface CategoryRow {
@@ -53,6 +65,7 @@ export interface PromptRow {
   tags: string[];
   featured: boolean;
   categories: { name: string } | null;
+  tutorial_data: PromptTutorialData | null;
 }
 
 function requireSupabase() {
@@ -60,8 +73,38 @@ function requireSupabase() {
   return supabase;
 }
 
-const PROMPT_COLUMNS =
+const PROMPT_COLUMNS_BASE =
   "id, code, title, description, image_url, category_id, is_premium, is_tested, is_active, created_at, prompt_text, segment, type, tools, tags, featured, categories(name)";
+const PROMPT_COLUMNS_WITH_TUTORIAL = `${PROMPT_COLUMNS_BASE}, tutorial_data`;
+
+// tutorial_data is a newer column (see
+// supabase/migrations/20260926110000_prompts_tutorial_data.sql) applied by
+// hand in the Supabase SQL Editor, same as catalog_number before it - so
+// there's a real window where this code is live but the migration isn't
+// run yet. Cached per server process: once a "column does not exist"
+// error is seen, every subsequent /app prompt query falls back to the
+// base columns (tutorial_data reads as null via toPrompt) instead of
+// breaking the whole catalog.
+let tutorialColumnSupported = true;
+
+function isMissingTutorialColumnError(error: { code?: string; message?: string } | null): boolean {
+  if (!error) return false;
+  return error.code === "42703" || /tutorial_data/i.test(error.message ?? "");
+}
+
+// Runs a prompt query built from either column set, retrying once without
+// tutorial_data if the column turns out not to exist yet.
+async function runPromptQuery<T>(
+  build: (columns: string) => PromiseLike<{ data: T | null; error: { code?: string; message?: string } | null }>
+): Promise<{ data: T | null; error: { code?: string; message?: string } | null }> {
+  const columns = tutorialColumnSupported ? PROMPT_COLUMNS_WITH_TUTORIAL : PROMPT_COLUMNS_BASE;
+  const result = await build(columns);
+  if (result.error && tutorialColumnSupported && isMissingTutorialColumnError(result.error)) {
+    tutorialColumnSupported = false;
+    return build(PROMPT_COLUMNS_BASE);
+  }
+  return result;
+}
 
 export async function getCategories(): Promise<CategoryRow[]> {
   const { data, error } = await requireSupabase()
@@ -90,6 +133,7 @@ export function toPrompt(row: PromptRow): Prompt {
     is_premium: row.is_premium,
     is_tested: row.is_tested,
     created_at: row.created_at,
+    tutorialData: row.tutorial_data ?? null,
   };
 }
 
@@ -122,33 +166,38 @@ export async function getPromptsPage({
   offset?: number;
   limit?: number;
 }): Promise<PromptPage> {
-  let query = requireSupabase().from("prompts").select(PROMPT_COLUMNS).eq("is_active", true);
-
-  if (type) query = query.eq("type", type);
-
   const trimmed = search?.trim();
-  if (trimmed) {
-    const like = `%${trimmed.replace(/[%,]/g, "")}%`;
-    query = query.or(`title.ilike.${like},description.ilike.${like},code.ilike.${like},prompt_text.ilike.${like}`);
-  }
-
-  // Category is canonically category_id (-> categories.name), not tags:
-  // tags is free-form and only populated on a handful of seed rows, so
-  // filtering by it silently excluded almost the entire catalog. See
-  // toPrompt() below, which already derives Prompt.category the same
-  // way (via the embedded categories(name) join).
+  let categoryId: string | null = null;
   if (filter && filter !== "Todos" && filter !== "Favoritos") {
-    const categoryId = (await getCategoryIdMap()).get(filter);
+    categoryId = (await getCategoryIdMap()).get(filter) ?? null;
     if (!categoryId) return { items: [], hasMore: false };
-    query = query.eq("category_id", categoryId);
   }
 
-  query = query.order("created_at", { ascending: false }).range(offset, offset + limit - 1);
+  const { data, error } = await runPromptQuery<PromptRow[]>((columns) => {
+    let query = requireSupabase().from("prompts").select(columns).eq("is_active", true);
 
-  const { data, error } = await query;
+    if (type) query = query.eq("type", type);
+
+    if (trimmed) {
+      const like = `%${trimmed.replace(/[%,]/g, "")}%`;
+      query = query.or(`title.ilike.${like},description.ilike.${like},code.ilike.${like},prompt_text.ilike.${like}`);
+    }
+
+    // Category is canonically category_id (-> categories.name), not tags:
+    // tags is free-form and only populated on a handful of seed rows, so
+    // filtering by it silently excluded almost the entire catalog. See
+    // toPrompt() below, which already derives Prompt.category the same
+    // way (via the embedded categories(name) join).
+    if (categoryId) query = query.eq("category_id", categoryId);
+
+    return query.order("created_at", { ascending: false }).range(offset, offset + limit - 1) as unknown as PromiseLike<{
+      data: PromptRow[] | null;
+      error: { code?: string; message?: string } | null;
+    }>;
+  });
   if (error) throw error;
 
-  const rows = data as unknown as PromptRow[];
+  const rows = (data ?? []) as unknown as PromptRow[];
   return { items: rows.map(toPrompt), hasMore: rows.length === limit };
 }
 
@@ -192,15 +241,17 @@ export async function getPromptsCount({
 export async function getPromptsByIds(ids: string[]): Promise<Prompt[]> {
   if (ids.length === 0) return [];
 
-  const { data, error } = await requireSupabase()
-    .from("prompts")
-    .select(PROMPT_COLUMNS)
-    .eq("is_active", true)
-    .in("id", ids);
+  const { data, error } = await runPromptQuery<PromptRow[]>(
+    (columns) =>
+      requireSupabase().from("prompts").select(columns).eq("is_active", true).in("id", ids) as unknown as PromiseLike<{
+        data: PromptRow[] | null;
+        error: { code?: string; message?: string } | null;
+      }>
+  );
 
   if (error) throw error;
 
-  const rows = data as unknown as PromptRow[];
+  const rows = (data ?? []) as unknown as PromptRow[];
   const byId = new Map(rows.map((row) => [row.id, toPrompt(row)]));
   // Preserve caller order (e.g. most-recent-first).
   return ids.map((id) => byId.get(id)).filter((p): p is Prompt => Boolean(p));
@@ -329,16 +380,22 @@ export async function getSectionPrompts({
   limit?: number;
 }): Promise<PromptPage> {
   const scope = await resolveSectionScope(kind);
-  const base = requireSupabase().from("prompts").select(PROMPT_COLUMNS).eq("is_active", true);
-  const scoped = applySectionScope(base, scope);
-  if (!scoped) return { items: [], hasMore: false };
 
-  const { data, error } = await applyTypeScope(scoped, type)
-    .order("created_at", { ascending: false })
-    .range(offset, offset + limit - 1);
+  const { data, error } = await runPromptQuery<PromptRow[]>((columns) => {
+    const base = requireSupabase().from("prompts").select(columns).eq("is_active", true);
+    const scoped = applySectionScope(base, scope);
+    if (!scoped) return Promise.resolve({ data: [], error: null });
+
+    return applyTypeScope(scoped, type)
+      .order("created_at", { ascending: false })
+      .range(offset, offset + limit - 1) as unknown as PromiseLike<{
+      data: PromptRow[] | null;
+      error: { code?: string; message?: string } | null;
+    }>;
+  });
   if (error) throw error;
 
-  const rows = data as unknown as PromptRow[];
+  const rows = (data ?? []) as unknown as PromptRow[];
   return { items: rows.map(toPrompt), hasMore: rows.length === limit };
 }
 
