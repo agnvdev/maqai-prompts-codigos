@@ -1,7 +1,15 @@
-import Image from "next/image";
 import { HERO_IMAGE } from "@/lib/images";
 import { CtaButton } from "@/components/landing/CtaButton";
 
+// Native <picture>/<source> instead of next/image here on purpose: two
+// next/image elements toggled with sm:hidden/hidden sm:block still both
+// get requested by the browser (priority images skip the "don't fetch
+// display:none" heuristic), so the mobile-vs-desktop split was fetching
+// both variants on every load. <picture> lets the browser itself pick
+// exactly one <source> before any request is made - only that one asset
+// is ever downloaded - and its browser-native "no matching <source> ->
+// fall through to <img>" behavior *is* the mobile-missing-falls-back-to-
+// desktop rule, with no JS needed for it.
 export function Hero({
   imageUrl,
   mobileImageUrl,
@@ -10,29 +18,18 @@ export function Hero({
   mobileImageUrl?: string;
 }) {
   const desktopSrc = imageUrl || HERO_IMAGE;
-  // Falls back to the desktop image when no mobile-specific one is set -
-  // see OPER "Regra mobile-first MaqAI" (mobile art-direction with a
-  // desktop fallback, not a hard requirement to upload both).
-  const mobileSrc = mobileImageUrl || desktopSrc;
 
   return (
     <section className="relative overflow-hidden border-b border-border">
-      <Image
-        src={mobileSrc}
-        alt="Máquina pesada em operação em cenário industrial"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover sm:hidden"
-      />
-      <Image
-        src={desktopSrc}
-        alt="Máquina pesada em operação em cenário industrial"
-        fill
-        priority
-        sizes="100vw"
-        className="hidden object-cover sm:block"
-      />
+      <picture className="contents">
+        {mobileImageUrl && <source media="(max-width: 639px)" srcSet={mobileImageUrl} />}
+        <img
+          src={desktopSrc}
+          alt="Máquina pesada em operação em cenário industrial"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div className="pointer-events-none absolute inset-0 bg-background/70" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
       <div className="bg-grid pointer-events-none absolute inset-0" />

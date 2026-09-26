@@ -1,6 +1,10 @@
-import Image from "next/image";
 import { PricingCard } from "@/components/landing/PricingCard";
 
+// Native <picture>/<source> instead of next/image - see the same
+// comment in Hero.tsx: two next/image elements toggled by CSS still
+// both get fetched, <picture> lets the browser request exactly one
+// variant, and its native "no <source> matches -> use <img>" behavior
+// is the mobile-missing-falls-back-to-desktop rule with no JS.
 export function FinalCta({
   imageUrl,
   mobileImageUrl,
@@ -8,16 +12,19 @@ export function FinalCta({
   imageUrl?: string;
   mobileImageUrl?: string;
 }) {
-  // Falls back to the desktop image when no mobile-specific one is set -
-  // see OPER "Regra mobile-first MaqAI".
-  const mobileSrc = mobileImageUrl || imageUrl;
-
   return (
     <section className="relative overflow-hidden">
       {imageUrl ? (
         <>
-          {mobileSrc && <Image src={mobileSrc} alt="" fill sizes="100vw" className="object-cover sm:hidden" />}
-          <Image src={imageUrl} alt="" fill sizes="100vw" className="hidden object-cover sm:block" />
+          <picture className="contents">
+            {mobileImageUrl && <source media="(max-width: 639px)" srcSet={mobileImageUrl} />}
+            <img
+              src={imageUrl}
+              alt=""
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
           <div className="pointer-events-none absolute inset-0 bg-background/80" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40" />
         </>
