@@ -12,6 +12,7 @@ import { BrandAssetsClient } from "@/components/admin/BrandAssetsClient";
 import { MediaSectionCard } from "@/components/admin/MediaSectionCard";
 import { LpImageUploadSlot } from "@/components/admin/LpImageUploadSlot";
 import { AdminMediaTabs } from "@/components/admin/AdminMediaTabs";
+import { PromptImageByNumberUpload, type CatalogLookupRow } from "@/components/admin/PromptImageByNumberUpload";
 
 function ErrorNote({ message }: { message: string | null }) {
   if (!message) return null;
@@ -30,6 +31,8 @@ export default async function AdminMediaPage() {
   let loadError: string | null = null;
   let beforeAfterLoadError: string | null = null;
   let showcaseLoadError: string | null = null;
+  let catalogLookup: CatalogLookupRow[] = [];
+  let catalogLookupError: string | null = null;
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -91,6 +94,27 @@ export default async function AdminMediaPage() {
     unstable_rethrow(error);
     console.error("Failed to load showcase items for admin:", error);
     showcaseLoadError = "Não foi possível carregar o mostruário agora.";
+  }
+
+  try {
+    // Independent fetch/try-catch: catalog_number is a newer column (see
+    // supabase/migrations/20260926090000_prompts_catalog_number.sql), so
+    // its migration might not be applied yet in some environment - that
+    // must never take down the rest of this page.
+    const supabase = await createSupabaseServerClient();
+    const { data, error } = await supabase.from("prompts").select("id, code, catalog_number, image_url");
+
+    if (error) throw error;
+    catalogLookup = (data ?? []).map((row) => ({
+      id: row.id,
+      code: row.code,
+      catalogNumber: row.catalog_number,
+      hasImage: !!row.image_url,
+    }));
+  } catch (error) {
+    unstable_rethrow(error);
+    console.error("Failed to load prompt catalog numbers for admin:", error);
+    catalogLookupError = "Não foi possível carregar a numeração do catálogo agora.";
   }
 
   const hero = items.find((item) => item.slot === "hero" && item.identifier === "hero");
@@ -199,6 +223,11 @@ export default async function AdminMediaPage() {
 
   const promptImages = (
     <>
+      <ErrorNote message={catalogLookupError} />
+      <PromptImageByNumberUpload prompts={catalogLookup} />
+
+      <hr className="border-border" />
+
       <p className="rounded-xl border border-border bg-surface/60 p-3 text-xs text-muted">
         Usadas nos cards dos prompts. Não aparecem automaticamente na Landing Page.
       </p>

@@ -5,6 +5,12 @@ import { DEFAULT_CATEGORY, DEFAULT_SEGMENT, DEFAULT_TYPE, TYPES } from "@/lib/ta
 export interface AdminPromptRow {
   id: string;
   code: string;
+  // Permanent, unique catalog position (#0001, #0002, ...) - see
+  // supabase/migrations/20260926090000_prompts_catalog_number.sql.
+  // Nullable because it's fetched independently of the rest of this row
+  // (see app/admin/(protected)/page.tsx) - null before that migration is
+  // applied, or if the number just hasn't loaded.
+  catalog_number: number | null;
   title: string;
   description: string | null;
   image_url: string | null;

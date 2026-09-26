@@ -404,7 +404,10 @@ export function AdminPromptsClient({ prompts }: { prompts: AdminPromptRow[] }) {
 
               <div className="flex min-w-0 flex-col gap-1.5">
                 <div className="flex min-w-0 flex-col gap-0.5">
-                  <span className="font-mono text-[11px] font-semibold text-accent">{prompt.code}</span>
+                  <span className="font-mono text-[11px] font-semibold text-accent">
+                    {prompt.catalog_number != null && `#${String(prompt.catalog_number).padStart(4, "0")} `}
+                    {prompt.code}
+                  </span>
                   <span className="line-clamp-2 text-sm font-semibold leading-snug text-foreground">
                     {prompt.title}
                   </span>
