@@ -6,36 +6,24 @@ function findImage(items: LpMediaRow[], slot: string, identifier: string) {
   return { imageUrl: row?.image_url ?? null, rowId: row?.id };
 }
 
+// "Assets" (slot logo/identifier Assets) used to be editable here too,
+// but nothing in the app ever reads it - audited and hidden per OPER
+// "Reorganizar Mídias da LP" (its lp_media row, if any, is left as-is;
+// only the dead editor UI for it was removed).
 export function BrandAssetsClient({ items }: { items: LpMediaRow[] }) {
   const logo = findImage(items, "logo", "Logo");
-  const assets = findImage(items, "logo", "Assets");
 
   return (
-    <div className="flex flex-col gap-4">
-      <div>
-        <h1 className="text-lg font-bold text-foreground">Marca</h1>
-        <p className="text-xs text-muted">
-          Reservado para logo/assets em imagem. Dimensão recomendada: 512×512 (quadrado) ou SVG.
-          Ainda não exibido publicamente — a marca hoje usa só texto (&quot;MaqAI&quot;).
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <LpImageUploadSlot
-          slot="logo"
-          identifier="Logo"
-          label="Logo"
-          imageUrl={logo.imageUrl}
-          rowId={logo.rowId}
-        />
-        <LpImageUploadSlot
-          slot="logo"
-          identifier="Assets"
-          label="Assets"
-          imageUrl={assets.imageUrl}
-          rowId={assets.rowId}
-        />
-      </div>
+    <div className="max-w-xs">
+      <LpImageUploadSlot
+        slot="logo"
+        identifier="Logo"
+        label="Logo"
+        imageUrl={logo.imageUrl}
+        rowId={logo.rowId}
+        whereUsed="Cabeçalho e rodapé da página inicial, cabeçalho do /app, login e demais páginas de autenticação."
+        dimension="512×512 (quadrado) ou SVG."
+      />
     </div>
   );
 }

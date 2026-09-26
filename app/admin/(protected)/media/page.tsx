@@ -9,8 +9,9 @@ import { LpBeforeAfterClient } from "@/components/admin/LpBeforeAfterClient";
 import { LpShowcaseClient } from "@/components/admin/LpShowcaseClient";
 import { SegmentsImagesClient } from "@/components/admin/SegmentsImagesClient";
 import { BrandAssetsClient } from "@/components/admin/BrandAssetsClient";
-import { MediaSlotSection } from "@/components/admin/MediaSlotSection";
+import { MediaSectionCard } from "@/components/admin/MediaSectionCard";
 import { LpImageUploadSlot } from "@/components/admin/LpImageUploadSlot";
+import { AdminMediaTabs } from "@/components/admin/AdminMediaTabs";
 
 function ErrorNote({ message }: { message: string | null }) {
   if (!message) return null;
@@ -95,54 +96,83 @@ export default async function AdminMediaPage() {
   const hero = items.find((item) => item.slot === "hero" && item.identifier === "hero");
   const finalCta = items.find((item) => item.slot === "final_cta" && item.identifier === "final_cta");
 
-  return (
+  // Order matches the real render order in app/page.tsx: Header (logo),
+  // Hero, BeforeAfter, Showcase, Segments, ..., FinalCta, Footer (logo).
+  // Marca/Logo is cross-cutting (header + footer + /app + auth pages), so
+  // it sits in its own card at the end rather than inside the page flow.
+  const landingPage = (
     <>
       <ErrorNote message={loadError} />
-      <PromptDefaultImagesClient items={promptDefaultItems} />
 
-      <hr className="border-border" />
-      <MediaSlotSection
-        title="Hero"
-        purpose="Imagem de fundo da seção principal, no topo da página."
-        dimension="1920×1080 (16:9) ou maior."
+      <MediaSectionCard title="Hero" whereUsed="Topo da página inicial, logo abaixo do cabeçalho.">
+        <div className="max-w-xs">
+          <LpImageUploadSlot
+            slot="hero"
+            identifier="hero"
+            label="Hero"
+            imageUrl={hero?.image_url ?? null}
+            rowId={hero?.id}
+            dimension="1920×1080 (16:9) ou maior."
+          />
+        </div>
+      </MediaSectionCard>
+
+      <MediaSectionCard
+        title="Antes e Depois"
+        whereUsed="Seção Antes e depois da página inicial, entre o Hero e o Mostruário."
       >
-        <LpImageUploadSlot
-          slot="hero"
-          identifier="hero"
-          label="Hero"
-          imageUrl={hero?.image_url ?? null}
-          rowId={hero?.id}
-        />
-      </MediaSlotSection>
+        <ErrorNote message={beforeAfterLoadError} />
+        <LpBeforeAfterClient pairs={beforeAfterPairs} />
+      </MediaSectionCard>
 
-      <hr className="border-border" />
-      <ErrorNote message={beforeAfterLoadError} />
-      <LpBeforeAfterClient pairs={beforeAfterPairs} />
+      <MediaSectionCard
+        title="Exemplos / Mostruário"
+        whereUsed="Seção Mostruário da página inicial, logo após Antes e Depois."
+      >
+        <ErrorNote message={showcaseLoadError} />
+        <LpShowcaseClient items={showcaseItems} />
+      </MediaSectionCard>
 
-      <hr className="border-border" />
-      <ErrorNote message={showcaseLoadError} />
-      <LpShowcaseClient items={showcaseItems} />
+      <MediaSectionCard
+        title="Segmentos"
+        whereUsed="Cards de segmento (Máquinas Pesadas, Agro, Mineração, Equipamentos Pesados) na página inicial."
+      >
+        <SegmentsImagesClient items={items} />
+      </MediaSectionCard>
 
-      <hr className="border-border" />
-      <SegmentsImagesClient items={items} />
-
-      <hr className="border-border" />
-      <MediaSlotSection
+      <MediaSectionCard
         title="CTA final"
-        purpose="Imagem de fundo da última seção da página, antes do rodapé."
-        dimension="1920×1080 (16:9) ou maior."
+        whereUsed="Fundo da última seção da página inicial, antes do rodapé."
       >
-        <LpImageUploadSlot
-          slot="final_cta"
-          identifier="final_cta"
-          label="CTA final"
-          imageUrl={finalCta?.image_url ?? null}
-          rowId={finalCta?.id}
-        />
-      </MediaSlotSection>
+        <div className="max-w-xs">
+          <LpImageUploadSlot
+            slot="final_cta"
+            identifier="final_cta"
+            label="CTA final"
+            imageUrl={finalCta?.image_url ?? null}
+            rowId={finalCta?.id}
+            dimension="1920×1080 (16:9) ou maior."
+          />
+        </div>
+      </MediaSectionCard>
 
-      <hr className="border-border" />
-      <BrandAssetsClient items={items} />
+      <MediaSectionCard
+        title="Marca / Logo"
+        whereUsed="Cabeçalho e rodapé da página inicial, e cabeçalho do /app, login e demais páginas de autenticação."
+      >
+        <BrandAssetsClient items={items} />
+      </MediaSectionCard>
     </>
   );
+
+  const promptImages = (
+    <>
+      <p className="rounded-xl border border-border bg-surface/60 p-3 text-xs text-muted">
+        Usadas nos cards dos prompts. Não aparecem automaticamente na Landing Page.
+      </p>
+      <PromptDefaultImagesClient items={promptDefaultItems} />
+    </>
+  );
+
+  return <AdminMediaTabs landingPage={landingPage} promptImages={promptImages} />;
 }

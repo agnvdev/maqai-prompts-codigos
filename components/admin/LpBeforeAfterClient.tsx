@@ -99,14 +99,10 @@ export function LpBeforeAfterClient({ pairs }: { pairs: LpBeforeAfterPair[] }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-lg font-bold text-foreground">Antes/Depois</h1>
-          <p className="text-xs text-muted">
-            Pares reais de imagem Antes + Depois exibidos na seção &quot;Antes e depois&quot; da
-            página inicial. Recomendado: mesma proporção nas duas imagens do par, 1080×1350 (4:5) ou
-            1200×1500. Vários pares são permitidos; a ordem segue a posição.
-          </p>
-        </div>
+        <p className="text-xs text-muted">
+          Pares reais de imagem Antes + Depois. Recomendado: mesma proporção nas duas imagens do
+          par, 1080×1350 (4:5) ou 1200×1500. Vários pares são permitidos; a ordem segue a posição.
+        </p>
         <button
           type="button"
           onClick={startCreate}

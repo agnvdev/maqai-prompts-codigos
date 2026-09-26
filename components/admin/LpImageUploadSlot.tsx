@@ -16,12 +16,20 @@ export function LpImageUploadSlot({
   label,
   imageUrl,
   rowId,
+  whereUsed,
+  dimension,
 }: {
   slot: LpMediaSlot;
   identifier: string;
   label: string;
   imageUrl: string | null;
   rowId?: string;
+  // Optional context shown on the card (audit trail: exactly where this
+  // slot renders on the real site, and the recommended asset size) - see
+  // OPER "Reorganizar Mídias da LP". Omitted for callers that already
+  // show this elsewhere (e.g. a wrapping section header).
+  whereUsed?: string;
+  dimension?: string;
 }) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -73,11 +81,23 @@ export function LpImageUploadSlot({
         )}
       </div>
 
-      <span className="text-xs font-semibold text-foreground">{label}</span>
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-xs font-semibold text-foreground">{label}</span>
+        <span
+          className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+            imageUrl ? "bg-accent/15 text-accent" : "bg-surface-2 text-muted"
+          }`}
+        >
+          {imageUrl ? "Em uso" : "Sem imagem"}
+        </span>
+      </div>
+
+      {whereUsed && <p className="text-[11px] leading-snug text-muted">{whereUsed}</p>}
+      {dimension && <p className="text-[11px] text-muted">Dimensão recomendada: {dimension}</p>}
 
       <div className="flex flex-wrap items-center gap-2">
         <label className="cursor-pointer rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-foreground">
-          {uploading ? "Enviando..." : imageUrl ? "Trocar" : "Adicionar"}
+          {uploading ? "Enviando..." : imageUrl ? "Substituir" : "Adicionar"}
           <input
             type="file"
             accept="image/*"

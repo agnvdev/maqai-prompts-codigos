@@ -65,14 +65,10 @@ export function LpShowcaseClient({ items }: { items: LpShowcaseItem[] }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-lg font-bold text-foreground">Mostruário</h1>
-          <p className="text-xs text-muted">
-            Resultados exibidos na seção &quot;Resultados que você pode criar com a MaqAI&quot; da
-            página inicial. Apenas imagem, título curto e segmento opcional - nunca um card real do
-            catálogo. Dimensão recomendada: 1200×1500 (4:5) ou 1600×900 (16:9).
-          </p>
-        </div>
+        <p className="text-xs text-muted">
+          Apenas imagem, título curto e segmento opcional - nunca um card real do catálogo.
+          Dimensão recomendada: 1200×1500 (4:5) ou 1600×900 (16:9).
+        </p>
         <button
           type="button"
           onClick={startCreate}
