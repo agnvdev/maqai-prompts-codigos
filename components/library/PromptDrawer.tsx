@@ -71,7 +71,11 @@ export function PromptDrawer({
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col gap-5 overflow-y-auto">
+        {/* The drawer's own scroll container - the only element that
+            scrolls vertically. overflow-x-hidden + break-words on the
+            prompt <pre> below stop a long unbroken token (e.g. a URL)
+            from ever forcing this container to scroll sideways too. */}
+        <div className="flex flex-1 flex-col gap-5 overflow-y-auto overflow-x-hidden pb-2">
           <p className="text-sm leading-relaxed text-muted">{prompt.description}</p>
 
           <div className="flex flex-wrap gap-2">
@@ -127,7 +131,11 @@ export function PromptDrawer({
             <span className="text-xs font-semibold uppercase tracking-wide text-muted">
               {tutorial ? "Prompt para copiar" : "Prompt completo"}
             </span>
-            <pre className="shadow-card whitespace-pre-wrap rounded-xl border border-border bg-background p-4 font-mono text-[13px] leading-relaxed text-foreground">
+            {/* No max-height/overflow here on purpose - the full prompt
+                renders expanded; the drawer's own scroll container above
+                is the only thing that scrolls. break-words guards
+                against a long unbroken token forcing horizontal scroll. */}
+            <pre className="shadow-card whitespace-pre-wrap break-words rounded-xl border border-border bg-background p-4 font-mono text-[13px] leading-relaxed text-foreground">
               {prompt.prompt}
             </pre>
           </div>
